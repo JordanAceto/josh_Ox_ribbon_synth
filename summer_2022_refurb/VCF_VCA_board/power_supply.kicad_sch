@@ -1,0 +1,18 @@
+(kicad_sch (version 20211123) (generator eeschema)
+
+  (uuid 8bf9ef8f-80a3-4e66-b931-c52e5649de1d)
+
+  (paper "A4")
+
+  (title_block
+    (title "Josh Ox Ribbon Synth VCF/VCA board")
+    (date "2022-05-30")
+    (comment 1 "creativecommons.org/licenses/by/4.0/")
+    (comment 2 "License: CC by 4.0")
+    (comment 3 "Author: Jordan Aceto")
+  )
+
+  (lib_symbols
+  )
+
+)

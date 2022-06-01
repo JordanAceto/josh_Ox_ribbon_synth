@@ -1,0 +1,414 @@
+{
+  "board": {
+    "design_settings": {
+      "defaults": {
+        "board_outline_line_width": 0.1,
+        "copper_line_width": 0.2,
+        "copper_text_size_h": 1.5,
+        "copper_text_size_v": 1.5,
+        "copper_text_thickness": 0.3,
+        "other_line_width": 0.15,
+        "silk_line_width": 0.15,
+        "silk_text_size_h": 1.0,
+        "silk_text_size_v": 1.0,
+        "silk_text_thickness": 0.15
+      },
+      "diff_pair_dimensions": [],
+      "drc_exclusions": [],
+      "rules": {
+        "min_copper_edge_clearance": 0.0,
+        "solder_mask_clearance": 0.0,
+        "solder_mask_min_width": 0.0
+      },
+      "track_widths": [],
+      "via_dimensions": []
+    },
+    "layer_presets": []
+  },
+  "boards": [],
+  "cvpcb": {
+    "equivalence_files": []
+  },
+  "erc": {
+    "erc_exclusions": [],
+    "meta": {
+      "version": 0
+    },
+    "pin_map": [
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        2
+      ],
+      [
+        0,
+        2,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        2,
+        2,
+        2,
+        2
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        2
+      ],
+      [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        2,
+        1,
+        1,
+        2
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        2
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2
+      ],
+      [
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        2
+      ],
+      [
+        0,
+        2,
+        1,
+        2,
+        0,
+        0,
+        1,
+        0,
+        2,
+        2,
+        2,
+        2
+      ],
+      [
+        0,
+        2,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        2,
+        0,
+        0,
+        2
+      ],
+      [
+        0,
+        2,
+        1,
+        1,
+        0,
+        0,
+        1,
+        0,
+        2,
+        0,
+        0,
+        2
+      ],
+      [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ]
+    ],
+    "rule_severities": {
+      "bus_definition_conflict": "error",
+      "bus_entry_needed": "error",
+      "bus_label_syntax": "error",
+      "bus_to_bus_conflict": "error",
+      "bus_to_net_conflict": "error",
+      "different_unit_footprint": "error",
+      "different_unit_net": "error",
+      "duplicate_reference": "error",
+      "duplicate_sheet_names": "error",
+      "extra_units": "error",
+      "global_label_dangling": "warning",
+      "hier_label_mismatch": "error",
+      "label_dangling": "error",
+      "lib_symbol_issues": "warning",
+      "multiple_net_names": "warning",
+      "net_not_bus_member": "warning",
+      "no_connect_connected": "warning",
+      "no_connect_dangling": "warning",
+      "pin_not_connected": "error",
+      "pin_not_driven": "error",
+      "pin_to_pin": "warning",
+      "power_pin_not_driven": "error",
+      "similar_labels": "warning",
+      "unannotated": "error",
+      "unit_value_mismatch": "error",
+      "unresolved_variable": "error",
+      "wire_dangling": "error"
+    }
+  },
+  "libraries": {
+    "pinned_footprint_libs": [],
+    "pinned_symbol_libs": []
+  },
+  "meta": {
+    "filename": "main_VCO_board.kicad_pro",
+    "version": 1
+  },
+  "net_settings": {
+    "classes": [
+      {
+        "bus_width": 12.0,
+        "clearance": 0.2,
+        "diff_pair_gap": 0.25,
+        "diff_pair_via_gap": 0.25,
+        "diff_pair_width": 0.2,
+        "line_style": 0,
+        "microvia_diameter": 0.3,
+        "microvia_drill": 0.1,
+        "name": "Default",
+        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "schematic_color": "rgba(0, 0, 0, 0.000)",
+        "track_width": 0.25,
+        "via_diameter": 0.8,
+        "via_drill": 0.4,
+        "wire_width": 6.0
+      }
+    ],
+    "meta": {
+      "version": 2
+    },
+    "net_colors": null
+  },
+  "pcbnew": {
+    "last_paths": {
+      "gencad": "",
+      "idf": "",
+      "netlist": "",
+      "specctra_dsn": "",
+      "step": "",
+      "vrml": ""
+    },
+    "page_layout_descr_file": ""
+  },
+  "schematic": {
+    "annotate_start_num": 0,
+    "drawing": {
+      "default_line_thickness": 6.0,
+      "default_text_size": 50.0,
+      "field_names": [],
+      "intersheets_ref_own_page": false,
+      "intersheets_ref_prefix": "",
+      "intersheets_ref_short": false,
+      "intersheets_ref_show": false,
+      "intersheets_ref_suffix": "",
+      "junction_size_choice": 3,
+      "label_size_ratio": 0.375,
+      "pin_symbol_size": 25.0,
+      "text_offset_ratio": 0.15
+    },
+    "legacy_lib_dir": "",
+    "legacy_lib_list": [],
+    "meta": {
+      "version": 1
+    },
+    "net_format_name": "",
+    "ngspice": {
+      "fix_include_paths": true,
+      "fix_passive_vals": false,
+      "meta": {
+        "version": 0
+      },
+      "model_mode": 0,
+      "workbook_filename": ""
+    },
+    "page_layout_descr_file": "",
+    "plot_directory": "",
+    "spice_adjust_passive_values": false,
+    "spice_external_command": "spice \"%I\"",
+    "subpart_first_id": 65,
+    "subpart_id_separator": 0
+  },
+  "sheets": [
+    [
+      "2ebbd822-cb2c-491c-a836-3897c27c2326",
+      ""
+    ],
+    [
+      "7d1f7961-ee8b-4988-bb19-85d251d3b03f",
+      "main_VCO"
+    ],
+    [
+      "693a3925-4f05-452b-88fc-d591e680b964",
+      "CV_mixer"
+    ],
+    [
+      "491f267e-b6f8-4110-a106-f208ee10353b",
+      "ring_modulator"
+    ],
+    [
+      "96a842e0-33f5-4216-8265-9f7541ed7e35",
+      "sub_osc_1"
+    ],
+    [
+      "ab0113ca-1f0c-4c09-91f6-6feadc9da1a0",
+      "tri_to_sine_shaper_2"
+    ],
+    [
+      "ef8ce91e-0d08-463d-90c4-45247ac117ce",
+      "saw_animator_1"
+    ],
+    [
+      "8a679efa-fd6e-492e-a796-742ba481c7ff",
+      "octave_divider_1"
+    ],
+    [
+      "87fd8c1f-918f-421e-9a18-ad43c6ea2c19",
+      "saw_to_tri_shaper_1"
+    ],
+    [
+      "60499535-41bd-4c70-a52c-c584f76d2c5a",
+      "tri_to_sine_shaper_1"
+    ],
+    [
+      "faf98961-f7ad-4700-b8dc-541798ce7d1d",
+      "basic_pulse_shaper"
+    ],
+    [
+      "9d3b4b6c-b477-4022-8b0e-696d893bdbe8",
+      "sub_osc_2"
+    ],
+    [
+      "ed196c89-9ab8-40ee-b793-660e0ac48455",
+      "saw_to_tri_shaper_2"
+    ],
+    [
+      "d5fb0ab5-789d-4cbd-9e74-7b40a79d72ba",
+      "saw_animator_2"
+    ],
+    [
+      "8ee6e82d-f8ca-4615-92e4-f5f5ac71d53c",
+      "octave_divider_2"
+    ],
+    [
+      "fb80109a-93f1-435b-8127-7cad47cf1849",
+      "saw_glitch_filter_2"
+    ],
+    [
+      "e100ad50-dd94-44aa-8e20-f52562bb004d",
+      "harmonic_pulse_shaper"
+    ],
+    [
+      "e86503ed-a110-4b06-a857-7325edeb5ff1",
+      "PWM_mixer"
+    ],
+    [
+      "0be72095-c462-41da-a2a1-89177b7b4c14",
+      "VCO_core"
+    ],
+    [
+      "a055d82e-b62e-4fa0-a1e9-f161905ed874",
+      "lin_FM_conditioner"
+    ],
+    [
+      "0031d526-c771-4798-814b-5b833e03d346",
+      "waveform_level_shifters"
+    ],
+    [
+      "4799b84a-4e9c-45c4-8a49-1d0c3c13ff19",
+      "power_supply"
+    ],
+    [
+      "d45d290b-fbf5-4c13-91a5-7248cd088654",
+      "saw_glitch_filter_1"
+    ]
+  ],
+  "text_variables": {}
+}
