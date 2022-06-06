@@ -222,7 +222,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "mixer-vcf-vca board.kicad_pro",
+    "filename": "VCF_VCA_board.kicad_pro",
     "version": 1
   },
   "net_settings": {
@@ -309,10 +309,6 @@
       "SVF_A"
     ],
     [
-      "a815a2fa-2998-4303-a609-f515507f4e61",
-      "audio_mixer"
-    ],
-    [
       "37a331b1-4a17-44d3-a1ac-94e342e2bb9d",
       "SVF_B"
     ],
@@ -321,12 +317,12 @@
       "CV_mixer"
     ],
     [
-      "1a250ce7-f21a-4c17-a991-a8800e1992f2",
-      "VCA"
-    ],
-    [
       "9111f632-025c-4ca8-a5eb-6de1d4cfc27e",
       "power_supply"
+    ],
+    [
+      "adeff382-4500-49dc-8350-2b9b275b5490",
+      "VCA"
     ]
   ],
   "text_variables": {}
