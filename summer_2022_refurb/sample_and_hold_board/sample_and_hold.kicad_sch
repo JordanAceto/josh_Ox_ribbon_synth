@@ -6,7 +6,7 @@
 
   (title_block
     (title "Josh Ox Ribbon Synth Sample and Hold Board")
-    (date "2022-06-08")
+    (date "2022-06-09")
     (rev "0")
     (comment 1 "creativecommons.org/licences/by/4.0")
     (comment 2 "License: CC by 4.0")
@@ -1215,10 +1215,10 @@
     (property "Reference" "C13" (id 0) (at 214.63 100.3299 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "C" (id 1) (at 214.63 102.8699 0)
+    (property "Value" "470n" (id 1) (at 214.63 102.8699 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "Capacitor_SMD:C_0805_2012Metric" (id 2) (at 211.7852 105.41 0)
+    (property "Footprint" "Capacitor_THT:C_Rect_L7.2mm_W5.5mm_P5.00mm_FKS2_FKP2_MKS2_MKP2" (id 2) (at 211.7852 105.41 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (id 3) (at 210.82 101.6 0)
