@@ -239,7 +239,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "mod_source_board.kicad_pro",
+    "filename": "mod_osc_board.kicad_pro",
     "version": 1
   },
   "net_settings": {
@@ -322,16 +322,20 @@
       ""
     ],
     [
-      "140dccec-7fea-4513-8d46-5d9290ca5d3e",
-      "mod_osc"
+      "ed81f730-d221-4e80-9b40-fc6c0b6684c0",
+      "power_supply"
+    ],
+    [
+      "23f0c66c-75a2-401f-9524-abd9de8c8811",
+      "VCO_core"
+    ],
+    [
+      "4ba048ba-dcf0-45cf-b7c3-90c4e60f75e4",
+      "level_shifter"
     ],
     [
       "3dec0a37-c52f-4f1e-b122-ee714644c48f",
       "led_driver"
-    ],
-    [
-      "8e0e0d4e-9cb4-4d3f-bb6e-d288ce051222",
-      "mod_osc_VCA"
     ]
   ],
   "text_variables": {}
