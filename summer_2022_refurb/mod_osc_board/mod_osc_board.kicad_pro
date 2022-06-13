@@ -322,10 +322,6 @@
       ""
     ],
     [
-      "ed81f730-d221-4e80-9b40-fc6c0b6684c0",
-      "power_supply"
-    ],
-    [
       "23f0c66c-75a2-401f-9524-abd9de8c8811",
       "VCO_core"
     ],
@@ -336,6 +332,10 @@
     [
       "3dec0a37-c52f-4f1e-b122-ee714644c48f",
       "led_driver"
+    ],
+    [
+      "ed81f730-d221-4e80-9b40-fc6c0b6684c0",
+      "power_supply"
     ]
   ],
   "text_variables": {}
