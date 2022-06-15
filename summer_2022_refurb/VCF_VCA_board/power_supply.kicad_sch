@@ -6,7 +6,8 @@
 
   (title_block
     (title "Josh Ox Ribbon Synth VCF/VCA board")
-    (date "2022-06-07")
+    (date "2022-06-15")
+    (rev "0")
     (comment 1 "creativecommons.org/licenses/by/4.0/")
     (comment 2 "License: CC by 4.0")
     (comment 3 "Author: Jordan Aceto")

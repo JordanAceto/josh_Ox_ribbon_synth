@@ -6,7 +6,7 @@
 
   (title_block
     (title "Josh Ox Ribbon Synth VCF/VCA board")
-    (date "2022-06-07")
+    (date "2022-06-15")
     (rev "0")
     (comment 1 "creativecommons.org/licenses/by/4.0/")
     (comment 2 "License: CC by 4.0")
@@ -1599,6 +1599,12 @@
     (path "/c4b61a5a-be32-452d-8130-993e18c59157/b2e7ead9-acc4-4f20-868a-37bdbcb6d806"
       (reference "#PWR0410") (unit 1) (value "GND") (footprint "")
     )
+    (path "/c4b61a5a-be32-452d-8130-993e18c59157/c81586bc-172b-4e08-945e-01e3759df666"
+      (reference "#PWR0411") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/c4b61a5a-be32-452d-8130-993e18c59157/f5654538-b8e6-473e-ae4e-1387fb46cc7f"
+      (reference "#PWR0412") (unit 1) (value "GND") (footprint "")
+    )
     (path "/9111f632-025c-4ca8-a5eb-6de1d4cfc27e/253037fa-42fc-4cd4-84d4-b5ff3cda41eb"
       (reference "#PWR0501") (unit 1) (value "+15V") (footprint "")
     )
@@ -2108,6 +2114,12 @@
     )
     (path "/c4b61a5a-be32-452d-8130-993e18c59157/26e9b43c-f352-4952-b7e7-4fe69c162f44"
       (reference "RV409") (unit 1) (value "100k") (footprint "Potentiometer_THT:Potentiometer_Alpha_RD901F-40-00D_Single_Vertical")
+    )
+    (path "/c4b61a5a-be32-452d-8130-993e18c59157/697d4999-93f1-403e-8d0c-2480c55fb3d9"
+      (reference "RV410") (unit 1) (value "5k") (footprint "Potentiometer_THT:Potentiometer_Bourns_3296W_Vertical")
+    )
+    (path "/c4b61a5a-be32-452d-8130-993e18c59157/bb723755-05c1-4f3d-a6b7-f936a2b3e907"
+      (reference "RV411") (unit 1) (value "5k") (footprint "Potentiometer_THT:Potentiometer_Bourns_3296W_Vertical")
     )
     (path "/97141397-6856-4796-b0cf-24cb219be9f0"
       (reference "SW1") (unit 1) (value "SR1712F-0204") (footprint "custom_footprints:SR1712F_rotary_switch")
