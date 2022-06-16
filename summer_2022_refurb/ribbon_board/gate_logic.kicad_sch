@@ -4,6 +4,15 @@
 
   (paper "A4")
 
+  (title_block
+    (title "Josh Ox Ribbon Synth Ribbon board")
+    (date "2022-06-16")
+    (rev "0")
+    (comment 1 "creativecommons.org/licences/by/4.0")
+    (comment 2 "license: CC by 4.0")
+    (comment 3 "Author: Jordan Aceto")
+  )
+
   (lib_symbols
     (symbol "4xxx:4081" (pin_names (offset 1.016)) (in_bom yes) (on_board yes)
       (property "Reference" "U" (id 0) (at 0 1.27 0)
@@ -777,7 +786,13 @@
     (uuid fc5ed6a4-b4a5-4ebc-a681-785300c90850)
   )
 
-  (hierarchical_label "IN_B" (shape input) (at 100.33 121.92 180)
+  (text "Gate mode switch\n\n1) ribbon (ext)\n2) both (AND)\n3) auto gate"
+    (at 81.28 97.79 0)
+    (effects (font (size 1.27 1.27)) (justify left bottom))
+    (uuid 7e971e82-d24e-4cc1-9b80-75e93d345982)
+  )
+
+  (hierarchical_label "AUTO_GATE" (shape input) (at 100.33 121.92 180)
     (effects (font (size 1.27 1.27)) (justify right))
     (uuid 1c0a154e-33b8-4096-addd-f3e3e79fc4a9)
   )
@@ -785,7 +800,7 @@
     (effects (font (size 1.27 1.27)) (justify left))
     (uuid 2bfe542b-28ec-4991-9551-18dce66b4827)
   )
-  (hierarchical_label "IN_A" (shape input) (at 100.33 67.31 180)
+  (hierarchical_label "RIBBON_GATE" (shape input) (at 100.33 67.31 180)
     (effects (font (size 1.27 1.27)) (justify right))
     (uuid bb882d13-0272-44ee-b13d-61e625981657)
   )
@@ -821,7 +836,7 @@
     (pin "2" (uuid 2468849c-63b2-44bf-815f-f43fc0f77c0e))
   )
 
-  (symbol (lib_id "Switch:SW_SPDT_MSM") (at 118.11 95.25 0) (unit 1)
+  (symbol (lib_id "Switch:SW_SPDT_MSM") (at 118.11 95.25 0) (mirror x) (unit 1)
     (in_bom yes) (on_board yes) (fields_autoplaced)
     (uuid 5cec5626-3cd7-4610-b446-4ad2f9b56003)
     (property "Reference" "SW?" (id 0) (at 118.237 87.63 0))

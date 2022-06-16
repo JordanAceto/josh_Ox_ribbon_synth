@@ -322,6 +322,54 @@
       ""
     ],
     [
+      "0616ce9c-e8a4-4287-aefe-6d4e4c9f6bec",
+      "ribbon_controller"
+    ],
+    [
+      "d37bbc1d-4889-4e95-a6c6-5cf48a3db55a",
+      "ribbon_driver"
+    ],
+    [
+      "4cb3e22a-8a7d-492e-a679-fe492b26a862",
+      "guard_s_and_h"
+    ],
+    [
+      "a7a60299-6588-4ae7-87e0-6e7179fc2211",
+      "glitch_discriminator"
+    ],
+    [
+      "fbd5d4e3-7762-4c88-bc1a-e357facadbc5",
+      "comparator"
+    ],
+    [
+      "e2daae65-7549-4955-bd8f-dccde882b6c8",
+      "10_kHz_clock"
+    ],
+    [
+      "51b79dad-9dec-4d14-863f-856be9cec895",
+      "slide_s_and_h"
+    ],
+    [
+      "3cf9d520-cd6d-4efa-9d63-31a96cff377d",
+      "gate_conditioner"
+    ],
+    [
+      "4b439c0a-feca-4773-95cc-1774afd6936e",
+      "initial_s_and_h"
+    ],
+    [
+      "5d4f4019-71a8-4298-bdf3-91f719e3e7f4",
+      "bend_scaler"
+    ],
+    [
+      "ab706d28-449d-4214-91fe-4dadc9f06a91",
+      "gate_controller"
+    ],
+    [
+      "0f8b99a1-be01-4052-9cea-ef64db585f9f",
+      "mod_ADSR_gate_logic"
+    ],
+    [
       "4041b987-2acc-4614-a18a-11a2e74678a4",
       "VCF_ADSR_gate_logic"
     ],
@@ -334,60 +382,12 @@
       "s&h_gate_logic3"
     ],
     [
-      "0616ce9c-e8a4-4287-aefe-6d4e4c9f6bec",
-      "ribbon_controller"
+      "7d8cf602-f79d-4fe2-a189-52e1845165c8",
+      "VCA_CV_scaler"
     ],
     [
       "6ed3cb3d-7216-470d-ac5c-4cc60f6cd9ef",
       "power_supply"
-    ],
-    [
-      "d37bbc1d-4889-4e95-a6c6-5cf48a3db55a",
-      "ribbon_driver"
-    ],
-    [
-      "fbd5d4e3-7762-4c88-bc1a-e357facadbc5",
-      "comparator"
-    ],
-    [
-      "ab706d28-449d-4214-91fe-4dadc9f06a91",
-      "gate_controller"
-    ],
-    [
-      "e2daae65-7549-4955-bd8f-dccde882b6c8",
-      "10_kHz_clock"
-    ],
-    [
-      "4cb3e22a-8a7d-492e-a679-fe492b26a862",
-      "guard_s_and_h"
-    ],
-    [
-      "5d4f4019-71a8-4298-bdf3-91f719e3e7f4",
-      "bend_scaler"
-    ],
-    [
-      "0f8b99a1-be01-4052-9cea-ef64db585f9f",
-      "mod_ADSR_gate_logic"
-    ],
-    [
-      "51b79dad-9dec-4d14-863f-856be9cec895",
-      "slide_s_and_h"
-    ],
-    [
-      "4b439c0a-feca-4773-95cc-1774afd6936e",
-      "initial_s_and_h"
-    ],
-    [
-      "a7a60299-6588-4ae7-87e0-6e7179fc2211",
-      "glitch_discriminator"
-    ],
-    [
-      "3cf9d520-cd6d-4efa-9d63-31a96cff377d",
-      "gate_conditioner"
-    ],
-    [
-      "7d8cf602-f79d-4fe2-a189-52e1845165c8",
-      "VCA_CV_scaler"
     ]
   ],
   "text_variables": {}
