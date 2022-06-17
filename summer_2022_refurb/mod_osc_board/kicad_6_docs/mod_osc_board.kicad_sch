@@ -6,7 +6,7 @@
 
   (title_block
     (title "Josh Ox Ribbon Synth Mod Osc board")
-    (date "2022-06-16")
+    (date "2022-06-17")
     (rev "0")
     (comment 2 "creativecommons.org/licences/by/4.0")
     (comment 3 "license: CC by 4.0")
@@ -976,9 +976,9 @@
       (effects (font (size 1.27 1.27)) (justify right))
       (uuid 9b53e8e2-acec-4bf1-aa1f-0f02979208b7)
     )
-    (pin "RAW_SQUARE_OUT" output (at 120.65 104.14 180)
+    (pin "SQUARE_OUT" output (at 120.65 104.14 180)
       (effects (font (size 1.27 1.27)) (justify left))
-      (uuid e11d4fad-0aca-4994-be88-f9c1dff5170f)
+      (uuid 74046086-1346-4be7-8e23-f986429c6255)
     )
   )
 
@@ -1090,6 +1090,12 @@
     (path "/23f0c66c-75a2-401f-9524-abd9de8c8811/8dd9ff8b-1ad8-4b76-bac5-86123a608e5d"
       (reference "#PWR0114") (unit 1) (value "-5V") (footprint "")
     )
+    (path "/23f0c66c-75a2-401f-9524-abd9de8c8811/f786b228-4326-49b2-a66e-7b729fe67152"
+      (reference "#PWR0115") (unit 1) (value "~") (footprint "")
+    )
+    (path "/23f0c66c-75a2-401f-9524-abd9de8c8811/bb43ff20-a20e-4c9f-a538-c00aec0c5ba5"
+      (reference "#PWR0116") (unit 1) (value "+5V") (footprint "")
+    )
     (path "/23f0c66c-75a2-401f-9524-abd9de8c8811/ee4e8f25-b723-4a8a-9ff6-76f4709851b3"
       (reference "#PWR0201") (unit 1) (value "+5V") (footprint "")
     )
@@ -1192,9 +1198,6 @@
     (path "/ed81f730-d221-4e80-9b40-fc6c0b6684c0/715f770b-66a4-44c8-8afe-150699e84b92"
       (reference "#PWR0517") (unit 1) (value "-15V") (footprint "")
     )
-    (path "/ed81f730-d221-4e80-9b40-fc6c0b6684c0/a31222aa-cca8-4490-b11a-495bced76d8b"
-      (reference "#PWR0519") (unit 1) (value "GND") (footprint "")
-    )
     (path "/ed81f730-d221-4e80-9b40-fc6c0b6684c0/744e409b-987a-4ffa-9003-d294fb558f24"
       (reference "#PWR0520") (unit 1) (value "+15V") (footprint "")
     )
@@ -1290,6 +1293,9 @@
     )
     (path "/ed81f730-d221-4e80-9b40-fc6c0b6684c0/cb9cda44-5755-4a24-9452-816cc5fdbbf4"
       (reference "J6") (unit 1) (value "power_entry") (footprint "Connector_IDC:IDC-Header_2x05_P2.54mm_Vertical")
+    )
+    (path "/23f0c66c-75a2-401f-9524-abd9de8c8811/a5cc1a9a-5502-4145-94a8-1a7e275b5e62"
+      (reference "JP201") (unit 1) (value "saw_pol") (footprint "Jumper:SolderJumper-3_P1.3mm_Bridged12_RoundedPad1.0x1.5mm")
     )
     (path "/23f0c66c-75a2-401f-9524-abd9de8c8811/08e642c6-f8fa-4894-bb38-34e6dc916f79"
       (reference "R201") (unit 1) (value "10k") (footprint "Resistor_SMD:R_0805_2012Metric")
@@ -1453,7 +1459,7 @@
     (path "/ed81f730-d221-4e80-9b40-fc6c0b6684c0/078bf4c1-e89b-4648-81fb-72fb30b2cdc6"
       (reference "U202") (unit 3) (value "TL072") (footprint "Package_SO:SO-8_5.3x6.2mm_P1.27mm")
     )
-    (path "/ed81f730-d221-4e80-9b40-fc6c0b6684c0/6a79dc86-c865-46f7-a54e-950f5595c918"
+    (path "/23f0c66c-75a2-401f-9524-abd9de8c8811/069fbd1e-f788-4b22-9708-2e09f66ad2f1"
       (reference "U301") (unit 1) (value "TL072") (footprint "Package_SO:SO-8_5.3x6.2mm_P1.27mm")
     )
     (path "/3dec0a37-c52f-4f1e-b122-ee714644c48f/0604ec39-b004-49bf-8e3c-db3574f04a6a"

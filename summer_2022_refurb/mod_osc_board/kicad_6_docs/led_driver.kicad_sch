@@ -6,7 +6,7 @@
 
   (title_block
     (title "Josh Ox Ribbon Synth Mod Osc board")
-    (date "2022-06-16")
+    (date "2022-06-17")
     (rev "0")
     (comment 2 "creativecommons.org/licences/by/4.0")
     (comment 3 "license: CC by 4.0")
@@ -374,11 +374,6 @@
   (wire (pts (xy 152.4 93.98) (xy 156.21 93.98))
     (stroke (width 0) (type default) (color 0 0 0 0))
     (uuid e96c0974-fb3b-4b52-b280-b8af0772586a)
-  )
-
-  (text "CHECK ORIENTATION \nOF BI-COLOR LED!" (at 157.48 125.73 0)
-    (effects (font (size 1.27 1.27)) (justify left bottom))
-    (uuid 7f32467b-2c05-483d-b8fc-e86cb5a46ed3)
   )
 
   (hierarchical_label "SIGNAL_IN" (shape input) (at 137.16 88.9 180)
