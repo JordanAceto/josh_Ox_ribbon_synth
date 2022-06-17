@@ -2,7 +2,7 @@
   "board": {
     "design_settings": {
       "defaults": {
-        "board_outline_line_width": 0.049999999999999996,
+        "board_outline_line_width": 0.09999999999999999,
         "copper_line_width": 0.19999999999999998,
         "copper_text_italic": false,
         "copper_text_size_h": 1.5,
@@ -26,7 +26,7 @@
         "fab_text_size_v": 1.0,
         "fab_text_thickness": 0.15,
         "fab_text_upright": false,
-        "other_line_width": 0.09999999999999999,
+        "other_line_width": 0.15,
         "other_text_italic": false,
         "other_text_size_h": 1.0,
         "other_text_size_v": 1.0,
@@ -37,7 +37,7 @@
           "height": 1.524,
           "width": 1.524
         },
-        "silk_line_width": 0.12,
+        "silk_line_width": 0.15,
         "silk_text_italic": false,
         "silk_text_size_h": 1.0,
         "silk_text_size_v": 1.0,
@@ -104,7 +104,7 @@
         "allow_microvias": false,
         "max_error": 0.005,
         "min_clearance": 0.0,
-        "min_copper_edge_clearance": 0.01,
+        "min_copper_edge_clearance": 0.0,
         "min_hole_clearance": 0.25,
         "min_hole_to_hole": 0.25,
         "min_microvia_diameter": 0.19999999999999998,
@@ -114,6 +114,8 @@
         "min_track_width": 0.19999999999999998,
         "min_via_annular_width": 0.049999999999999996,
         "min_via_diameter": 0.39999999999999997,
+        "solder_mask_clearance": 0.0,
+        "solder_mask_min_width": 0.0,
         "use_height_for_length_calcs": true
       },
       "track_widths": [
@@ -351,7 +353,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "VCF_VCA_board.kicad_pro",
+    "filename": "sample_and_hold_board.kicad_pro",
     "version": 1
   },
   "net_settings": {
@@ -402,9 +404,9 @@
       "intersheets_ref_show": false,
       "intersheets_ref_suffix": "",
       "junction_size_choice": 3,
-      "label_size_ratio": 0.25,
-      "pin_symbol_size": 0.0,
-      "text_offset_ratio": 0.08
+      "label_size_ratio": 0.375,
+      "pin_symbol_size": 25.0,
+      "text_offset_ratio": 0.15
     },
     "legacy_lib_dir": "",
     "legacy_lib_list": [],
@@ -430,28 +432,24 @@
   },
   "sheets": [
     [
-      "aeb6db35-7681-4421-a39a-082f6f25fdc3",
+      "f57854f6-44ce-45d1-9f80-7b25e532c13d",
       ""
     ],
     [
-      "1409b373-99c0-424d-8da3-27ce4339b882",
-      "SVF_A"
+      "58c4a3ae-5ff6-49c6-b1c2-f707c76dc22b",
+      "noise_generator"
     ],
     [
-      "37a331b1-4a17-44d3-a1ac-94e342e2bb9d",
-      "SVF_B"
+      "ad62e3f2-8025-4a0f-aea9-23c7d052a32c",
+      "s&h_mixer"
     ],
     [
-      "c4b61a5a-be32-452d-8130-993e18c59157",
-      "CV_mixer"
+      "8342b502-8c3f-4001-adca-c2ddfcc1433a",
+      "sample_and_hold"
     ],
     [
-      "9111f632-025c-4ca8-a5eb-6de1d4cfc27e",
+      "91bfe596-fe47-415a-9244-306857b15e55",
       "power_supply"
-    ],
-    [
-      "adeff382-4500-49dc-8350-2b9b275b5490",
-      "VCA"
     ]
   ],
   "text_variables": {}

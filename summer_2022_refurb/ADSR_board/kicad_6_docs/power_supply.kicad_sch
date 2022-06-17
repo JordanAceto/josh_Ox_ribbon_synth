@@ -6,7 +6,7 @@
 
   (title_block
     (title "Josh Ox Ribbon Synth ADSR board")
-    (date "2022-06-12")
+    (date "2022-06-16")
     (rev "0")
     (comment 2 "creativecommons.org/licences/by/4.0")
     (comment 3 "license: CC by 4.0")
@@ -1310,7 +1310,7 @@
   )
 
   (symbol (lib_id "Connector:TestPoint") (at 68.58 113.03 0) (unit 1)
-    (in_bom yes) (on_board yes) (fields_autoplaced)
+    (in_bom no) (on_board yes) (fields_autoplaced)
     (uuid 5eb71a67-b6cb-41d2-b7a4-05d605e276b9)
     (property "Reference" "TP502" (id 0) (at 71.12 108.4579 0)
       (effects (font (size 1.27 1.27)) (justify left))
@@ -1423,7 +1423,7 @@
   )
 
   (symbol (lib_id "Connector:TestPoint") (at 63.5 127 180) (unit 1)
-    (in_bom yes) (on_board yes) (fields_autoplaced)
+    (in_bom no) (on_board yes) (fields_autoplaced)
     (uuid 86968417-15c3-42ad-9e75-3db6d569686e)
     (property "Reference" "TP503" (id 0) (at 66.04 129.0319 0)
       (effects (font (size 1.27 1.27)) (justify right))
@@ -1492,7 +1492,7 @@
   )
 
   (symbol (lib_id "Connector:TestPoint") (at 63.5 96.52 0) (unit 1)
-    (in_bom yes) (on_board yes) (fields_autoplaced)
+    (in_bom no) (on_board yes) (fields_autoplaced)
     (uuid 971618c1-ab06-47d5-9e28-9c084bf84984)
     (property "Reference" "TP501" (id 0) (at 66.04 91.9479 0)
       (effects (font (size 1.27 1.27)) (justify left))

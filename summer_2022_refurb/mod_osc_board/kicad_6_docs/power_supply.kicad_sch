@@ -6,7 +6,7 @@
 
   (title_block
     (title "Josh Ox Ribbon Synth Mod Osc board")
-    (date "2022-06-12")
+    (date "2022-06-16")
     (rev "0")
     (comment 2 "creativecommons.org/licences/by/4.0")
     (comment 3 "license: CC by 4.0")
@@ -1737,7 +1737,7 @@
   )
 
   (symbol (lib_id "Connector:TestPoint") (at 46.99 72.39 180) (unit 1)
-    (in_bom yes) (on_board yes) (fields_autoplaced)
+    (in_bom no) (on_board yes) (fields_autoplaced)
     (uuid 03a08acf-9ab5-4f23-b897-c7aae269c3cc)
     (property "Reference" "TP502" (id 0) (at 49.53 74.4219 0)
       (effects (font (size 1.27 1.27)) (justify right))
@@ -1831,7 +1831,7 @@
   )
 
   (symbol (lib_id "Connector:TestPoint") (at 176.53 46.99 0) (unit 1)
-    (in_bom yes) (on_board yes) (fields_autoplaced)
+    (in_bom no) (on_board yes) (fields_autoplaced)
     (uuid 15ca3923-b0c8-44ec-978c-38648818c853)
     (property "Reference" "TP506" (id 0) (at 179.07 42.4179 0)
       (effects (font (size 1.27 1.27)) (justify left))
@@ -1884,7 +1884,7 @@
   )
 
   (symbol (lib_id "Connector:TestPoint") (at 46.99 41.91 0) (unit 1)
-    (in_bom yes) (on_board yes) (fields_autoplaced)
+    (in_bom no) (on_board yes) (fields_autoplaced)
     (uuid 23dc967e-9e26-4ef8-a016-9315bab19f82)
     (property "Reference" "TP501" (id 0) (at 49.53 37.3379 0)
       (effects (font (size 1.27 1.27)) (justify left))
@@ -1969,7 +1969,7 @@
   )
 
   (symbol (lib_id "Connector:TestPoint") (at 127 36.83 0) (unit 1)
-    (in_bom yes) (on_board yes) (fields_autoplaced)
+    (in_bom no) (on_board yes) (fields_autoplaced)
     (uuid 3ecba97f-2f61-430f-b2f7-bbed5fbee81f)
     (property "Reference" "TP504" (id 0) (at 129.54 32.2579 0)
       (effects (font (size 1.27 1.27)) (justify left))
@@ -2606,7 +2606,7 @@
   )
 
   (symbol (lib_id "Connector:TestPoint") (at 52.07 58.42 0) (unit 1)
-    (in_bom yes) (on_board yes) (fields_autoplaced)
+    (in_bom no) (on_board yes) (fields_autoplaced)
     (uuid d71ac040-a653-4e70-895f-cd5b7c02dfd7)
     (property "Reference" "TP503" (id 0) (at 54.61 53.8479 0)
       (effects (font (size 1.27 1.27)) (justify left))
@@ -2658,7 +2658,7 @@
   )
 
   (symbol (lib_id "Connector:TestPoint") (at 127 81.28 180) (unit 1)
-    (in_bom yes) (on_board yes)
+    (in_bom no) (on_board yes)
     (uuid e83b35e9-977a-4201-b1f3-d9a264c50b4a)
     (property "Reference" "TP505" (id 0) (at 129.54 83.3119 0)
       (effects (font (size 1.27 1.27)) (justify right))

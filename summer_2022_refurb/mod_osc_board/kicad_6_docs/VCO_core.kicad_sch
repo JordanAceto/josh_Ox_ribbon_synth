@@ -6,7 +6,7 @@
 
   (title_block
     (title "Josh Ox Ribbon Synth Mod Osc board")
-    (date "2022-06-12")
+    (date "2022-06-16")
     (rev "0")
     (comment 2 "creativecommons.org/licences/by/4.0")
     (comment 3 "license: CC by 4.0")
@@ -3007,7 +3007,8 @@
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 29588cef-bb30-4045-b2ed-0a9cab5b802b)
   )
-  (text "check saw polarities" (at 219.71 72.39 0)
+  (text "check saw polarities,\nnote the extra inversion\nlater in the level shifter"
+    (at 219.71 72.39 0)
     (effects (font (size 5 5)) (justify left bottom))
     (uuid 813c55e2-7aa8-4746-879d-098f3c474db9)
   )

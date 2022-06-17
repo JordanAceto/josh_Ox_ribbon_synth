@@ -6,7 +6,7 @@
 
   (title_block
     (title "Josh Ox Ribbon Synth ADSR board")
-    (date "2022-06-12")
+    (date "2022-06-16")
     (rev "0")
     (comment 2 "creativecommons.org/licences/by/4.0")
     (comment 3 "license: CC by 4.0")
@@ -643,7 +643,7 @@
   )
 
   (symbol (lib_id "Connector:TestPoint") (at 105.41 30.48 0) (unit 1)
-    (in_bom yes) (on_board yes) (fields_autoplaced)
+    (in_bom no) (on_board yes) (fields_autoplaced)
     (uuid 0b8be210-0dda-4b4e-ab12-eb9aabd50a1a)
     (property "Reference" "TP1" (id 0) (at 107.95 25.9079 0)
       (effects (font (size 1.27 1.27)) (justify left))
@@ -661,7 +661,7 @@
   )
 
   (symbol (lib_id "Connector:TestPoint") (at 208.28 72.39 180) (unit 1)
-    (in_bom yes) (on_board yes) (fields_autoplaced)
+    (in_bom no) (on_board yes) (fields_autoplaced)
     (uuid 1693a8c1-063c-493a-b5a9-f853361b068a)
     (property "Reference" "TP5" (id 0) (at 210.82 74.4219 0)
       (effects (font (size 1.27 1.27)) (justify right))
@@ -743,7 +743,7 @@
   )
 
   (symbol (lib_id "Connector:TestPoint") (at 105.41 91.44 0) (unit 1)
-    (in_bom yes) (on_board yes)
+    (in_bom no) (on_board yes)
     (uuid 5df2dd5c-84fc-4803-8cbf-afdb0c0f41ac)
     (property "Reference" "TP2" (id 0) (at 107.95 86.8679 0)
       (effects (font (size 1.27 1.27)) (justify left))
@@ -761,7 +761,7 @@
   )
 
   (symbol (lib_id "Connector:TestPoint") (at 208.28 91.44 0) (unit 1)
-    (in_bom yes) (on_board yes)
+    (in_bom no) (on_board yes)
     (uuid 6f7cbb64-4281-4995-bb2d-fab48ec64296)
     (property "Reference" "TP6" (id 0) (at 210.82 86.8679 0)
       (effects (font (size 1.27 1.27)) (justify left))
@@ -779,7 +779,7 @@
   )
 
   (symbol (lib_id "Connector:TestPoint") (at 162.56 146.05 0) (unit 1)
-    (in_bom yes) (on_board yes) (fields_autoplaced)
+    (in_bom no) (on_board yes) (fields_autoplaced)
     (uuid 90191901-d81a-40d1-bf7a-bcc42716c893)
     (property "Reference" "TP7" (id 0) (at 165.1 141.4779 0)
       (effects (font (size 1.27 1.27)) (justify left))
@@ -832,7 +832,7 @@
   )
 
   (symbol (lib_id "Connector:TestPoint") (at 105.41 146.05 0) (unit 1)
-    (in_bom yes) (on_board yes) (fields_autoplaced)
+    (in_bom no) (on_board yes) (fields_autoplaced)
     (uuid ac26ae09-6c3f-4c11-a5f9-002e6d5c8dda)
     (property "Reference" "TP3" (id 0) (at 107.95 141.4779 0)
       (effects (font (size 1.27 1.27)) (justify left))
@@ -886,7 +886,7 @@
   )
 
   (symbol (lib_id "Connector:TestPoint") (at 208.28 30.48 0) (unit 1)
-    (in_bom yes) (on_board yes) (fields_autoplaced)
+    (in_bom no) (on_board yes) (fields_autoplaced)
     (uuid d2236615-77d4-4d0a-9a37-f19b27b8ddfc)
     (property "Reference" "TP4" (id 0) (at 210.82 25.9079 0)
       (effects (font (size 1.27 1.27)) (justify left))

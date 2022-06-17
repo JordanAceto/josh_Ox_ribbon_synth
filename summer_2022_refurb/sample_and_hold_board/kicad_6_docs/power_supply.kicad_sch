@@ -6,7 +6,7 @@
 
   (title_block
     (title "Josh Ox Ribbon Synth Sample and Hold Board")
-    (date "2022-06-09")
+    (date "2022-06-16")
     (rev "0")
     (comment 1 "creativecommons.org/licences/by/4.0")
     (comment 2 "License: CC by 4.0")
@@ -1228,7 +1228,7 @@
   )
 
   (symbol (lib_id "Connector:TestPoint") (at 67.31 160.02 0) (unit 1)
-    (in_bom yes) (on_board yes) (fields_autoplaced)
+    (in_bom no) (on_board yes) (fields_autoplaced)
     (uuid 78c80511-2d61-47a5-b515-bdd50f7d232f)
     (property "Reference" "TP7" (id 0) (at 69.85 155.4479 0)
       (effects (font (size 1.27 1.27)) (justify left))
@@ -1246,7 +1246,7 @@
   )
 
   (symbol (lib_id "Connector:TestPoint") (at 62.23 173.99 180) (unit 1)
-    (in_bom yes) (on_board yes) (fields_autoplaced)
+    (in_bom no) (on_board yes) (fields_autoplaced)
     (uuid 79944e0a-6d63-496c-9151-f4dd871ba393)
     (property "Reference" "TP8" (id 0) (at 64.77 176.0219 0)
       (effects (font (size 1.27 1.27)) (justify right))
@@ -1328,7 +1328,7 @@
   )
 
   (symbol (lib_id "Connector:TestPoint") (at 62.23 143.51 0) (unit 1)
-    (in_bom yes) (on_board yes) (fields_autoplaced)
+    (in_bom no) (on_board yes) (fields_autoplaced)
     (uuid aed2da81-b3ed-4eeb-b787-491b17f5a3aa)
     (property "Reference" "TP6" (id 0) (at 64.77 138.9379 0)
       (effects (font (size 1.27 1.27)) (justify left))

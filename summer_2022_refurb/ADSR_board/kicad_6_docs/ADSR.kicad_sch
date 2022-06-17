@@ -6,7 +6,7 @@
 
   (title_block
     (title "Josh Ox Ribbon Synth ADSR board")
-    (date "2022-06-12")
+    (date "2022-06-16")
     (rev "0")
     (comment 2 "creativecommons.org/licences/by/4.0")
     (comment 3 "license: CC by 4.0")
@@ -1294,6 +1294,11 @@
   (text "sustain" (at 147.32 48.26 0)
     (effects (font (size 2 2)) (justify left bottom))
     (uuid 7e68448b-3f27-45eb-a857-d498246cc899)
+  )
+  (text "ADSRs are based on designs \nfrom Yusynth, René Schmitz,\nand Electronotes."
+    (at 102.87 190.5 0)
+    (effects (font (size 3 3)) (justify left bottom))
+    (uuid 869e2c2a-7ac7-4ff3-b433-58d9b9edbce3)
   )
   (text "release" (at 217.17 128.27 0)
     (effects (font (size 2 2)) (justify left bottom))
