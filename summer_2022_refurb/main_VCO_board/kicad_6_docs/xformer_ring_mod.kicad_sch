@@ -1400,7 +1400,7 @@
     (pin "2" (uuid 99c062cf-e420-4c89-9eb3-2ee454d4ec31))
   )
 
-  (symbol (lib_id "Amplifier_Operational:TL072") (at 254 86.36 0) (mirror x) (unit 1)
+  (symbol (lib_id "Amplifier_Operational:TL072") (at 254 86.36 0) (mirror x) (unit 2)
     (in_bom yes) (on_board yes)
     (uuid 7ebbc51b-1e5a-4191-9657-d6c184cb64c1)
     (property "Reference" "U?" (id 0) (at 255.27 91.44 0))
@@ -1539,7 +1539,7 @@
     (pin "2" (uuid 32b41e48-fc2f-40e4-8859-cbc052c6da88))
   )
 
-  (symbol (lib_id "Amplifier_Operational:NE5532") (at 52.07 144.78 0) (mirror x) (unit 1)
+  (symbol (lib_id "Amplifier_Operational:NE5532") (at 52.07 144.78 0) (mirror x) (unit 2)
     (in_bom yes) (on_board yes)
     (uuid 9ce02f6e-1ea7-4d6f-a083-497ca3c68b45)
     (property "Reference" "U?" (id 0) (at 54.61 149.86 0))

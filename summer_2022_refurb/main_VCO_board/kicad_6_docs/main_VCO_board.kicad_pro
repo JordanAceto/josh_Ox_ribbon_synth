@@ -496,14 +496,6 @@
       "ring_modulator"
     ],
     [
-      "5ac6406c-efb4-4055-b6c2-7f604657af37",
-      "analog_multiplier"
-    ],
-    [
-      "7c06b593-65f1-47e9-ba19-27088c02add4",
-      "xformer_ring_mod"
-    ],
-    [
       "e9774851-d911-4b6e-a77e-0b5bf79b333d",
       "audio_mixer"
     ],
