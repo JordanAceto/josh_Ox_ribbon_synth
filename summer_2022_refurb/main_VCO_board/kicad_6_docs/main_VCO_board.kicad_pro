@@ -420,24 +420,32 @@
       "main_VCO"
     ],
     [
-      "491f267e-b6f8-4110-a106-f208ee10353b",
-      "ring_modulator"
+      "0be72095-c462-41da-a2a1-89177b7b4c14",
+      "VCO_core"
+    ],
+    [
+      "a055d82e-b62e-4fa0-a1e9-f161905ed874",
+      "lin_FM_conditioner"
+    ],
+    [
+      "e86503ed-a110-4b06-a857-7325edeb5ff1",
+      "PWM_generator"
     ],
     [
       "96a842e0-33f5-4216-8265-9f7541ed7e35",
       "sub_osc_1"
     ],
     [
-      "ab0113ca-1f0c-4c09-91f6-6feadc9da1a0",
-      "tri_to_sine_shaper_2"
+      "8a679efa-fd6e-492e-a796-742ba481c7ff",
+      "octave_divider_1"
     ],
     [
       "ef8ce91e-0d08-463d-90c4-45247ac117ce",
       "saw_animator_1"
     ],
     [
-      "8a679efa-fd6e-492e-a796-742ba481c7ff",
-      "octave_divider_1"
+      "c533787c-8517-43c0-b7fa-079746cec830",
+      "level_shifter_1"
     ],
     [
       "87fd8c1f-918f-421e-9a18-ad43c6ea2c19",
@@ -452,56 +460,40 @@
       "basic_pulse_shaper"
     ],
     [
+      "0a09fa3b-bdae-4054-a0a2-936497c33a9a",
+      "passthrough_switching"
+    ],
+    [
       "9d3b4b6c-b477-4022-8b0e-696d893bdbe8",
       "sub_osc_2"
-    ],
-    [
-      "ed196c89-9ab8-40ee-b793-660e0ac48455",
-      "saw_to_tri_shaper_2"
-    ],
-    [
-      "d5fb0ab5-789d-4cbd-9e74-7b40a79d72ba",
-      "saw_animator_2"
     ],
     [
       "8ee6e82d-f8ca-4615-92e4-f5f5ac71d53c",
       "octave_divider_2"
     ],
     [
+      "d5fb0ab5-789d-4cbd-9e74-7b40a79d72ba",
+      "saw_animator_2"
+    ],
+    [
       "e70dfefc-7cbf-46f3-9337-4ed9d7986e3f",
-      "level_shifter_3"
+      "level_shifter_2"
+    ],
+    [
+      "ed196c89-9ab8-40ee-b793-660e0ac48455",
+      "saw_to_tri_shaper_2"
+    ],
+    [
+      "ab0113ca-1f0c-4c09-91f6-6feadc9da1a0",
+      "tri_to_sine_shaper_2"
     ],
     [
       "e100ad50-dd94-44aa-8e20-f52562bb004d",
       "harmonic_pulse_shaper"
     ],
     [
-      "e86503ed-a110-4b06-a857-7325edeb5ff1",
-      "PWM_generator"
-    ],
-    [
-      "0be72095-c462-41da-a2a1-89177b7b4c14",
-      "VCO_core"
-    ],
-    [
-      "a055d82e-b62e-4fa0-a1e9-f161905ed874",
-      "lin_FM_conditioner"
-    ],
-    [
-      "1c3288bc-8f4d-42cb-9573-584cd98a8052",
-      "level_shifter_1"
-    ],
-    [
-      "4799b84a-4e9c-45c4-8a49-1d0c3c13ff19",
-      "power_supply"
-    ],
-    [
-      "c533787c-8517-43c0-b7fa-079746cec830",
-      "level_shifter_2"
-    ],
-    [
-      "e9774851-d911-4b6e-a77e-0b5bf79b333d",
-      "audio_mixer"
+      "491f267e-b6f8-4110-a106-f208ee10353b",
+      "ring_modulator"
     ],
     [
       "5ac6406c-efb4-4055-b6c2-7f604657af37",
@@ -510,6 +502,14 @@
     [
       "7c06b593-65f1-47e9-ba19-27088c02add4",
       "xformer_ring_mod"
+    ],
+    [
+      "e9774851-d911-4b6e-a77e-0b5bf79b333d",
+      "audio_mixer"
+    ],
+    [
+      "4799b84a-4e9c-45c4-8a49-1d0c3c13ff19",
+      "power_supply"
     ]
   ],
   "text_variables": {}

@@ -4,6 +4,15 @@
 
   (paper "A4")
 
+  (title_block
+    (title "Josh Ox Ribon Synth Main VCO board")
+    (date "2022-06-18")
+    (rev "0")
+    (comment 2 "creativecommons.org/licences/by/4.0")
+    (comment 3 "license: CC by 4.0")
+    (comment 4 "Author: Jordan Acete")
+  )
+
   (lib_symbols
     (symbol "Switch:SW_SPDT_MSM" (pin_names (offset 0) hide) (in_bom yes) (on_board yes)
       (property "Reference" "SW" (id 0) (at 0 5.08 0)
@@ -146,7 +155,7 @@
     (in_bom yes) (on_board yes) (fields_autoplaced)
     (uuid c94ffceb-e639-4e44-a24c-a1b1b509f4f9)
     (property "Reference" "SW?" (id 0) (at 175.133 68.58 0))
-    (property "Value" "SW_SPDT_MSM" (id 1) (at 175.133 71.12 0))
+    (property "Value" "SW_SPDT_CO" (id 1) (at 175.133 71.12 0))
     (property "Footprint" "" (id 2) (at 175.26 76.2 0)
       (effects (font (size 1.27 1.27)) hide)
     )
