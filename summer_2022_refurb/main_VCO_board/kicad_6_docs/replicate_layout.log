@@ -1,0 +1,57 @@
+06-18 22:04:26 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 295:Plugin executed on: 'linux'
+06-18 22:04:26 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 296:Plugin executed with python version: '3.10.4 (main, Apr  2 2022, 09:04:19) [GCC 11.2.0]'
+06-18 22:04:26 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 297:KiCad build version: 6.0.5-a6ca702e91~116~ubuntu22.04.1
+06-18 22:04:26 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 298:Plugin version: 1.1.2
+06-18 22:04:26 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 299:Frame repr: <wx._core.Frame object at 0x7f46f813de10>
+06-18 22:04:26 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 323:Preparing replicator with U6 as a reference
+06-18 22:04:26 com_github_MitjaNemec_ReplicateLayout.replicate_layout 98:getting a list of all footprints on board
+06-18 22:04:26 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 351:source anchor footprint is 'U6'
+Located on: ['sub_osc_1', 'saw_animator_1']
+With filenames: ['sub_osc_1.kicad_sch', 'saw_animator.kicad_sch']
+With sheet_id:['sub_osc_1', 'saw_animator_1']
+06-18 22:04:26 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 358:Corresponding footprints are 
+[('U12', ['sub_osc_2', 'saw_animator_2']), ('U6', ['sub_osc_1', 'saw_animator_1'])]
+06-18 22:04:26 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 370:Showing dialog
+06-18 22:04:26 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 376:Toolbar position: wx.Point(1886, 96)
+06-18 22:04:26 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 382:Dialog position: wx.Point(1522, 96)
+06-18 22:04:26 com_github_MitjaNemec_ReplicateLayout.replicate_layout 335:constructing a list of sheets suitable for replication on level:'sub_osc_1', file:'sub_osc_1.kicad_sch'
+06-18 22:04:26 com_github_MitjaNemec_ReplicateLayout.replicate_layout 372:suitable sheets are:[]
+06-18 22:04:35 com_github_MitjaNemec_ReplicateLayout.replicate_layout 335:constructing a list of sheets suitable for replication on level:'saw_animator_1', file:'saw_animator.kicad_sch'
+06-18 22:04:35 com_github_MitjaNemec_ReplicateLayout.replicate_layout 372:suitable sheets are:[['sub_osc_2', 'saw_animator_2']]
+06-18 22:04:42 com_github_MitjaNemec_ReplicateLayout.replicate_layout 335:constructing a list of sheets suitable for replication on level:'saw_animator_1', file:'saw_animator.kicad_sch'
+06-18 22:04:42 com_github_MitjaNemec_ReplicateLayout.replicate_layout 372:suitable sheets are:[['sub_osc_2', 'saw_animator_2']]
+06-18 22:04:42 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 145:Replicating layout
+06-18 22:04:42 com_github_MitjaNemec_ReplicateLayout.replicate_layout 146:Starting replication of sheets: [['sub_osc_2', 'saw_animator_2']]
+on level: ['sub_osc_1', 'saw_animator_1']
+with tracks=True, zone=True, text=True, containing=True, remove=False, locked=False, by_group=False
+06-18 22:04:42 root 235:updating GUI message: 'Preparing for replication'
+06-18 22:04:42 com_github_MitjaNemec_ReplicateLayout.replicate_layout 215:Getting the list of source footprints
+06-18 22:04:42 root 240:updating GUI with: 0
+06-18 22:04:42 com_github_MitjaNemec_ReplicateLayout.replicate_layout 230:Getting the list of all the remaining footprints
+06-18 22:04:42 com_github_MitjaNemec_ReplicateLayout.replicate_layout 235:Getting nets local to source footprints
+06-18 22:04:42 com_github_MitjaNemec_ReplicateLayout.replicate_layout 238:Getting source bounding box
+06-18 22:04:42 com_github_MitjaNemec_ReplicateLayout.replicate_layout 242:Getting source tracks
+06-18 22:04:42 com_github_MitjaNemec_ReplicateLayout.replicate_layout 257:Getting source zones
+06-18 22:04:42 root 240:updating GUI with: 62
+06-18 22:04:42 com_github_MitjaNemec_ReplicateLayout.replicate_layout 266:Getting source text items
+06-18 22:04:42 root 240:updating GUI with: 75
+06-18 22:04:42 com_github_MitjaNemec_ReplicateLayout.replicate_layout 275:Getting source drawing items
+06-18 22:04:42 root 235:updating GUI message: 'Replicating footprints'
+06-18 22:04:42 com_github_MitjaNemec_ReplicateLayout.replicate_layout 669:Replicating footprints
+06-18 22:04:42 root 240:updating GUI with: 0
+06-18 22:04:42 com_github_MitjaNemec_ReplicateLayout.replicate_layout 675:Replicating footprints on sheet ['sub_osc_2', 'saw_animator_2']
+06-18 22:04:42 root 235:updating GUI message: 'Replicating tracks'
+06-18 22:04:42 com_github_MitjaNemec_ReplicateLayout.replicate_layout 835:Replicating tracks
+06-18 22:04:42 root 240:updating GUI with: 0
+06-18 22:04:42 com_github_MitjaNemec_ReplicateLayout.replicate_layout 841:Replicating tracks on sheet ['sub_osc_2', 'saw_animator_2']
+06-18 22:04:42 root 235:updating GUI message: 'Replicating zones'
+06-18 22:04:42 com_github_MitjaNemec_ReplicateLayout.replicate_layout 893:Replicating zones
+06-18 22:04:42 com_github_MitjaNemec_ReplicateLayout.replicate_layout 900:Replicating zones on sheet ['sub_osc_2', 'saw_animator_2']
+06-18 22:04:42 root 235:updating GUI message: 'Replicating text'
+06-18 22:04:42 com_github_MitjaNemec_ReplicateLayout.replicate_layout 963:Replicating text
+06-18 22:04:42 root 240:updating GUI with: 0
+06-18 22:04:42 com_github_MitjaNemec_ReplicateLayout.replicate_layout 970:Replicating text on sheet ['sub_osc_2', 'saw_animator_2']
+06-18 22:04:42 root 235:updating GUI message: 'Replicating drawings'
+06-18 22:04:42 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1003:Replicating drawings
+06-18 22:04:42 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1009:Replicating drawings on sheet ['sub_osc_2', 'saw_animator_2']
+06-18 22:04:42 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 169:Replication complete
