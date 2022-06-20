@@ -547,10 +547,10 @@
     (uuid e95d8a47-bc56-425f-a122-a2ad712e7fbe)
   )
 
-  (global_label "+5V REF" (shape input) (at 158.75 69.85 180) (fields_autoplaced)
+  (global_label "+5V_REF" (shape input) (at 158.75 69.85 180) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify right))
     (uuid 94d6a22c-1ad7-4370-bee4-f5e182966894)
-    (property "Intersheet References" "${INTERSHEET_REFS}" (id 0) (at 148.0801 69.9294 0)
+    (property "Intersheet References" "${INTERSHEET_REFS}" (id 0) (at 147.9912 69.7706 0)
       (effects (font (size 1.27 1.27)) (justify right) hide)
     )
   )

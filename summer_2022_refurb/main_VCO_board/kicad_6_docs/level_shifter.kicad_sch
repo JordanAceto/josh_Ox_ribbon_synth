@@ -393,10 +393,10 @@
     (pin "2" (uuid 0e44e228-2735-4f87-a31f-6b73c5028802))
   )
 
-  (symbol (lib_id "Amplifier_Operational:TL074") (at 151.13 104.14 0) (mirror x) (unit 1)
+  (symbol (lib_id "Amplifier_Operational:TL074") (at 151.13 104.14 0) (mirror x) (unit 3)
     (in_bom yes) (on_board yes)
     (uuid 5dc051e3-41c9-4852-aee5-ad6c0a7bd78b)
-    (property "Reference" "U2" (id 0) (at 152.4 109.22 0))
+    (property "Reference" "U14" (id 0) (at 152.4 109.22 0))
     (property "Value" "TL074" (id 1) (at 153.67 111.76 0))
     (property "Footprint" "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm" (id 2) (at 149.86 106.68 0)
       (effects (font (size 1.27 1.27)) hide)
