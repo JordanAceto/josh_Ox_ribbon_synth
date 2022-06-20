@@ -1293,6 +1293,9 @@
     (path "/4799b84a-4e9c-45c4-8a49-1d0c3c13ff19/36049f2e-294c-4dc2-831e-bbdf1ffadc48"
       (reference "#PWR0117") (unit 1) (value "-15V") (footprint "")
     )
+    (path "/4799b84a-4e9c-45c4-8a49-1d0c3c13ff19/50d3a29c-f719-4ccf-b808-1c8800d1f065"
+      (reference "#PWR0118") (unit 1) (value "+5V") (footprint "")
+    )
     (path "/7d1f7961-ee8b-4988-bb19-85d251d3b03f/9f0ca4ba-8ec5-4c1e-963a-4416cdadad9c"
       (reference "#PWR0201") (unit 1) (value "GND") (footprint "")
     )
@@ -1665,8 +1668,8 @@
     (path "/4799b84a-4e9c-45c4-8a49-1d0c3c13ff19/4ac040d2-30ed-470e-8199-03ae17116df6"
       (reference "#PWR02336") (unit 1) (value "GND") (footprint "")
     )
-    (path "/4799b84a-4e9c-45c4-8a49-1d0c3c13ff19/50d3a29c-f719-4ccf-b808-1c8800d1f065"
-      (reference "#PWR?") (unit 1) (value "+5V") (footprint "")
+    (path "/4799b84a-4e9c-45c4-8a49-1d0c3c13ff19/6435f439-b941-4376-8b8d-5da0331f08de"
+      (reference "#PWR?") (unit 1) (value "GND") (footprint "")
     )
     (path "/7d1f7961-ee8b-4988-bb19-85d251d3b03f/1d0b33f4-7be5-40fc-9a40-1788ca752967"
       (reference "C201") (unit 1) (value "C") (footprint "Capacitor_SMD:C_0805_2012Metric")
@@ -2646,6 +2649,12 @@
     (path "/8072ad80-9c57-4223-bfe0-1df861716793"
       (reference "TP105") (unit 1) (value "ring_mod") (footprint "TestPoint:TestPoint_Keystone_5000-5004_Miniature")
     )
+    (path "/96a842e0-33f5-4216-8265-9f7541ed7e35/ef8ce91e-0d08-463d-90c4-45247ac117ce/0699b5c1-b379-41ae-8806-c1a666305c14"
+      (reference "TP801") (unit 1) (value "anim_LFO") (footprint "TestPoint:TestPoint_Keystone_5000-5004_Miniature")
+    )
+    (path "/9d3b4b6c-b477-4022-8b0e-696d893bdbe8/d5fb0ab5-789d-4cbd-9e74-7b40a79d72ba/0699b5c1-b379-41ae-8806-c1a666305c14"
+      (reference "TP1601") (unit 1) (value "anim_LFO") (footprint "TestPoint:TestPoint_Keystone_5000-5004_Miniature")
+    )
     (path "/4799b84a-4e9c-45c4-8a49-1d0c3c13ff19/9aef773c-1ae5-4e5e-ac34-601aaf7c54ae"
       (reference "TP2301") (unit 1) (value "V+") (footprint "TestPoint:TestPoint_Keystone_5000-5004_Miniature")
     )
@@ -2669,6 +2678,9 @@
     )
     (path "/e86503ed-a110-4b06-a857-7325edeb5ff1/dc804ce2-c420-43f3-86bf-c70d6ac852ea"
       (reference "U1") (unit 3) (value "TL074") (footprint "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm")
+    )
+    (path "/4799b84a-4e9c-45c4-8a49-1d0c3c13ff19/955b56d9-36ea-46e3-95cf-42701c14ca18"
+      (reference "U1") (unit 4) (value "TL074") (footprint "")
     )
     (path "/4799b84a-4e9c-45c4-8a49-1d0c3c13ff19/ce1b518c-c866-4728-a63b-34b09951b7ec"
       (reference "U1") (unit 5) (value "TL074") (footprint "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm")
