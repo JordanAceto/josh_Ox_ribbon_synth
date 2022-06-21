@@ -925,7 +925,7 @@
     (pin "2" (uuid 5ba86d9f-a292-440a-aea1-839f6c1d3f55))
   )
 
-  (symbol (lib_id "4xxx:40106") (at 105.41 120.65 0) (unit 5)
+  (symbol (lib_id "4xxx:40106") (at 105.41 120.65 0) (unit 4)
     (in_bom yes) (on_board yes) (fields_autoplaced)
     (uuid 10c5040d-f34e-4390-ba4b-5d51ff31dc77)
     (property "Reference" "U6" (id 0) (at 105.41 111.76 0))

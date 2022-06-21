@@ -852,7 +852,7 @@
     (pin "3" (uuid 819bb687-e35c-46c0-88c6-c9c0841e2e64))
   )
 
-  (symbol (lib_id "4xxx:4081") (at 173.99 95.25 0) (unit 1)
+  (symbol (lib_id "4xxx:4081") (at 173.99 95.25 0) (mirror x) (unit 4)
     (in_bom yes) (on_board yes) (fields_autoplaced)
     (uuid 75a3ba6d-a12b-49d4-bd5b-00eda0fa720b)
     (property "Reference" "U8" (id 0) (at 173.99 86.36 0))

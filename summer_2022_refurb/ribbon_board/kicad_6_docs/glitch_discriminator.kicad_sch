@@ -1244,7 +1244,7 @@
     (pin "1" (uuid 923c3de4-13eb-43cc-af10-5bdfc410eee0))
   )
 
-  (symbol (lib_id "4xxx:4081") (at 170.18 68.58 0) (unit 4)
+  (symbol (lib_id "4xxx:4081") (at 170.18 68.58 0) (unit 1)
     (in_bom yes) (on_board yes) (fields_autoplaced)
     (uuid 528051bc-881a-47b3-bee9-3de530ee6b6b)
     (property "Reference" "U4" (id 0) (at 170.18 59.69 0))
@@ -1439,7 +1439,7 @@
     (pin "2" (uuid 2108e915-9e86-4a06-8efe-c17a68021ff2))
   )
 
-  (symbol (lib_id "4xxx:4013") (at 203.2 78.74 0) (unit 2)
+  (symbol (lib_id "4xxx:4013") (at 203.2 78.74 0) (unit 1)
     (in_bom yes) (on_board yes) (fields_autoplaced)
     (uuid c48e28e1-e3fd-49c7-b803-a9ddd6d63c48)
     (property "Reference" "U5" (id 0) (at 205.2194 68.58 0)
@@ -1486,7 +1486,7 @@
     (pin "1" (uuid f79e1876-8ffe-4927-a0cd-1fd43653e291))
   )
 
-  (symbol (lib_id "4xxx:4081") (at 231.14 83.82 0) (unit 3)
+  (symbol (lib_id "4xxx:4081") (at 231.14 83.82 0) (unit 2)
     (in_bom yes) (on_board yes) (fields_autoplaced)
     (uuid d2cd4812-7442-4fa1-a201-429f8fb0ab4e)
     (property "Reference" "U4" (id 0) (at 231.14 74.93 0))
