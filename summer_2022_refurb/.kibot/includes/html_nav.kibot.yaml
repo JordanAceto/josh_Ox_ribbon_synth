@@ -1,0 +1,10 @@
+kibot:
+  version: 1
+
+outputs:
+- name: html_navigation
+  comment: HTML navigation page to browse outputs
+  type: navigate_results
+  dir: docs/html_nav
+  options:
+    link_from_root: index.html

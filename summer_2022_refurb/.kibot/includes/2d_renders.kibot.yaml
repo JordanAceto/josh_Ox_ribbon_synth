@@ -1,0 +1,32 @@
+kibot:
+  version: 1
+
+outputs:
+  - name: pcb_top_jpg
+    comment: Green PCB JPG render, top
+    type: pcbdraw
+    dir: docs/2D
+    options:
+      format: jpg
+
+  - name: pcb_bottom_jpg
+    comment: Green PCB JPG render, bottom
+    type: pcbdraw
+    dir: docs/2D
+    options:
+      format: jpg
+      bottom: True
+
+  - name: pdf_pcb_print_FCu
+    comment: PDF of front copper
+    type: pdf_pcb_print
+    dir: docs/2D
+    layers:
+      - layer: F.Cu
+
+  - name: pdf_pcb_print_BCu
+    comment: PDF of back copper
+    type: pdf_pcb_print
+    dir: docs/2D
+    layers:
+      - layer: B.Cu

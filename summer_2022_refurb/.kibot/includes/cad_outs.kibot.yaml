@@ -1,0 +1,39 @@
+kibot:
+  version: 1
+
+outputs:
+- name: pcb_step_file
+  comment: Step file of the PCB
+  type: step
+  dir: docs/CAD
+  options:
+    metric_units: true
+
+- name: pcb_dxf_file
+  comment: DXF files of the PCB
+  type: dxf
+  dir: docs/CAD
+  options:
+    metric_units: true
+  layers:
+  - layer: F.Cu
+    suffix: F_Cu
+    description: Front copper
+  - layer: B.Cu
+    suffix: B_Cu
+    description: Bottom copper
+  - layer: B.Silkscreen
+    suffix: B_Silkscreen
+    description: Bottom silkscreen (artwork)
+  - layer: F.Silkscreen
+    suffix: F_Silkscreen
+    description: Front silkscreen (artwork)
+  - layer: B.Mask
+    suffix: B_Mask
+    description: Bottom soldermask (negative)
+  - layer: F.Mask
+    suffix: F_Mask
+    description: Front soldermask (negative)
+  - layer: Edge.Cuts
+    suffix: Edge_Cuts
+    description: Board shape

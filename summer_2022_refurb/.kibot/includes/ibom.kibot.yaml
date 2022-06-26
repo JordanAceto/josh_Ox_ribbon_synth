@@ -1,0 +1,11 @@
+kibot:
+  version: 1
+
+outputs:
+- name: interactive_HTML_bom
+  comment: Interactive HTML Bill of Materials
+  type: ibom
+  dir: docs
+  category: PCB/fabrication/assembly
+  options:
+    dark_mode: true

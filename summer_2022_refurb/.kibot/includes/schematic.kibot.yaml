@@ -1,0 +1,8 @@
+kibot:
+  version: 1
+
+outputs:
+- name: pdf_sch_print
+  comment: Schematic in PDF format
+  type: pdf_sch_print
+  dir: docs

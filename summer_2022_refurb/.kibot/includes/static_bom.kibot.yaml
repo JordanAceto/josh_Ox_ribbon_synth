@@ -1,0 +1,27 @@
+kibot:
+  version: 1
+
+outputs:
+- name: generic_bom_html
+  comment: Generic Bill of Materials in HTML format
+  type: bom
+  dir: docs/BOM
+  options:
+    format: HTML
+    count_smd_tht: true
+
+- name: generic_bom_csv
+  comment: Generic Bill of Materials in CSV format
+  type: bom
+  dir: docs/BOM
+  options:
+    format: CSV
+    count_smd_tht: true
+
+- name: generic_bom_txt
+  comment: Generic Bill of Materials in TXT format
+  type: bom
+  dir: docs/BOM
+  options:
+    format: TXT
+    count_smd_tht: true
