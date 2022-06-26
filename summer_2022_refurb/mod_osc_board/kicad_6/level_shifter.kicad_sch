@@ -337,7 +337,7 @@
     (in_bom yes) (on_board yes) (fields_autoplaced)
     (uuid 50442e0f-7bd4-4253-9295-5dfc70501efe)
     (property "Reference" "C301" (id 0) (at 149.86 73.66 90))
-    (property "Value" "C" (id 1) (at 149.86 76.2 90))
+    (property "Value" "100p" (id 1) (at 149.86 76.2 90))
     (property "Footprint" "Capacitor_SMD:C_0805_2012Metric" (id 2) (at 153.67 80.3148 0)
       (effects (font (size 1.27 1.27)) hide)
     )
