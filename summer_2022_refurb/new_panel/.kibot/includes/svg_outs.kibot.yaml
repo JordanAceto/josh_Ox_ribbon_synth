@@ -1,0 +1,16 @@
+kibot:
+  version: 1
+
+outputs:
+- name: pcb_svg_files
+  comment: SVG files of the PCB
+  type: svg
+  dir: docs/svg
+  layers:
+    - layer: footprints
+    - layer: comments
+    - layer: drill_holes
+    - layer: dimensions
+    - layer: submodule_outlines
+    - layer: panel_outline
+    - layer: pot_and_switch_sizes

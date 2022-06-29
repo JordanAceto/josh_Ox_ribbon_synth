@@ -1,0 +1,29 @@
+kibot:
+  version: 1
+
+outputs:
+- name: pdf_panel_dims
+  comment: PDF of panel dimensions
+  type: pdf_pcb_print
+  dir: docs/pdf
+  layers:
+    - layer: footprints
+    - layer: comments
+    - layer: drill_holes
+    - layer: dimensions
+    - layer: submodule_outlines
+    - layer: panel_outline
+    - layer: pot_and_switch_sizes
+
+- name: pdf_layers
+  comment: Individual PCB layers in PDF format
+  type: pdf
+  dir: docs/pdf
+  layers:
+    - layer: footprints
+    - layer: comments
+    - layer: drill_holes
+    - layer: dimensions
+    - layer: submodule_outlines
+    - layer: panel_outline
+    - layer: pot_and_switch_sizes
