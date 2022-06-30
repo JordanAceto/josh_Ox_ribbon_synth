@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd ../
+
 boards=("$@")
 
 for board in "${boards[@]}";
