@@ -1494,40 +1494,40 @@
       (reference "R411") (unit 1) (value "100") (footprint "Resistor_SMD:R_0805_2012Metric")
     )
     (path "/e4d18b59-877e-44fc-8cfd-a9f46190382a/77b699ca-6849-4ef8-ae9a-5fe84188c907"
-      (reference "RV201") (unit 1) (value "500kA") (footprint "Potentiometer_THT:Potentiometer_Alpha_RD901F-40-00D_Single_Vertical")
+      (reference "RV201") (unit 1) (value "1MA") (footprint "Potentiometer_THT:Potentiometer_Alpha_RD901F-40-00D_Single_Vertical")
     )
     (path "/e4d18b59-877e-44fc-8cfd-a9f46190382a/9336f0a2-8d69-46fd-88d0-d778d6d7608c"
-      (reference "RV202") (unit 1) (value "500kA") (footprint "Potentiometer_THT:Potentiometer_Alpha_RD901F-40-00D_Single_Vertical")
+      (reference "RV202") (unit 1) (value "1MA") (footprint "Potentiometer_THT:Potentiometer_Alpha_RD901F-40-00D_Single_Vertical")
     )
     (path "/e4d18b59-877e-44fc-8cfd-a9f46190382a/f809aaed-f70e-4f25-9448-ab0a6a83b3ef"
       (reference "RV203") (unit 1) (value "10k") (footprint "Potentiometer_THT:Potentiometer_Alpha_RD901F-40-00D_Single_Vertical")
     )
     (path "/e4d18b59-877e-44fc-8cfd-a9f46190382a/901f7d76-9e3c-4e8f-a996-01b3c7d31be2"
-      (reference "RV204") (unit 1) (value "500kA") (footprint "Potentiometer_THT:Potentiometer_Alpha_RD901F-40-00D_Single_Vertical")
+      (reference "RV204") (unit 1) (value "1MA") (footprint "Potentiometer_THT:Potentiometer_Alpha_RD901F-40-00D_Single_Vertical")
     )
     (path "/e0309a72-837b-4cae-b346-ce9dcd8b6394/77b699ca-6849-4ef8-ae9a-5fe84188c907"
-      (reference "RV301") (unit 1) (value "500kA") (footprint "Potentiometer_THT:Potentiometer_Alpha_RD901F-40-00D_Single_Vertical")
+      (reference "RV301") (unit 1) (value "1MA") (footprint "Potentiometer_THT:Potentiometer_Alpha_RD901F-40-00D_Single_Vertical")
     )
     (path "/e0309a72-837b-4cae-b346-ce9dcd8b6394/9336f0a2-8d69-46fd-88d0-d778d6d7608c"
-      (reference "RV302") (unit 1) (value "500kA") (footprint "Potentiometer_THT:Potentiometer_Alpha_RD901F-40-00D_Single_Vertical")
+      (reference "RV302") (unit 1) (value "1MA") (footprint "Potentiometer_THT:Potentiometer_Alpha_RD901F-40-00D_Single_Vertical")
     )
     (path "/e0309a72-837b-4cae-b346-ce9dcd8b6394/f809aaed-f70e-4f25-9448-ab0a6a83b3ef"
       (reference "RV303") (unit 1) (value "10k") (footprint "Potentiometer_THT:Potentiometer_Alpha_RD901F-40-00D_Single_Vertical")
     )
     (path "/e0309a72-837b-4cae-b346-ce9dcd8b6394/901f7d76-9e3c-4e8f-a996-01b3c7d31be2"
-      (reference "RV304") (unit 1) (value "500kA") (footprint "Potentiometer_THT:Potentiometer_Alpha_RD901F-40-00D_Single_Vertical")
+      (reference "RV304") (unit 1) (value "1MA") (footprint "Potentiometer_THT:Potentiometer_Alpha_RD901F-40-00D_Single_Vertical")
     )
     (path "/57a22d4e-8a40-42f4-87b4-8d9723e9d186/77b699ca-6849-4ef8-ae9a-5fe84188c907"
-      (reference "RV401") (unit 1) (value "500kA") (footprint "Potentiometer_THT:Potentiometer_Alpha_RD901F-40-00D_Single_Vertical")
+      (reference "RV401") (unit 1) (value "1MA") (footprint "Potentiometer_THT:Potentiometer_Alpha_RD901F-40-00D_Single_Vertical")
     )
     (path "/57a22d4e-8a40-42f4-87b4-8d9723e9d186/9336f0a2-8d69-46fd-88d0-d778d6d7608c"
-      (reference "RV402") (unit 1) (value "500kA") (footprint "Potentiometer_THT:Potentiometer_Alpha_RD901F-40-00D_Single_Vertical")
+      (reference "RV402") (unit 1) (value "1MA") (footprint "Potentiometer_THT:Potentiometer_Alpha_RD901F-40-00D_Single_Vertical")
     )
     (path "/57a22d4e-8a40-42f4-87b4-8d9723e9d186/f809aaed-f70e-4f25-9448-ab0a6a83b3ef"
       (reference "RV403") (unit 1) (value "10k") (footprint "Potentiometer_THT:Potentiometer_Alpha_RD901F-40-00D_Single_Vertical")
     )
     (path "/57a22d4e-8a40-42f4-87b4-8d9723e9d186/901f7d76-9e3c-4e8f-a996-01b3c7d31be2"
-      (reference "RV404") (unit 1) (value "500kA") (footprint "Potentiometer_THT:Potentiometer_Alpha_RD901F-40-00D_Single_Vertical")
+      (reference "RV404") (unit 1) (value "1MA") (footprint "Potentiometer_THT:Potentiometer_Alpha_RD901F-40-00D_Single_Vertical")
     )
     (path "/e4d18b59-877e-44fc-8cfd-a9f46190382a/c3ebbe6d-8090-4749-862e-187a5efdb116"
       (reference "SW201") (unit 1) (value "SW_SPDT") (footprint "custom_footprints:SPDT_mini_toggle")
