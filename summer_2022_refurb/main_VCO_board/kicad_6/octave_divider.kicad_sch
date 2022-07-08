@@ -6,8 +6,8 @@
 
   (title_block
     (title "Josh Ox Ribon Synth Main VCO board")
-    (date "2022-06-18")
-    (rev "0")
+    (date "2022-07-07")
+    (rev "0.1")
     (comment 2 "creativecommons.org/licences/by/4.0")
     (comment 3 "license: CC by 4.0")
     (comment 4 "Author: Jordan Acete")
@@ -671,7 +671,7 @@
     (uuid da5eafe3-8e7b-47b7-909d-46e7cc3a9da2)
   )
 
-  (global_label "-5V REF" (shape input) (at 158.75 93.98 180) (fields_autoplaced)
+  (global_label "-5V_REF" (shape input) (at 158.75 93.98 180) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify right))
     (uuid fb15a519-80f1-4297-aea2-bdf151620684)
     (property "Intersheet References" "${INTERSHEET_REFS}" (id 0) (at 147.9912 93.9006 0)

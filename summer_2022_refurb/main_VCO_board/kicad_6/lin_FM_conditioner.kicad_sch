@@ -6,8 +6,8 @@
 
   (title_block
     (title "Josh Ox Ribon Synth Main VCO board")
-    (date "2022-06-18")
-    (rev "0")
+    (date "2022-07-07")
+    (rev "0.1")
     (comment 2 "creativecommons.org/licences/by/4.0")
     (comment 3 "license: CC by 4.0")
     (comment 4 "Author: Jordan Acete")
@@ -1316,8 +1316,8 @@
     (in_bom yes) (on_board yes)
     (uuid ea2cd4db-16e7-471f-a6f9-287d3c37c822)
     (property "Reference" "C401" (id 0) (at 73.66 79.9592 90))
-    (property "Value" "100n" (id 1) (at 73.66 82.2706 90))
-    (property "Footprint" "Capacitor_THT:C_Rect_L7.0mm_W2.5mm_P5.00mm" (id 2) (at 69.85 87.3252 0)
+    (property "Value" "470n" (id 1) (at 73.66 82.2706 90))
+    (property "Footprint" "Capacitor_THT:C_Rect_L7.2mm_W3.5mm_P5.00mm_FKS2_FKP2_MKS2_MKP2" (id 2) (at 69.85 87.3252 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (id 3) (at 73.66 86.36 0)
