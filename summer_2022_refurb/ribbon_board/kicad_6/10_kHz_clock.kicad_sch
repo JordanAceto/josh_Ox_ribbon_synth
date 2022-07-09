@@ -970,7 +970,7 @@
     (in_bom yes) (on_board yes) (fields_autoplaced)
     (uuid aa5b41ac-f55f-4c6f-a6f6-5e418b497a07)
     (property "Reference" "R701" (id 0) (at 107.95 68.58 90))
-    (property "Value" "R" (id 1) (at 107.95 71.12 90))
+    (property "Value" "100k" (id 1) (at 107.95 71.12 90))
     (property "Footprint" "Resistor_SMD:R_0805_2012Metric" (id 2) (at 107.95 76.708 90)
       (effects (font (size 1.27 1.27)) hide)
     )
