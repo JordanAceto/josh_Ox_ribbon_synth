@@ -1,13 +1,3 @@
-# Big Summer 2022 Refurb
-
-## Goals
-- Redo all the handmade protopboards and rats nest wiring with nice printed pcbs
-- Generate good quality documentation
-- Add any mods that Ox wants which are feasable
-- Maintain the general architecture, but make circuit improvements/updates/changes where appropriate
-
-## Status
-All major boards are built and tested. Waiting on next rev of the main VCO board.
 
 ## Quick notes on the old circuits:
 
