@@ -3,6 +3,7 @@ fp-info-cache
 *.bak
 *.kicad_sch-bak
 *kicad_prl
+*kicad_prl-bak
 .vscode
 *docs
 *.html
