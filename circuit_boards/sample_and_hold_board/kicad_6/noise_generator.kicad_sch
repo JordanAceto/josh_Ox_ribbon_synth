@@ -6,7 +6,7 @@
 
   (title_block
     (title "Josh Ox Ribbon Synth Sample and Hold Board")
-    (date "2022-06-16")
+    (date "2022-07-21")
     (rev "0")
     (comment 1 "creativecommons.org/licences/by/4.0")
     (comment 2 "License: CC by 4.0")
@@ -1682,7 +1682,7 @@
     (in_bom yes) (on_board yes) (fields_autoplaced)
     (uuid fdb28d0b-958a-4558-a8e4-76155bebbeb8)
     (property "Reference" "R9" (id 0) (at 195.58 50.8 90))
-    (property "Value" "220k" (id 1) (at 195.58 53.34 90))
+    (property "Value" "470k" (id 1) (at 195.58 53.34 90))
     (property "Footprint" "Resistor_SMD:R_0805_2012Metric" (id 2) (at 195.58 58.928 90)
       (effects (font (size 1.27 1.27)) hide)
     )

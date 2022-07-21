@@ -6,7 +6,7 @@
 
   (title_block
     (title "Josh Ox Ribbon Synth Sample and Hold Board")
-    (date "2022-06-16")
+    (date "2022-07-21")
     (rev "0")
     (comment 1 "creativecommons.org/licences/by/4.0")
     (comment 2 "License: CC by 4.0")
@@ -869,7 +869,7 @@
       (reference "R2") (unit 1) (value "100k") (footprint "Resistor_SMD:R_0805_2012Metric")
     )
     (path "/ad62e3f2-8025-4a0f-aea9-23c7d052a32c/e61a0fab-ed6d-46c8-b722-bc744fb120bc"
-      (reference "R3") (unit 1) (value "100k") (footprint "Resistor_SMD:R_0805_2012Metric")
+      (reference "R3") (unit 1) (value "47k") (footprint "Resistor_SMD:R_0805_2012Metric")
     )
     (path "/ad62e3f2-8025-4a0f-aea9-23c7d052a32c/9d3ee4be-f50b-4242-8845-61022f842272"
       (reference "R4") (unit 1) (value "100k") (footprint "Resistor_SMD:R_0805_2012Metric")
@@ -887,7 +887,7 @@
       (reference "R8") (unit 1) (value "10k") (footprint "Resistor_SMD:R_0805_2012Metric")
     )
     (path "/58c4a3ae-5ff6-49c6-b1c2-f707c76dc22b/fdb28d0b-958a-4558-a8e4-76155bebbeb8"
-      (reference "R9") (unit 1) (value "220k") (footprint "Resistor_SMD:R_0805_2012Metric")
+      (reference "R9") (unit 1) (value "470k") (footprint "Resistor_SMD:R_0805_2012Metric")
     )
     (path "/58c4a3ae-5ff6-49c6-b1c2-f707c76dc22b/4e854087-9da1-4de3-8b32-541a79e39369"
       (reference "R10") (unit 1) (value "33k") (footprint "Resistor_SMD:R_0805_2012Metric")
@@ -923,7 +923,7 @@
       (reference "R20") (unit 1) (value "1M") (footprint "Resistor_SMD:R_0805_2012Metric")
     )
     (path "/8342b502-8c3f-4001-adca-c2ddfcc1433a/187457eb-0395-4688-b535-91d5e66f3ca7"
-      (reference "R21") (unit 1) (value "100k") (footprint "Resistor_SMD:R_0805_2012Metric")
+      (reference "R21") (unit 1) (value "1M") (footprint "Resistor_SMD:R_0805_2012Metric")
     )
     (path "/8342b502-8c3f-4001-adca-c2ddfcc1433a/7c1132d5-db1e-45ad-bc71-e4a1109bdb45"
       (reference "R22") (unit 1) (value "10k") (footprint "Resistor_SMD:R_0805_2012Metric")
