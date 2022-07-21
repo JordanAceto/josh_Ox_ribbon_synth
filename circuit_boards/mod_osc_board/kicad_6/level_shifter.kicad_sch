@@ -6,7 +6,7 @@
 
   (title_block
     (title "Josh Ox Ribbon Synth Mod Osc board")
-    (date "2022-06-17")
+    (date "2022-07-21")
     (rev "0")
     (comment 2 "creativecommons.org/licences/by/4.0")
     (comment 3 "license: CC by 4.0")
@@ -352,7 +352,7 @@
     (in_bom yes) (on_board yes) (fields_autoplaced)
     (uuid a15ba6dc-1cb5-4433-b917-3eaedc44fef7)
     (property "Reference" "R301" (id 0) (at 132.08 95.25 90))
-    (property "Value" "100k" (id 1) (at 132.08 97.79 90))
+    (property "Value" "47k" (id 1) (at 132.08 97.79 90))
     (property "Footprint" "Resistor_SMD:R_0805_2012Metric" (id 2) (at 132.08 103.378 90)
       (effects (font (size 1.27 1.27)) hide)
     )
