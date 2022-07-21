@@ -6,7 +6,7 @@
 
   (title_block
     (title "Josh Ox Ribbon Synth VCF/VCA board")
-    (date "2022-06-16")
+    (date "2022-07-21")
     (rev "0")
     (comment 1 "creativecommons.org/licenses/by/4.0/")
     (comment 2 "License: CC by 4.0")
@@ -1461,7 +1461,7 @@
     (in_bom yes) (on_board yes) (fields_autoplaced)
     (uuid 786d1db9-3f63-4df5-a08c-e3b2003791ca)
     (property "Reference" "C205" (id 0) (at 90.17 123.19 90))
-    (property "Value" "C" (id 1) (at 90.17 125.73 90))
+    (property "Value" "10p" (id 1) (at 90.17 125.73 90))
     (property "Footprint" "Capacitor_SMD:C_0805_2012Metric" (id 2) (at 93.98 129.8448 0)
       (effects (font (size 1.27 1.27)) hide)
     )

@@ -6,7 +6,7 @@
 
   (title_block
     (title "Josh Ox Ribbon Synth VCF/VCA board")
-    (date "2022-06-16")
+    (date "2022-07-21")
     (rev "0")
     (comment 1 "creativecommons.org/licenses/by/4.0/")
     (comment 2 "License: CC by 4.0")
@@ -1711,7 +1711,7 @@
       (reference "C204") (unit 1) (value "1n2") (footprint "Capacitor_SMD:C_0805_2012Metric")
     )
     (path "/1409b373-99c0-424d-8da3-27ce4339b882/786d1db9-3f63-4df5-a08c-e3b2003791ca"
-      (reference "C205") (unit 1) (value "C") (footprint "Capacitor_SMD:C_0805_2012Metric")
+      (reference "C205") (unit 1) (value "10p") (footprint "Capacitor_SMD:C_0805_2012Metric")
     )
     (path "/1409b373-99c0-424d-8da3-27ce4339b882/a4496dc2-9db4-4189-bfbc-8b5a64d8061b"
       (reference "C206") (unit 1) (value "1n2") (footprint "Capacitor_SMD:C_0805_2012Metric")
@@ -1729,7 +1729,7 @@
       (reference "C304") (unit 1) (value "1n2") (footprint "Capacitor_SMD:C_0805_2012Metric")
     )
     (path "/37a331b1-4a17-44d3-a1ac-94e342e2bb9d/786d1db9-3f63-4df5-a08c-e3b2003791ca"
-      (reference "C305") (unit 1) (value "C") (footprint "Capacitor_SMD:C_0805_2012Metric")
+      (reference "C305") (unit 1) (value "10p") (footprint "Capacitor_SMD:C_0805_2012Metric")
     )
     (path "/37a331b1-4a17-44d3-a1ac-94e342e2bb9d/a4496dc2-9db4-4189-bfbc-8b5a64d8061b"
       (reference "C306") (unit 1) (value "1n2") (footprint "Capacitor_SMD:C_0805_2012Metric")
@@ -1855,10 +1855,10 @@
       (reference "D302") (unit 1) (value "5v1") (footprint "Diode_SMD:D_SOD-123")
     )
     (path "/adeff382-4500-49dc-8350-2b9b275b5490/e03a20f0-ae95-4997-9514-b9656effecd7"
-      (reference "D401") (unit 1) (value "D_Zener") (footprint "Diode_SMD:D_SOD-123")
+      (reference "D401") (unit 1) (value "2v4") (footprint "Diode_SMD:D_SOD-123")
     )
     (path "/adeff382-4500-49dc-8350-2b9b275b5490/ddecc023-5fe7-425a-a37e-1433d5ea1d0f"
-      (reference "D402") (unit 1) (value "D_Zener") (footprint "Diode_SMD:D_SOD-123")
+      (reference "D402") (unit 1) (value "2v4") (footprint "Diode_SMD:D_SOD-123")
     )
     (path "/c4b61a5a-be32-452d-8130-993e18c59157/63aba055-02d4-4ffc-b70b-fb88f2f4f21d"
       (reference "D501") (unit 1) (value "1N4148W") (footprint "Diode_SMD:D_SOD-123")
@@ -2089,7 +2089,7 @@
       (reference "R522") (unit 1) (value "100k") (footprint "Resistor_SMD:R_0805_2012Metric")
     )
     (path "/c4b61a5a-be32-452d-8130-993e18c59157/7298b593-d4b7-4296-b36d-38be99ddcd6a"
-      (reference "R523") (unit 1) (value "?") (footprint "Resistor_SMD:R_0805_2012Metric")
+      (reference "R523") (unit 1) (value "68k") (footprint "Resistor_SMD:R_0805_2012Metric")
     )
     (path "/c4b61a5a-be32-452d-8130-993e18c59157/d536059b-9d45-4c6f-85a6-92e451d84122"
       (reference "R524") (unit 1) (value "100k") (footprint "Resistor_SMD:R_0805_2012Metric")
@@ -2134,10 +2134,10 @@
       (reference "RV509") (unit 1) (value "100k") (footprint "Potentiometer_THT:Potentiometer_Alpha_RD901F-40-00D_Single_Vertical")
     )
     (path "/c4b61a5a-be32-452d-8130-993e18c59157/697d4999-93f1-403e-8d0c-2480c55fb3d9"
-      (reference "RV510") (unit 1) (value "5k") (footprint "Potentiometer_THT:Potentiometer_Bourns_3296W_Vertical")
+      (reference "RV510") (unit 1) (value "100k") (footprint "Potentiometer_THT:Potentiometer_Bourns_3296W_Vertical")
     )
     (path "/c4b61a5a-be32-452d-8130-993e18c59157/bb723755-05c1-4f3d-a6b7-f936a2b3e907"
-      (reference "RV511") (unit 1) (value "5k") (footprint "Potentiometer_THT:Potentiometer_Bourns_3296W_Vertical")
+      (reference "RV511") (unit 1) (value "100k") (footprint "Potentiometer_THT:Potentiometer_Bourns_3296W_Vertical")
     )
     (path "/97141397-6856-4796-b0cf-24cb219be9f0"
       (reference "SW1") (unit 2) (value "SR1712F-0204") (footprint "custom_footprints:SR1712F_rotary_switch")

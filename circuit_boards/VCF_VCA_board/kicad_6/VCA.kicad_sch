@@ -6,7 +6,7 @@
 
   (title_block
     (title "Josh Ox Ribbon Synth VCF/VCA board")
-    (date "2022-06-16")
+    (date "2022-07-21")
     (rev "0")
     (comment 1 "creativecommons.org/licenses/by/4.0/")
     (comment 2 "License: CC by 4.0")
@@ -1221,7 +1221,7 @@
     (property "Reference" "D402" (id 0) (at 209.55 88.8999 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Value" "D_Zener" (id 1) (at 209.55 91.4399 90)
+    (property "Value" "2v4" (id 1) (at 209.55 91.4399 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Footprint" "Diode_SMD:D_SOD-123" (id 2) (at 207.01 90.17 0)
@@ -1240,7 +1240,7 @@
     (property "Reference" "D401" (id 0) (at 209.55 78.7399 90)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "D_Zener" (id 1) (at 209.55 81.2799 90)
+    (property "Value" "2v4" (id 1) (at 209.55 81.2799 90)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Footprint" "Diode_SMD:D_SOD-123" (id 2) (at 207.01 80.01 0)
