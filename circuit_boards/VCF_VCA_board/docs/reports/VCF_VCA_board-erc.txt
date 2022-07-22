@@ -1,0 +1,15 @@
+ERC report (Thu Jul 21 18:26:43 2022, Encoding UTF8)
+
+***** Sheet /
+
+***** Sheet /SVF_A/
+
+***** Sheet /SVF_B/
+
+***** Sheet /VCA/
+
+***** Sheet /CV_mixer/
+
+***** Sheet /power_supply/
+
+ ** ERC messages: 0  Errors 0  Warnings 0

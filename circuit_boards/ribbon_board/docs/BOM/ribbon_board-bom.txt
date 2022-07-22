@@ -1,0 +1,56 @@
+Row	Description	Part	References	Value	Footprint	Quantity Per PCB	Status	Datasheet
+1	Unpolarized capacitor	C	C701	1n	C_0805_2012Metric	1	 	~
+2	Unpolarized capacitor	C	C401 C801 C1001	2n2	C_0805_2012Metric	3	 	~
+3	Unpolarized capacitor	C	C702 C703	4n7	C_0805_2012Metric	2	 	~
+4	Unpolarized capacitor	C	C802 C901 C1002	10n	C_0805_2012Metric	3	 	~
+5	Unpolarized capacitor	C	C3 C4 C5 C6 C7 C8 C9 C10 C11 C12 C13 C14 C15 C16 C17 C18 C19 C20 C21 C22 C23 C24 C25 C26 C27 C28 C29 C30 C302	100n	C_0805_2012Metric	29	 	~
+6	Unpolarized capacitor	C	C301	470n	C_0805_2012Metric	1	 	~
+7	Unpolarized capacitor	C	C803 C1003	1u	C_Rect_L7.2mm_W5.5mm_P5.00mm_FKS2_FKP2_MKS2_MKP2	2	 	~
+8	Polarized capacitor	C_Polarized	C1 C2	10u	CP_Radial_D6.3mm_P2.50mm	2	 	~
+9	75V 0.15A Fast Switching Diode, SOD-123	1N4148W	D501 D502 D901 D1301 D1302 D1303 D1304 D1401 D1402 D1403 D1404 D1501 D1502 D1503 D1504 D1601 D1602 D1603 D1604	1N4148W	D_SOD-123	19	 	https://www.vishay.com/docs/85748/1n4148w.pdf
+10	Generic connector, single row, 01x05, script generated (kicad-library-utils/schlib/autogen/connector/)	Conn_01x05	J4	ADSR_port	Molex_KK-254_AE-6410-05A_1x05_P2.54mm_Vertical	1	 	~
+11	Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)	Conn_01x02	J5	S&H_port	Molex_KK-254_AE-6410-02A_1x02_P2.54mm_Vertical	1	 	~
+12	Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)	Conn_01x04	J2 J6	VCF_port	Molex_KK-254_AE-6410-04A_1x04_P2.54mm_Vertical	2	 	~
+13	Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)	Conn_01x03	J1 J3 J301	VCO_port	Molex_KK-254_AE-6410-03A_1x03_P2.54mm_Vertical	3	 	~
+14	Generic connector, double row, 02x05, odd/even pin numbering scheme (row 1 odd numbers, row 2 even numbers), script generated (kicad-library-utils/schlib/autogen/connector/)	Conn_02x05_Odd_Even	J7	power_entry	IDC-Header_2x05_P2.54mm_Vertical	1	 	~
+15	Resistor	R	R301	100	R_0805_2012Metric	1	 	~
+16	Resistor	R	R507 R508	470	R_0805_2012Metric	2	 	~
+17	Resistor	R	R101 R102	1k	R_0805_2012Metric	2	 	~
+18	Resistor	R	R402 R802 R805 R1002 R1005	1k8	R_0805_2012Metric	5	 	~
+19	Resistor	R	R302	4k7	R_0805_2012Metric	1	 	~
+20	Resistor	R	R401 R801 R804 R1001 R1004	5k6	R_0805_2012Metric	5	 	~
+21	Resistor	R	R201 R603 R702 R703 R1201 R1202 R1205 R1206	10k	R_0805_2012Metric	8	 	~
+22	Resistor	R	R202 R203 R501 R502 R503 R504 R509 R601 R602 R604 R701 R1101 R1102 R1103 R1104 R1203 R1207 R1301 R1302 R1401 R1402 R1501 R1502 R1601 R1602 R1702	100k	R_0805_2012Metric	26	 	~
+23	Resistor	R	R901	120k	R_0805_2012Metric	1	 	~
+24	Resistor	R	R505 R506 R1701	150k	R_0805_2012Metric	3	 	~
+25	Resistor	R	R303 R803 R1003 R1204 R1208	1M2	R_0805_2012Metric	5	 	~
+26	Potentiometer	R_Potentiometer	RV101 RV102 RV103 RV104 RV1701	100k c.d.	Potentiometer_Alpha_RD901F-40-00D_Single_Vertical	5	 	~
+27	Trim-potentiometer	R_Potentiometer_Trim	RV201 RV601	100k	Potentiometer_Bourns_3296W_Vertical	2	 	~
+28	Switch, single pole double throw	SW_SPDT	SW201 SW1201 SW1701	SW_SPDT	SPDT_mini_toggle	3	 	~
+29	Switch, single pole double throw, center OFF position	SW_SPDT_MSM	SW1301 SW1401 SW1501 SW1601	SW_SPDT_MSM	SPDT_mini_toggle	4	 	~
+30	Hex Schmitt trigger inverter	40106	U6 U7	40106	SOIC-14_3.9x8.7mm_P1.27mm	2	 	https://assets.nexperia.com/documents/data-sheet/HEF40106B.pdf
+31	Dual D  FlipFlop, Set & reset	4013	U5	4013	SOIC-14_3.9x8.7mm_P1.27mm	1	 	http://www.onsemi.com/pub/Collateral/MC14013B-D.PDF
+32	Johnson Counter ( 10 outputs )	4017	U702	4017	SOIC-16_3.9x9.9mm_P1.27mm	1	 	http://www.intersil.com/content/dam/Intersil/documents/cd40/cd4017bms-22bms.pdf
+33	Quad And 2 inputs	4081	U4 U8	4081	SOIC-14_3.9x8.7mm_P1.27mm	2	 	http://www.intersil.com/content/dam/Intersil/documents/cd40/cd4073bms-81bms-82bms.pdf
+34	Positive 100mA 30V Linear Regulator, Fixed Output 10V, SOT-89	L78L10_SOT89	U301	L78L10_SOT89	SOT-89-3	1	 	http://www.st.com/content/ccc/resource/technical/document/datasheet/15/55/e5/aa/23/5b/43/fd/CD00000446.pdf/files/CD00000446.pdf/jcr:content/translations/en.CD00000446.pdf
+35	Sample And Hold Unity Gain Follower, SOIC-14	LF398_SOIC14	U401 U803 U804 U1003 U1004	LF398_SOIC14	SOIC-14_3.9x8.7mm_P1.27mm	5	 	http://www.ti.com/lit/ds/symlink/lf398-n.pdf
+36	Low-Power, Dual Operational Amplifiers, DIP-8/SOIC-8/TO-99-8	LM358	U601	LM358	SOIC-8_3.9x4.9mm_P1.27mm	1	 	http://www.ti.com/lit/ds/symlink/lm2904-n.pdf
+37	Dual Low-Noise JFET-Input Operational Amplifiers, DIP-8/SOIC-8	TL072	U1 U2 U3 U9 U10	TL072	SO-8_5.3x6.2mm_P1.27mm	5	 	http://www.ti.com/lit/ds/symlink/tl071.pdf
+38	Single LinCMOS Timer, 555 compatible, SOIC-8	TLC555xD	U802 U1002	TLC555xD	SOIC-8_3.9x4.9mm_P1.27mm	2	 	http://www.ti.com/lit/ds/symlink/tlc555.pdf
+
+
+
+
+
+Project info:
+Schematic:	ribbon_board
+Variant:	default
+Revision:	0
+Date:	2022-06-17
+KiCad Version:	6.0.5+dfsg-1~bpo11+1
+Statistics:
+Component Groups:	38
+Component Count:	163 (126 SMD/ 26 THT)
+Fitted Components:	163 (126 SMD/ 26 THT)
+Number of PCBs:	1
+Total Components:	163

@@ -1,0 +1,10 @@
+** Drc report for /home/jordan/Documents/audio_projects/sandbox/josh_Ox_ribbon_synth/circuit_boards/power_supply_board/kicad_6/power_supply.kicad_pcb **
+** Created on 2022-07-16 13:24:40 **
+
+** Found 0 DRC violations **
+
+** Found 0 unconnected pads **
+
+** Found 0 Footprint errors **
+
+** End of Report **

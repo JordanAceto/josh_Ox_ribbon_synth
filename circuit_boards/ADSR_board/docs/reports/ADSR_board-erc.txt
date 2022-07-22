@@ -1,0 +1,13 @@
+ERC report (Thu Jun 30 11:54:20 2022, Encoding UTF8)
+
+***** Sheet /
+
+***** Sheet /modulation_ADSR/
+
+***** Sheet /VCF_ADSR/
+
+***** Sheet /VCA_ADSR/
+
+***** Sheet /power_supply/
+
+ ** ERC messages: 0  Errors 0  Warnings 0

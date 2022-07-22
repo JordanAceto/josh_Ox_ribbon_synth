@@ -1,0 +1,13 @@
+ERC report (Thu Jul 21 21:01:21 2022, Encoding UTF8)
+
+***** Sheet /
+
+***** Sheet /VCO_core/
+
+***** Sheet /level_shifter/
+
+***** Sheet /led_driver/
+
+***** Sheet /power_supply/
+
+ ** ERC messages: 0  Errors 0  Warnings 0

@@ -1,0 +1,10 @@
+** Drc report for /home/jordan/Documents/audio_projects/sandbox/josh_Ox_ribbon_synth/summer_2022_refurb/ADSR_board/kicad_6/ADSR_board.kicad_pcb **
+** Created on 2022-06-30 11:54:21 **
+
+** Found 0 DRC violations **
+
+** Found 0 unconnected pads **
+
+** Found 0 Footprint errors **
+
+** End of Report **
