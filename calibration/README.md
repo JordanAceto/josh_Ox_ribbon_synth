@@ -69,7 +69,7 @@ Suboctave 1 calibration procedure:
 5. Set the Suboctave 1 waveshape switch to `TRIANGLE`
 6. Adjust the trimmer labeled `(3)` for the cleanest triangle
 7. Set the Suboctave 1 waveshape switch to `SINE`
-8. Adjust trimmers `(5)` and `(6)` for the cleanest sine wave
+8. Adjust trimmers `(4)` and `(5)` for the cleanest sine wave
 
 ![](./images/main_VCO_suboct1_trimmers.png)
 
