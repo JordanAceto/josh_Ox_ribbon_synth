@@ -514,6 +514,12 @@
     (uuid fa7bc6c9-d2a2-4446-bd82-9858573221c2)
   )
 
+  (text "The ribbon itself is a 400mm\nSpectra Symbol \"SoftPot\"\nhttps://www.spectrasymbol.com/wp-content/uploads/2016/12/SOFTPOT-DATA-SHEET-Rev-F3.pdf"
+    (at 71.12 54.61 0)
+    (effects (font (size 2 2)) (justify left bottom))
+    (uuid 5a079d88-aa07-4ebf-bf60-a9f4e5f1bcba)
+  )
+
   (hierarchical_label "RAW_RIBBON" (shape output) (at 208.28 110.49 0)
     (effects (font (size 1.27 1.27)) (justify left))
     (uuid 32d08bed-b916-43de-97cb-1d9026ea5d79)
