@@ -6,7 +6,7 @@
 
   (title_block
     (title "Josh Ox Ribon Synth Main VCO board")
-    (date "2022-07-07")
+    (date "2022-07-23")
     (rev "0.1")
     (comment 2 "creativecommons.org/licences/by/4.0")
     (comment 3 "license: CC by 4.0")
@@ -882,7 +882,7 @@
     (in_bom yes) (on_board yes) (fields_autoplaced)
     (uuid 81a1075c-aa9d-4566-af7d-22a63ac0beab)
     (property "Reference" "R2206" (id 0) (at 147.32 147.32 90))
-    (property "Value" "100k" (id 1) (at 147.32 149.86 90))
+    (property "Value" "33k" (id 1) (at 147.32 149.86 90))
     (property "Footprint" "Resistor_SMD:R_0805_2012Metric" (id 2) (at 147.32 155.448 90)
       (effects (font (size 1.27 1.27)) hide)
     )

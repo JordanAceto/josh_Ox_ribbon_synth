@@ -6,7 +6,7 @@
 
   (title_block
     (title "Josh Ox Ribon Synth Main VCO board")
-    (date "2022-07-07")
+    (date "2022-07-23")
     (rev "0.1")
     (comment 2 "creativecommons.org/licences/by/4.0")
     (comment 3 "license: CC by 4.0")
@@ -2669,7 +2669,7 @@
       (reference "R2205") (unit 1) (value "100k") (footprint "Resistor_SMD:R_0805_2012Metric")
     )
     (path "/e9774851-d911-4b6e-a77e-0b5bf79b333d/81a1075c-aa9d-4566-af7d-22a63ac0beab"
-      (reference "R2206") (unit 1) (value "100k") (footprint "Resistor_SMD:R_0805_2012Metric")
+      (reference "R2206") (unit 1) (value "33k") (footprint "Resistor_SMD:R_0805_2012Metric")
     )
     (path "/e9774851-d911-4b6e-a77e-0b5bf79b333d/e437f28a-12ec-4030-931a-a2eec752f62d"
       (reference "R2207") (unit 1) (value "82k") (footprint "Resistor_SMD:R_0805_2012Metric")
