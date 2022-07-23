@@ -10,4 +10,6 @@ This synth is in the middle of a major refurb. All the old handmade protoboards 
 - Maintain the general architecture, but make circuit improvements/updates/changes where appropriate
 
 ## Status
-All major boards are built and tested. Waiting on next rev of the main VCO board.
+All major boards are built and tested.
+
+The main VCO board requires a couple minor pcb kludges to make the Ring Modulator work, but otherwise all systems are working.
