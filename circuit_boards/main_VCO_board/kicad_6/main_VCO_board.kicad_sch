@@ -1850,7 +1850,7 @@
       (reference "C303") (unit 1) (value "3N9 COG") (footprint "Capacitor_SMD:C_0805_2012Metric")
     )
     (path "/7d1f7961-ee8b-4988-bb19-85d251d3b03f/a055d82e-b62e-4fa0-a1e9-f161905ed874/ea2cd4db-16e7-471f-a6f9-287d3c37c822"
-      (reference "C401") (unit 1) (value "470n") (footprint "Capacitor_THT:C_Rect_L7.2mm_W3.5mm_P5.00mm_FKS2_FKP2_MKS2_MKP2")
+      (reference "C401") (unit 1) (value "10u BP") (footprint "Capacitor_THT:C_Rect_L7.2mm_W3.5mm_P5.00mm_FKS2_FKP2_MKS2_MKP2")
     )
     (path "/7d1f7961-ee8b-4988-bb19-85d251d3b03f/a055d82e-b62e-4fa0-a1e9-f161905ed874/a4b5cccc-d851-4528-a18d-d484f36e7f41"
       (reference "C402") (unit 1) (value "100p") (footprint "Capacitor_SMD:C_0805_2012Metric")
@@ -2252,7 +2252,7 @@
       (reference "R401") (unit 1) (value "100k") (footprint "Resistor_SMD:R_0805_2012Metric")
     )
     (path "/7d1f7961-ee8b-4988-bb19-85d251d3b03f/a055d82e-b62e-4fa0-a1e9-f161905ed874/8898c56e-effd-4524-9323-4eca4bcf75b1"
-      (reference "R402") (unit 1) (value "100k") (footprint "Resistor_SMD:R_0805_2012Metric")
+      (reference "R402") (unit 1) (value "33k") (footprint "Resistor_SMD:R_0805_2012Metric")
     )
     (path "/7d1f7961-ee8b-4988-bb19-85d251d3b03f/a055d82e-b62e-4fa0-a1e9-f161905ed874/fb6d2bf1-fe8f-44f8-8a8f-2c1769fd39b3"
       (reference "R403") (unit 1) (value "100k") (footprint "Resistor_SMD:R_0805_2012Metric")
