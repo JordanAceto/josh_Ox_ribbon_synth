@@ -160,8 +160,8 @@ Once the ribbon gate is reliably firing, monitor the ribbon CV signal at the `SL
 The ribbon span calibration is a matter of taste. Here is how I set it up
 
 1. Monitor the VCO with an audio amplifier and frequency counter/tuner
-2. Turn the Ribbon Control pot to the VCO all the way up
+2. Turn the Ribbon Control pot to the VCO half way up
 3. Slide the ribbon from the bottom all the way to the top, back and forth
-4. Adjust the trimmer indicated below such that the span is _ octaves
+4. Adjust the trimmer indicated below such that the span is 2 octaves
 
 ![](./images/ribbon_span_trimmer.png)
