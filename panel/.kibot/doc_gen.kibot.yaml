@@ -1,7 +1,0 @@
-kibot:
-  version: 1
-
-import:
-  - file: includes/pdf_outs.kibot.yaml
-  - file: includes/dxf_outs.kibot.yaml
-  - file: includes/svg_outs.kibot.yaml

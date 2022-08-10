@@ -1,7 +1,7 @@
-# New panel files
+# Panel Files
 
-I hope to make a nice new panel for this synth, but it might be pushed back if I don't finish it over the summer.
+The front panel is made of an aluminum sheet, with individual 0.8mm thick PCB panels for each major circuit block.
 
-The files in this directory are just sketches so far. I am using the KiCad pcb files to make sure all the panel components line up and such.
+The PCB panels are a cheap way to get a decent looking front panel. Using individual panels keeps the cost of each panel down, and allows for flexibility: if a circuit block needs to be modified in the future, we can remake just the individual panel section, and not the whole front panel.
 
-More to come, but it might not be for a while.
+See the individual directories for details.
