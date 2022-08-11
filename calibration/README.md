@@ -12,6 +12,14 @@ Be aware that there is mains voltage inside the synth, keep away from the IEC po
 
 ---
 
+## Accessing the electronics
+
+The easiest way to access the inside of the instrument for calibration, repairs, or mods is to remove the wooden **bottom** cover. Leave the front panel attached to the wooden frame.
+
+Once the bottom cover is off, I usually set the instrument on its side so that it sticks up in the air tall-ways. This makes it easier to access the front panel controls, jacks, and circuitboards all at the same time. It makes calibration easier if you can tweak the front panel controls as you adjust the internal trim potentiometers.
+
+---
+
 ## Power Supply Board
 
 The power supply board must be calibrated first thing, before any other circuit board calibration is attempted.
@@ -22,6 +30,8 @@ The power supply board must be calibrated first thing, before any other circuit 
 4. Do the same process with the `V-` test point and adjust `RV2` for -15VDC
 
 ![](./images/power_supply_trimmers.png)
+
+---
 
 ## Main VCO Board
 
@@ -90,6 +100,8 @@ To do this you will need to kill the signal to each input one at a time while mo
 
 ![](./images/main_VCO_ringmod_trimmers.png)
 
+---
+
 ## Mod OSC Board
 
 The Modulation Oscillator uses the same VCO core as the main VCO, and the tuning calibration is identical except that the frequency range goes lower.
@@ -99,6 +111,8 @@ See the [SSI2130 datasheet](https://www.soundsemiconductor.com/downloads/ssi2130
 The Mod Osc is intended primarily for modulation duties, and precise tuning is not as critical as the main VCO.
 
 ![](./images/modosc_tuning_trimmers.png)
+
+---
 
 ## VCF/VCA board
 
@@ -133,6 +147,8 @@ This calibration is largely a matter of taste. Here is what I do:
 Once the VCF tuning and base frequency are roughly trimmed, I go back and make sure that they track well together and are very close to the same frequency when the Separation control is at 12 o'clock. 
 
 ![](./images/VCF_base_freq_trimmers.png)
+
+---
 
 ## Ribbon board
 
