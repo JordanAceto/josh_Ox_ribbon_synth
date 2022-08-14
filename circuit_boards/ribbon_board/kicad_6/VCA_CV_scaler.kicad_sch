@@ -606,7 +606,7 @@
     (property "Reference" "RV1701" (id 0) (at 143.51 102.8699 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Value" "100k" (id 1) (at 143.51 105.4099 0)
+    (property "Value" "100k A" (id 1) (at 143.51 105.4099 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Footprint" "Potentiometer_THT:Potentiometer_Alpha_RD901F-40-00D_Single_Vertical" (id 2) (at 146.05 104.14 0)

@@ -1949,7 +1949,7 @@
       (reference "RV601") (unit 1) (value "100k") (footprint "Potentiometer_THT:Potentiometer_Bourns_3296W_Vertical")
     )
     (path "/7d8cf602-f79d-4fe2-a189-52e1845165c8/f8908367-4284-4508-a5aa-c72c21e26c5f"
-      (reference "RV1701") (unit 1) (value "100k") (footprint "Potentiometer_THT:Potentiometer_Alpha_RD901F-40-00D_Single_Vertical")
+      (reference "RV1701") (unit 1) (value "100k A") (footprint "Potentiometer_THT:Potentiometer_Alpha_RD901F-40-00D_Single_Vertical")
     )
     (path "/0616ce9c-e8a4-4287-aefe-6d4e4c9f6bec/e66e62d7-f22b-42fe-b993-dc0ce3b3f939"
       (reference "SW201") (unit 1) (value "SW_SPDT") (footprint "custom_footprints:SPDT_mini_toggle")
