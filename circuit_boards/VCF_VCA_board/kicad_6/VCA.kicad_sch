@@ -834,7 +834,7 @@
     (in_bom yes) (on_board yes)
     (uuid 17d44162-fac4-4108-8b36-e77fdf4db6a8)
     (property "Reference" "R407" (id 0) (at 85.09 110.49 90))
-    (property "Value" "2M2" (id 1) (at 85.09 113.03 90))
+    (property "Value" "10M" (id 1) (at 85.09 113.03 90))
     (property "Footprint" "Resistor_SMD:R_0805_2012Metric" (id 2) (at 85.09 117.348 90)
       (effects (font (size 1.27 1.27)) hide)
     )

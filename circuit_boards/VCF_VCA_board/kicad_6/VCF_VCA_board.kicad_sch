@@ -2008,7 +2008,7 @@
       (reference "R406") (unit 1) (value "100k") (footprint "Resistor_SMD:R_0805_2012Metric")
     )
     (path "/adeff382-4500-49dc-8350-2b9b275b5490/17d44162-fac4-4108-8b36-e77fdf4db6a8"
-      (reference "R407") (unit 1) (value "2M2") (footprint "Resistor_SMD:R_0805_2012Metric")
+      (reference "R407") (unit 1) (value "10M") (footprint "Resistor_SMD:R_0805_2012Metric")
     )
     (path "/adeff382-4500-49dc-8350-2b9b275b5490/a160de43-4a4d-407d-820e-d07ee9c2d005"
       (reference "R408") (unit 1) (value "100k") (footprint "Resistor_SMD:R_0805_2012Metric")
