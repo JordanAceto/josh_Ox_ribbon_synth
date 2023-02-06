@@ -1,0 +1,93 @@
+Row	Description	Part	References	Value	Footprint	Quantity Per PCB	Status	Datasheet
+1	Unpolarized capacitor	C	C1106	33p	C_0805_2012Metric	1	 	~
+2	Unpolarized capacitor	C	C401 C402 C403 C404 C405 C501 C504 C601 C1201 C1202 C1203 C1301 C1304	100p	C_0805_2012Metric	13	 	~
+3	Unpolarized capacitor	C	C202 C204 C302 C304 C702 C801 C802 C803 C804 C1001 C1002 C1003 C1004 C1103	220p C0G	C_0805_2012Metric	14	 	~
+4	Unpolarized capacitor	C	C1206	330p C0G	C_0805_2012Metric	1	 	~
+5	Unpolarized capacitor	C	C805 C1005 C1205	470p	C_0805_2012Metric	3	 	~
+6	Unpolarized capacitor	C	C201 C203 C301 C303 C502 C503 C1105 C1302 C1303	1n	C_0805_2012Metric	9	 	~
+7	Unpolarized capacitor	C	C1204	10n	C_0805_2012Metric	1	 	~
+8	Unpolarized capacitor	C	C907 C908 C1207 C1403 C1404 C1405 C1406 C1407 C1408 C1409 C1410 C1411 C1412 C1413 C1414 C1415 C1416 C1417 C1418 C1419 C1420 C1421 C1422 C1423 C1424 C1425 C1426 C1427 C1428 C1429 C1430 C1431 C1432 C1433 C1434 C1435 C1436 C1437 C1438 C1439 C1440 C1441 C1442 C1443	100n	C_0805_2012Metric	44	 	~
+9	Unpolarized capacitor	C	C703 C1102	220n	C_0805_2012Metric	2	 	~
+10	Unpolarized capacitor	C	C701 C706 C901 C903 C906 C1101 C1104	470n	C_Rect_L7.0mm_W3.5mm_P5.00mm	7	 	~
+11	Unpolarized capacitor	C	C705	2u2	C_0805_2012Metric	1	 	~
+12	Unpolarized capacitor	C	C101	10u	C_Radial_D6.3mm_H7.0mm_P2.50mm	1	 	~
+13	Polarized capacitor	C_Polarized	C1401 C1402	10u	CP_Radial_D6.3mm_P2.50mm	2	 	~
+14	Unpolarized capacitor	C	C704 C902 C904 C905	10u	C_0805_2012Metric	4	 	~
+15	75V 0.15A Fast Switching Diode, SOD-123	1N4148W	D401 D402 D403 D404 D901 D902 D1201 D1202 D1203 D1204	1N4148W	D_SOD-123	10	 	https://www.vishay.com/docs/85748/1n4148w.pdf
+16	Zener diode	D_Zener	D101 D102	2v4	D_SOD-123	2	 	~
+17	Zener diode	D_Zener	D201 D202 D301 D302	5v1	D_SOD-123	4	 	~
+18	Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)	Conn_01x03	J4 J5 J101	S&H_port	Molex_KK-254_AE-6410-03A_1x03_P2.54mm_Vertical	3	 	~
+19	Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)	Conn_01x04	J2	ext_port	Molex_KK-254_AE-6410-04A_1x04_P2.54mm_Vertical	1	 	~
+20	Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)	Conn_01x02	J3	mod_osc_port	Molex_KK-254_AE-6410-02A_1x02_P2.54mm_Vertical	1	 	~
+21	Generic connector, double row, 02x05, odd/even pin numbering scheme (row 1 odd numbers, row 2 even numbers), script generated (kicad-library-utils/schlib/autogen/connector/)	Conn_02x05_Odd_Even	J7	power_entry	IDC-Header_2x05_P2.54mm_Vertical	1	 	~
+22	Generic connector, single row, 01x05, script generated (kicad-library-utils/schlib/autogen/connector/)	Conn_01x05	J6	ribbon_port	Molex_KK-254_AE-6410-05A_1x05_P2.54mm_Vertical	1	 	~
+23	Jumper, 2-pole, open	Jumper_2_Open	JP801 JP1001	self_osc	PinHeader_1x02_P2.54mm_Vertical	2	 	~
+24		BCM847DS135	Q1202	BCM847	SOT457	1	 	
+25	0.2A Ic, 40V Vce, Small Signal NPN Transistor, SOT-23	MMBT3904	Q1201	MMBT3904	SOT-23	1	 	https://www.onsemi.com/pub/Collateral/2N3903-D.PDF
+26	Resistor	R	R802 R805 R809 R812 R1002 R1005 R1009 R1012	200	R_0805_2012Metric	8	 	~
+27	Resistor	R	R207 R213 R307 R313 R503 R508 R1303 R1308	270	R_0805_2012Metric	8	 	~
+28	Resistor	R	R1211	330	R_0805_2012Metric	1	 	~
+29	Resistor	R	R102 R815 R1015	1k	R_0805_2012Metric	3	 	~
+30	Resistor	R	R1209	2k 3300ppm/C PTC	R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal	1	 	~
+31	Resistor	R	R1222	2k2	R_0805_2012Metric	1	 	~
+32	Resistor	R	R1401	3k9	R_0805_2012Metric	1	 	~
+33	Resistor	R	R504 R901 R902 R906 R907 R1304	4k7	R_0805_2012Metric	6	 	~
+34	Resistor	R	R1215	5k6	R_0805_2012Metric	1	 	~
+35	Resistor	R	R1223	6k8	R_0805_2012Metric	1	 	~
+36	Resistor	R	R205 R305 R706 R801 R803 R804 R806 R808 R810 R811 R813 R814 R911 R1001 R1003 R1004 R1006 R1008 R1010 R1011 R1013 R1014 R1101 R1219 R1220 R1221 R1224	10k	R_0805_2012Metric	27	 	~
+37	Resistor	R	R816 R1016	12k	R_0805_2012Metric	2	 	~
+38	Resistor	R	R1213	15k	R_0805_2012Metric	1	 	~
+39	Resistor	R	R412 R426	18k	R_0805_2012Metric	2	 	~
+40	Resistor	R	R703 R705 R1214	22k	R_0805_2012Metric	3	 	~
+41	Resistor	R	R201 R203 R204 R206 R208 R209 R210 R211 R212 R301 R303 R304 R306 R308 R309 R310 R311 R312 R506 R507 R509 R1306 R1307 R1309	30k	R_0805_2012Metric	24	 	~
+42	Resistor	R	R1216	47k	R_0805_2012Metric	1	 	~
+43	Resistor	R	R807 R1007	51k	R_0805_2012Metric	2	 	~
+44	Resistor	R	R817 R1017	56k	R_0805_2012Metric	2	 	~
+45	Resistor	R	R1103	68k	R_0805_2012Metric	1	 	~
+46	Resistor	R	R101 R401 R402 R403 R404 R405 R406 R407 R408 R409 R410 R411 R413 R414 R415 R417 R419 R420 R421 R422 R424 R502 R505 R601 R602 R603 R604 R702 R903 R904 R905 R908 R909 R910 R1104 R1201 R1205 R1218 R1302 R1305 R1402 R1403	100k	R_0805_2012Metric	42	 	~
+47	Resistor	R	R1210	110k	R_0805_2012Metric	1	 	~
+48	Resistor	R	R701	150k	R_0805_2012Metric	1	 	~
+49	Resistor	R	R1203 R1207 R1208	200k	R_0805_2012Metric	3	 	~
+50	Resistor	R	R418 R425 R1212	220k	R_0805_2012Metric	3	 	~
+51	Resistor	R	R1105	270k	R_0805_2012Metric	1	 	~
+52	Resistor	R	R202 R302 R416 R423	390k	R_0805_2012Metric	4	 	~
+53	Resistor	R	R1225	470k	R_0805_2012Metric	1	 	~
+54	Resistor	R	R1202 R1206 R1217	1M	R_0805_2012Metric	3	 	~
+55	Resistor	R	R704 R1102 R1204	2M2	R_0805_2012Metric	3	 	~
+56	Resistor	R	R501 R1301	10M	R_0805_2012Metric	2	 	~
+57	Trim-potentiometer	R_Potentiometer_Trim	RV1203	100	Potentiometer_Bourns_3296W_Vertical	1	 	~
+58	Trim-potentiometer	R_Potentiometer_Trim	RV409 RV411	5k	Potentiometer_Bourns_3296W_Vertical	2	 	~
+59	Trim-potentiometer	R_Potentiometer_Trim	RV901 RV902 RV903 RV904 RV1204 RV1205	10k	Potentiometer_Bourns_3296W_Vertical	6	 	~
+60	Potentiometer	R_Potentiometer	RV201 RV301 RV401 RV402 RV403 RV404 RV405 RV406 RV407 RV601 RV602 RV701 RV1101	100k	Potentiometer_Alpha_RD901F-40-00D_Single_Vertical	13	 	~
+61	Trim-potentiometer	R_Potentiometer_Trim	RV408 RV410 RV1201 RV1202 RV1206	100k	Potentiometer_Bourns_3296W_Vertical	5	 	~
+62	3 rotary switches with 4 positions	SR1712F-0204	SW1 SW2 SW4	SR1712F-0204	SR1712F_rotary_switch	3	 	
+63	Switch, dual pole double throw, separate symbols	SW_DP_on_on_on	SW1201	SW_DP_on_on_on	DPDT_mini_toggle	1	 	~
+64	Switch, single pole double throw, center OFF position	SW_SPDT_MSM	SW401	SW_SPDT_MSM	SPDT_mini_toggle	1	 	~
+65	Switch, single pole double throw	SW_SPDT	SW5	delay_bypass_switch	SPDT_mini_toggle	1	 	~
+66	Switch, dual pole double throw, separate symbols	SW_DPDT_x2	SW3	series_parallel_switch	DPDT_mini_toggle	1	 	~
+67	Dual D  FlipFlop, Set & reset	4013	U21	4013	SOIC-14_3.9x8.7mm_P1.27mm	1	 	http://www.onsemi.com/pub/Collateral/MC14013B-D.PDF
+68	Hex Buffer Inverter	CD4049	U22	CD4049	TSSOP-16_4.4x5mm_P0.65mm	1	 	http://www.intersil.com/content/dam/intersil/documents/cd40/cd4049ubms.pdf
+69	Dual operational amplifier	LM331	U20	LM331	DIP-8_W7.62mm_Socket	1	 	~
+70	5.000V Precision Micropower Shunt Voltage Reference, SOT-23	LM4040DBZ-5	U1407	LM4040DBZ-5	SOT-23	1	 	http://www.ti.com/lit/ds/symlink/lm4040-n.pdf
+71		MN3005	U14 U15	MN3005	DIP-8-14_W7.62mm_Socket	2	 	
+72		NE570	U11	NE570	DIP-16_W7.62mm_Socket	1	 	
+73		SSI2140	U12 U16	SSI2140	TSSOP-20_4.4x6.5mm_P0.65mm	2	 	
+74		SSI2164	U3 U10	SSI2164	SOIC-16_3.9x9.9mm_P1.27mm	2	 	https://www.soundsemiconductor.com/downloads/ssi2164datasheet.pdf
+75	Dual Low-Noise JFET-Input Operational Amplifiers, DIP-8/SOIC-8	TL072	U1 U2 U4 U5 U6 U7 U8 U9 U13 U17 U18 U19 U23 U24	TL072	SOIC-8_3.9x4.9mm_P1.27mm	14	 	http://www.ti.com/lit/ds/symlink/tl071.pdf
+
+
+
+
+
+Project info:
+Schematic:	VCF_VCA_BBD_board
+Variant:	default
+Revision:	1.0
+Date:	2023-01-07
+KiCad Version:	6.0.5+dfsg-1~bpo11+1
+Statistics:
+Component Groups:	75
+Component Count:	349 (270 SMD/ 53 THT)
+Fitted Components:	349 (270 SMD/ 53 THT)
+Number of PCBs:	1
+Total Components:	349
