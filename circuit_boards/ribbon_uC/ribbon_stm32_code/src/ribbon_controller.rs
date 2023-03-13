@@ -11,10 +11,9 @@ use heapless::HistoryBuffer;
 /// ribbon, similar to a sample-and-hold system. Some averaging is done to smooth out the raw readings and reduce the
 /// influence of spurious inputs.
 ///
-/// Whether or not the user is pressing on the ribbon is represented as a boolean "gate" signal. The gate is considered
-/// high (true) when the ribbon is being pressed and low (false) when no one is touching the ribbon.
+/// Whether or not the user is pressing on the ribbon is represented as a boolean  signal.
 ///
-/// The position value and gate signals are then typically used as control signals for other modules, such as
+/// The position value and finger-down signals are then typically used as control signals for other modules, such as
 /// oscillators, filters, and amplifiers.
 ///
 /// # Inputs
@@ -25,33 +24,57 @@ use heapless::HistoryBuffer;
 ///
 /// * The average of the most recent samples representing the position of the user's finger on the ribbon
 ///
-/// * Boolean gate which is `true` if the user is pressing their finger on the ribbon, else `false`
-pub struct RibbonController {
+/// * Boolean signals related to the user's finger presses
+pub struct RibbonController<const BUFFER_CAPACITY: usize> {
     /// The current position value of the ribbon
     current_val: f32,
 
     /// The current gate value of the ribbon
-    current_gate: bool,
+    finger_is_pressing: bool,
 
     /// True iff the gate is rising after being low
-    rising_gate: bool,
+    finger_just_pressed: bool,
 
     /// True iff the gate is falling after being high
-    falling_gate: bool,
+    finger_just_released: bool,
 
     /// An internal buffer for storing and averaging samples as they come in via the `poll` method
     buff: HistoryBuffer<f32, BUFFER_CAPACITY>,
+
+    /// The number of samples to ignore when the user initially presses their finger
+    num_to_ignore_up_front: usize,
+
+    /// The number of the most recent sampes to discard
+    num_to_discard_at_end: usize,
+
+    /// The number of samples revieved since the user pressed their finger down
+    ///
+    /// Resets when the user lifts their finger
+    num_samples_recieved: usize,
+
+    /// The number of samples actually written to the buffer
+    ///
+    /// Resets when the user lifts their finger
+    num_samples_written: usize,
+
+    /// The sample rate in hertz, ribbon must be polled at this frequency
+    _sample_rate_hz: u32,
 }
 
-impl RibbonController {
-    /// `Ribbon::new()` is a new Ribbon.
-    pub fn new() -> Self {
+impl<const BUFFER_CAPACITY: usize> RibbonController<BUFFER_CAPACITY> {
+    /// `Ribbon::new(sr)` is a new Ribbon controller with sample rate `sr`
+    pub fn new(sample_rate_hz: u32) -> Self {
         Self {
             current_val: 0.0_f32,
-            current_gate: false,
-            rising_gate: false,
-            falling_gate: false,
+            finger_is_pressing: false,
+            finger_just_pressed: false,
+            finger_just_released: false,
             buff: HistoryBuffer::new(),
+            num_to_ignore_up_front: ((sample_rate_hz * RIBBON_FALL_TIME_USEC) / 1_000_000) as usize,
+            num_to_discard_at_end: ((sample_rate_hz * RIBBON_RISE_TIME_USEC) / 1_000_000) as usize,
+            num_samples_recieved: 0,
+            num_samples_written: 0,
+            _sample_rate_hz: sample_rate_hz,
         }
     }
 
@@ -61,40 +84,49 @@ impl RibbonController {
     ///
     /// * `raw_adc_value` - the raw ADC signal to poll, represents the finger position on the ribbon
     ///
-    /// The ribbon must be updated periodically. It is expected that a constant stream of ADC samples will be fed into
-    /// the ribbon by calling this method. The position value and gate signals of the ribbon are updated by polling.
+    /// The ribbon must be updated periodically at the chosen sample rate held by the structure. It is required that a
+    /// constant stream of ADC samples will be fed into the ribbon by calling this method at the correct sample rate.
     pub fn poll(&mut self, raw_adc_value: f32) {
-        self.rising_gate = false;
-        self.falling_gate = false;
+        self.finger_just_pressed = false;
+        self.finger_just_released = false;
 
-        let user_is_pressing_ribbon = raw_adc_value <= FINGER_PRESS_HIGH_BOUNDARY;
+        let user_is_pressing_ribbon = raw_adc_value < FINGER_PRESS_HIGH_BOUNDARY;
 
         if user_is_pressing_ribbon {
+            self.num_samples_recieved += 1;
+            self.num_samples_recieved = self.num_samples_recieved.min(self.num_to_ignore_up_front);
+        } else {
+            // if this flag is true right now then they must have just lifted their finger
+            if self.finger_is_pressing {
+                self.num_samples_recieved = 0;
+                self.num_samples_written = 0;
+                self.finger_just_released = true;
+                self.finger_is_pressing = false;
+            }
+        }
+
+        // only start adding samples to the buffer after we've ignored a few potentially spurious initial samples
+        if self.num_to_ignore_up_front <= self.num_samples_recieved {
             self.buff.write(raw_adc_value);
 
-            if MIN_VALID_SAMPLES_FOR_AVG <= self.buff.len() {
-                let num_to_take = self.buff.len() - NUM_MOST_RECENT_SAMPLES_TO_IGNORE;
+            self.num_samples_written += 1;
+            self.num_samples_written = self.num_samples_written.min(self.buff.capacity());
+
+            // is the buffer full?
+            if self.num_samples_written == self.buff.capacity() {
+                let num_to_take = self.buff.capacity() - self.num_to_discard_at_end;
 
                 // take the average of the most recent samples, minus a few of the very most recent ones which might be
                 // shooting up towards full scale when the user lifts their finger
                 self.current_val = self.buff.oldest_ordered().take(num_to_take).sum::<f32>()
                     / (num_to_take as f32);
 
-                if !self.current_gate {
-                    self.rising_gate = true;
+                // if this flag is false right now then they must have just pressed their finger down
+                if !self.finger_is_pressing {
+                    self.finger_just_pressed = true;
+                    self.finger_is_pressing = true;
                 }
-
-                self.current_gate = true;
             }
-        } else {
-            // the user is not pressing on the ribbon, clear the buffer but hold on to the last valid `current_val`
-            self.buff.clear();
-
-            if self.current_gate {
-                self.falling_gate = true;
-            }
-
-            self.current_gate = false;
         }
     }
 
@@ -103,46 +135,75 @@ impl RibbonController {
     /// If the user's finger is not pressing on the ribbon, the last valid value before they lifted their finger
     /// is returned.
     pub fn value(&self) -> f32 {
-        self.current_val
+        // scale the value back to full scale since we loose a tiny bit of range to the high-boundary
+        self.current_val / FINGER_PRESS_HIGH_BOUNDARY
     }
 
-    /// `rib.gate()` is the current state of the ribbon gate.
-    ///
-    /// `true` if a finger is pressing on the ribbon and enough samples have been polled to generate a stable
-    /// reading, `false` otherwise.
-    pub fn gate(&self) -> bool {
-        self.current_gate
+    /// `rib.finger_is_pressing()` is `true` iff the user is pressing on the ribbon.
+    pub fn finger_is_pressing(&self) -> bool {
+        self.finger_is_pressing
     }
 
-    /// `rib.rising_gate()` is true iff the gate is rising after being low.
-    pub fn rising_gate(&self) -> bool {
-        self.rising_gate
+    /// `rib.finger_just_pressed()` is `true` iff the user has just pressed the ribbon after having not touched it.
+    pub fn finger_just_pressed(&self) -> bool {
+        self.finger_just_pressed
     }
 
-    /// `rib.falling_gate()` is true iff the gate is falling after being high.
-    pub fn falling_gate(&self) -> bool {
-        self.falling_gate
+    /// `rib.finger_just_released()` is `true` iff the user has just lifted their finger off the ribbon.
+    pub fn finger_just_released(&self) -> bool {
+        self.finger_just_released
     }
 }
+
+/// The end-to-end resistance of the softpot ribbon, in ohms
+///
+/// If you choose a different sensor, change this to match the resistance of your ribbon membrane
+const SOFTPOT_R: f32 = 20_000.;
+
+/// The resistance of the series resistor between the softpot and the 3.3v power supply, in ohms
+const UPPER_R: f32 = 820.;
 
 /// Samples below this value indicate that there is a finger pressed down on the ribbon.
 ///
 /// The value must be in [0.0, +1.0], and represents the fraction of the ADC reading which counts as a finger press.
 ///
 /// The exact value depends on the resistor chosen that connects the top of the ribbon to the positive voltage
-/// reference. Derived emprically through experimentation to find values that feel right to the user.
-const FINGER_PRESS_HIGH_BOUNDARY: f32 = 0.99_f32;
+/// reference. We "waste" a little bit of the voltage range of the ribbon as a dead-zone so we can clearly detect when
+/// the user is pressing the ribbon or not.
+const FINGER_PRESS_HIGH_BOUNDARY: f32 = 1.0 - (UPPER_R / (UPPER_R + SOFTPOT_R));
 
-/// The capacity of the internal ribbon sample buffer.
-const BUFFER_CAPACITY: usize = 64;
-
-/// The minimum number of samples required to calculate an average in the internal sample buffer.
+/// The approximate measured time it takes for the ribbon to settle on a low value after the user presses their finger.
 ///
-/// Must be less than or equal to than the buffer capacity.
-const MIN_VALID_SAMPLES_FOR_AVG: usize = 64;
-
-/// The number of the most recently added samples to ignore when calculating the average of the internal sample buffer.
+/// We want to ignore samples taken while the ribbon is settling during a finger-press value.
 ///
-/// The purpose is to avoid including spurious readings in the average.
-/// Must be less than the minimum number of samples needed to calculate an average.
-const NUM_MOST_RECENT_SAMPLES_TO_IGNORE: usize = 8;
+/// Rounded up a bit from the actual measured value, better to take a little extra time than to include bad input.
+const RIBBON_FALL_TIME_USEC: u32 = 1_000;
+
+/// The approximate measured time it takes the ribbon to rise to the pull-up value after releasing your finger.
+///
+/// We want to ignore samples that are taken while the ribbon is shooting up towards full scale after lifting a finger.
+///
+/// Rounded up a bit from the actual measured value, better to take a little extra time than to include bad input.
+const RIBBON_RISE_TIME_USEC: u32 = 2_000;
+
+/// The minimum time required to capture a reading
+///
+/// Ideally several times longer than the sum of the RISE and FALL times
+const MIN_CAPTURE_TIME_USEC: u32 = (RIBBON_FALL_TIME_USEC + RIBBON_RISE_TIME_USEC) * 5;
+
+/// `sample_rate_to_capacity(sr_hz)` is the calculated capacity needed for the internal buffer based on the sample rate.
+///
+/// Const function allows us to use the result of this expression as a generic argument. If rust support for generic
+/// expressions improves, this function could be refactored out.
+///
+/// The capacity needs space for the main samples that we will actually care about, as well as room for the most
+/// recent samples to discard. This is to avoid including spurious readings in the average.
+pub const fn sample_rate_to_capacity(sample_rate_hz: u32) -> usize {
+    // can't use floats in const function yet
+    let num_main_samples_to_care_about =
+        ((sample_rate_hz * MIN_CAPTURE_TIME_USEC) / 1_000_000) as usize;
+    let num_to_discard_at_end = ((sample_rate_hz * RIBBON_RISE_TIME_USEC) / 1_000_000) as usize;
+
+    // +1 at the end just because we'd rather have one-too-many than to truncate down and have one-too-few
+    num_main_samples_to_care_about + num_to_discard_at_end + 1
+}

@@ -21,9 +21,9 @@ pub enum PitchMode {
 
 #[derive(Clone, Copy)]
 pub enum LevelPot {
-    VCO,
-    MODOSC,
-    VCF,
+    Vco,
+    ModOsc,
+    Vcf,
 }
 
 impl UiState {
@@ -39,15 +39,11 @@ impl UiState {
     }
 
     /// `ui.update()` updates the UI state by reading and storing the panel control user inputs.
-    ///
-    /// It is expected to call this task periodically, but it can be updated
-    /// relatively slowly. Only potentiometer and switch positions are updated, so
-    /// 10 or more times per second should be fine.
     pub fn update(&mut self, board: &mut Board) {
         self.pitch_mode = match board.read_mode_switch() {
-            Switch3wayState::UP => PitchMode::HardQuantize,
-            Switch3wayState::MIDDLE => PitchMode::Assist,
-            Switch3wayState::DOWN => PitchMode::Smooth,
+            Switch3wayState::Up => PitchMode::HardQuantize,
+            Switch3wayState::Middle => PitchMode::Assist,
+            Switch3wayState::Down => PitchMode::Smooth,
         };
 
         self.vco_lev = board.read_adc(AdcPin::PA3);
@@ -56,18 +52,23 @@ impl UiState {
         self.glide_lev = board.read_adc(AdcPin::PA0);
     }
 
-    /// ui.scale(v, c)` scales the input value `v` by the position of the potentiometer control `c`
+    /// `ui.attenuate(v, c)` scales the input value `v` by the position of the front panel potentiometer `c`
     ///
     /// # Arguments:
     ///
     /// * `val` - the value to scale
     ///
     /// * `control` - the enumerated panel control to scale the value with
-    pub fn scale(&self, val: f32, control: LevelPot) -> f32 {
+    ///
+    /// # Returns:
+    ///
+    /// * `val` attenuated by the given control. If the panel control is turned CCW then turn `val` down, if it's
+    /// turned CW then turn `val` up.
+    pub fn attenuate(&self, val: f32, control: LevelPot) -> f32 {
         match control {
-            LevelPot::VCO => val * self.vco_lev,
-            LevelPot::MODOSC => val * self.modosc_lev,
-            LevelPot::VCF => val * self.vcf_lev,
+            LevelPot::Vco => val * self.vco_lev,
+            LevelPot::ModOsc => val * self.modosc_lev,
+            LevelPot::Vcf => val * self.vcf_lev,
         }
     }
 

@@ -41,19 +41,15 @@ impl Quantizer {
         // clamp
         let val = val.min(1.0_f32).max(0.0_f32);
 
-        // center the last val in the middle of its bucket so we can check if the new val is close or far to the center
-        // this makes sure we can handle the very low end of the range
-        let last_centered_conversion = self.cached_stairstep + HALF_BUCKET_WIDTH;
-
         // check how far the new val is from the center of the last conversion
-        let abs_diff = if val < last_centered_conversion {
-            last_centered_conversion - val
+        let abs_diff = if val < self.cached_stairstep {
+            self.cached_stairstep - val
         } else {
-            val - last_centered_conversion
+            val - self.cached_stairstep
         };
 
         // only register a new conversion if the input is far enough away from the last one
-        if (HALF_BUCKET_WIDTH + HYSTERESIS) < abs_diff {
+        if HYSTERESIS < abs_diff {
             let val_as_int = (val * NUM_SEMITONES as f32) as u8;
             self.cached_stairstep = (val_as_int as f32) / (NUM_SEMITONES as f32);
         }
@@ -68,7 +64,7 @@ impl Quantizer {
 }
 
 /// The number of octaves that the quantizer can handle.
-const NUM_OCTAVES: u8 = 2;
+const NUM_OCTAVES: u8 = 4;
 
 /// The number of semitones the quantizer can handle.
 ///
@@ -78,10 +74,7 @@ const NUM_SEMITONES: u8 = NUM_OCTAVES * 12 + 1;
 /// The width of each bucket for the semitones.
 const BUCKET_WIDTH: f32 = 1.0_f32 / NUM_SEMITONES as f32;
 
-/// 1/2 bucket width
-const HALF_BUCKET_WIDTH: f32 = BUCKET_WIDTH / 2.0_f32;
-
 /// Hysteresis provides some noise immunity and prevents oscillations near transition regions.
 ///
 /// Derived empirically, can be adjusted after testing the hardware
-const HYSTERESIS: f32 = BUCKET_WIDTH / 10.0_f32;
+const HYSTERESIS: f32 = BUCKET_WIDTH * 0.1_f32;
