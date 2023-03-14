@@ -11,7 +11,7 @@ pub struct UiState {
     glide_lev: f32,
 }
 
-// There are three modes for the ribbon pitch information
+/// There are three modes for the ribbon pitch information
 #[derive(Clone, Copy)]
 pub enum PitchMode {
     HardQuantize,
@@ -19,6 +19,7 @@ pub enum PitchMode {
     Smooth,
 }
 
+/// Each main ribbon signal has its own attenuator
 #[derive(Clone, Copy)]
 pub enum LevelPot {
     Vco,
@@ -39,6 +40,10 @@ impl UiState {
     }
 
     /// `ui.update()` updates the UI state by reading and storing the panel control user inputs.
+    ///
+    /// It is required to periodically call this function to updat the state of the UI controls. Since these controls
+    /// are manually adjusted by the user, they don't need to be updated very fast, just fast enough that they don't
+    /// feel sluggish to the user.
     pub fn update(&mut self, board: &mut Board) {
         self.pitch_mode = match board.read_mode_switch() {
             Switch3wayState::Up => PitchMode::HardQuantize,
@@ -46,10 +51,13 @@ impl UiState {
             Switch3wayState::Down => PitchMode::Smooth,
         };
 
-        self.vco_lev = board.read_adc(AdcPin::PA3);
-        self.modosc_lev = board.read_adc(AdcPin::PA2);
-        self.vcf_lev = board.read_adc(AdcPin::PA1);
-        self.glide_lev = board.read_adc(AdcPin::PA0);
+        // the level pots are center-detent so we can easily dial in exactly midway
+        self.vco_lev = apply_midpoint_dead_zone(board.read_adc(AdcPin::PA3));
+        self.modosc_lev = apply_midpoint_dead_zone(board.read_adc(AdcPin::PA2));
+        self.vcf_lev = apply_midpoint_dead_zone(board.read_adc(AdcPin::PA1));
+
+        // bend the glide signal so the control feels nicer
+        self.glide_lev = bend_glide_ctl(board.read_adc(AdcPin::PA0));
     }
 
     /// `ui.attenuate(v, c)` scales the input value `v` by the position of the front panel potentiometer `c`
@@ -72,8 +80,53 @@ impl UiState {
         }
     }
 
+    /// `ui.get_glide_ctl()` is the current value of the front panel glide control knob, in `[0.0, 1.0]`
+    pub fn get_glide_ctl(&self) -> f32 {
+        self.glide_lev
+    }
+
     /// `ui.pitch_mode()` is the current enumerated pitch mode, as set by the panel mount switch
     pub fn pitch_mode(&self) -> PitchMode {
         self.pitch_mode
     }
+}
+
+/// `apply_midpoint_dead_zone(v)` is the value `v` with a small dead zone in the center of the range
+///
+/// This means that for a small portion near the middle of the range changes will have no effect.
+/// The is to make it easier to hit the midpoint of center-detent potiometers.
+///
+/// # Arguments:
+///
+/// * `val` - the value to apply dead zone to, must be in `[0.0, 1.0]`
+fn apply_midpoint_dead_zone(val: f32) -> f32 {
+    const DEAD_ZONE_WIDTH: f32 = 0.1_f32;
+    const MIDPOINT: f32 = 0.5_f32;
+    const DEAD_ZONE_START: f32 = MIDPOINT - DEAD_ZONE_WIDTH / 2.0_f32;
+    const DEAD_ZONE_END: f32 = MIDPOINT + DEAD_ZONE_WIDTH / 2.0_f32;
+    const SLOPE: f32 = MIDPOINT / DEAD_ZONE_START;
+
+    if val < DEAD_ZONE_START {
+        SLOPE * val
+    } else if val <= DEAD_ZONE_END {
+        // it's in the deadzone
+        MIDPOINT
+    } else {
+        // it must be past the deadzone end
+        SLOPE * (val - DEAD_ZONE_END) + MIDPOINT
+    }
+}
+
+/// `bend_glide_ctl(v)` is value `v` scaled for a more natural feeling glide control
+///
+/// The physical glide control is a linear potentiometer, but it feels better for the user if the taper of the control
+/// is tweaked some.
+///
+/// # Arguments:
+///
+/// * `val` - the value to scale, must be in `[0.0, 1.0]`
+fn bend_glide_ctl(val: f32) -> f32 {
+    // over the input range of [0.0, 1.0] this rises relatively fast in the beginning, and then slows down near the end
+    // it converts the pot to something like a reverse audio taper, which gives a nice feeling range to the glide pot
+    val * (2.0_f32 - val)
 }

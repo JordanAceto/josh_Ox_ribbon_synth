@@ -4,7 +4,7 @@ use stm32l4xx_hal::{
     device::SPI1,
     gpio::{Alternate, Input, Output, Pin, PullUp, PushPull, H8, L8},
     hal::spi::{Mode, Phase, Polarity},
-    pac::{interrupt, ADC1, DMA1, TIM2, USART1},
+    pac::{interrupt, ADC1, DMA1, TIM2, TIM6, USART1},
     prelude::*,
     serial,
     spi::Spi,
@@ -142,10 +142,12 @@ impl Board {
 
         ////////////////////////////////////////////////////////////////////////
         //
-        // TIM2 periodic timer
+        // TIMx periodic timers
         //
         ////////////////////////////////////////////////////////////////////////
         let _tim2 = Timer::tim2(dp.TIM2, TIM2_FREQ_HZ.Hz(), clocks, &mut rcc.apb1r1);
+
+        let _tim6 = Timer::tim6(dp.TIM6, TIM6_FREQ_HZ.Hz(), clocks, &mut rcc.apb1r1);
 
         ////////////////////////////////////////////////////////////////////////
         //
@@ -314,6 +316,18 @@ impl Board {
             }
         }
     }
+
+    /// board.get_tim6_timeout()` is true iff timer TIM6 has timed out, self clearing.
+    pub fn get_tim6_timeout(&self) -> bool {
+        unsafe {
+            if (*TIM6::ptr()).sr.read().uif().bit() {
+                (*TIM6::ptr()).sr.modify(|_, w| w.uif().clear());
+                true
+            } else {
+                false
+            }
+        }
+    }
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -327,6 +341,9 @@ pub const SYST_CLK_FREQ_MHZ: u32 = 80;
 
 /// The frequency for periodic timer TIM2
 pub const TIM2_FREQ_HZ: u32 = 5_000;
+
+/// The frequency for periodic timer TIM6
+pub const TIM6_FREQ_HZ: u32 = 30;
 
 /// The SPI clock frequency to use
 const SPI_CLK_FREQ_MHZ: u32 = 20;
