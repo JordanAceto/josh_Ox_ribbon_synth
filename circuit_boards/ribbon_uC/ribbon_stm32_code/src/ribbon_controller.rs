@@ -87,9 +87,6 @@ impl<const BUFFER_CAPACITY: usize> RibbonController<BUFFER_CAPACITY> {
     /// The ribbon must be updated periodically at the chosen sample rate held by the structure. It is required that a
     /// constant stream of ADC samples will be fed into the ribbon by calling this method at the correct sample rate.
     pub fn poll(&mut self, raw_adc_value: f32) {
-        self.finger_just_pressed = false;
-        self.finger_just_released = false;
-
         let user_is_pressing_ribbon = raw_adc_value < FINGER_PRESS_HIGH_BOUNDARY;
 
         if user_is_pressing_ribbon {
@@ -145,13 +142,27 @@ impl<const BUFFER_CAPACITY: usize> RibbonController<BUFFER_CAPACITY> {
     }
 
     /// `rib.finger_just_pressed()` is `true` iff the user has just pressed the ribbon after having not touched it.
-    pub fn finger_just_pressed(&self) -> bool {
-        self.finger_just_pressed
+    ///
+    /// Self clearing
+    pub fn finger_just_pressed(&mut self) -> bool {
+        if self.finger_just_pressed {
+            self.finger_just_pressed = false;
+            true
+        } else {
+            false
+        }
     }
 
     /// `rib.finger_just_released()` is `true` iff the user has just lifted their finger off the ribbon.
-    pub fn finger_just_released(&self) -> bool {
-        self.finger_just_released
+    ///
+    /// Self clearing
+    pub fn finger_just_released(&mut self) -> bool {
+        if self.finger_just_released {
+            self.finger_just_released = false;
+            true
+        } else {
+            false
+        }
     }
 }
 
