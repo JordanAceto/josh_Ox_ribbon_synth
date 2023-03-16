@@ -4,14 +4,12 @@ use stm32l4xx_hal::{
     device::SPI1,
     gpio::{Alternate, Input, Output, Pin, PullUp, PushPull, H8, L8},
     hal::spi::{Mode, Phase, Polarity},
-    pac::{interrupt, ADC1, DMA1, TIM2, TIM6, USART1},
+    pac::{ADC1, DMA1, TIM15, TIM2, TIM6, USART1},
     prelude::*,
     serial,
     spi::Spi,
     timer::Timer,
 };
-
-use nb::block;
 
 /// The physical board structure is represented here
 pub struct Board {
@@ -149,11 +147,37 @@ impl Board {
 
         let _tim6 = Timer::tim6(dp.TIM6, TIM6_FREQ_HZ.Hz(), clocks, &mut rcc.apb1r1);
 
+        let _tim15 = Timer::tim15(dp.TIM15, TIM15_FREQ_HZ.Hz(), clocks, &mut rcc.apb2);
+
         ////////////////////////////////////////////////////////////////////////
         //
         // USART
         //
         ////////////////////////////////////////////////////////////////////////
+
+        // configure DMA1 to transmit bytes via the UART
+        let mut dma1_ch4 = dma_channels.4;
+        unsafe {
+            dma1_ch4.set_peripheral_address(&dp.USART1.tdr as *const _ as u32, false);
+            dma1_ch4.set_memory_address(MIDI_USART_DMA_BUFF.as_ptr() as u32, true);
+        }
+        unsafe {
+            (*DMA1::ptr()).ccr4.modify(|_, w| {
+                w.pl()
+                    .high()
+                    .msize()
+                    .bits8()
+                    .psize()
+                    .bits8()
+                    .minc()
+                    .enabled()
+                    .dir()
+                    .from_memory()
+            });
+            // map DMA channel 4 to UART tx
+            (*DMA1::ptr()).cselr.modify(|_, w| w.c4s().bits(0b0010));
+        }
+
         let tx_pin = gpioa
             .pa9
             .into_alternate(&mut gpioa.moder, &mut gpioa.otyper, &mut gpioa.afrh);
@@ -270,9 +294,35 @@ impl Board {
         }
     }
 
-    /// `board.serial_write(b)` writes the byte `b` via the USART in blocking fashion.
-    pub fn serial_write(&mut self, byte: u8) {
-        block!(self.midi_tx.write(byte)).ok();
+    /// `board.serial_write_all(bs)` writes all bytes `bs` via the serial port
+    ///
+    /// # Requires
+    ///
+    /// * `bytes` is no greater than `MIDI_TX_BUFF_LEN` in length
+    pub fn serial_write_all(&mut self, bytes: &[u8]) {
+        if bytes.len() == 0 {
+            return;
+        }
+
+        // use DMA to send the bytes
+        unsafe {
+            MIDI_USART_DMA_BUFF[..bytes.len()].copy_from_slice(bytes);
+
+            while (*USART1::ptr()).isr.read().tc().bit_is_clear() {
+                // wait for any ongoing transfer to complete
+            }
+
+            // disable DMA
+            (*DMA1::ptr()).ccr4.modify(|_, w| w.en().disabled());
+            // set the length for the data transfer
+            (*DMA1::ptr())
+                .cndtr4
+                .write(|w| w.ndt().bits(bytes.len() as u16));
+            // clear the transfer complete flag
+            (*USART1::ptr()).icr.write(|w| w.tccf().set_bit());
+            // enable DMA to start the transfer
+            (*DMA1::ptr()).ccr4.modify(|_, w| w.en().enabled());
+        }
     }
 
     /// `board.serial_read()` is the optional byte read from the USART.
@@ -328,6 +378,18 @@ impl Board {
             }
         }
     }
+
+    /// board.get_tim15_timeout()` is true iff timer TIM6 has timed out, self clearing.
+    pub fn get_tim15_timeout(&self) -> bool {
+        unsafe {
+            if (*TIM15::ptr()).sr.read().uif().bit() {
+                (*TIM15::ptr()).sr.modify(|_, w| w.uif().clear());
+                true
+            } else {
+                false
+            }
+        }
+    }
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -340,10 +402,13 @@ impl Board {
 pub const SYST_CLK_FREQ_MHZ: u32 = 80;
 
 /// The frequency for periodic timer TIM2
-pub const TIM2_FREQ_HZ: u32 = 5_000;
+pub const TIM2_FREQ_HZ: u32 = 1_000;
 
 /// The frequency for periodic timer TIM6
 pub const TIM6_FREQ_HZ: u32 = 30;
+
+/// The frequency for periodic timer TIM15
+pub const TIM15_FREQ_HZ: u32 = 300;
 
 /// The SPI clock frequency to use
 const SPI_CLK_FREQ_MHZ: u32 = 20;
@@ -367,13 +432,16 @@ pub const MIDI_BAUD_RATE_HZ: u32 = 31_250;
 const NUM_ADC_DMA_SIGNALS: usize = 5;
 static mut ADC_DMA_BUFF: [u16; NUM_ADC_DMA_SIGNALS] = [0; NUM_ADC_DMA_SIGNALS];
 
+const MIDI_TX_BUFF_LEN: usize = 16;
+static mut MIDI_USART_DMA_BUFF: [u8; MIDI_TX_BUFF_LEN] = [0; MIDI_TX_BUFF_LEN];
+
 ////////////////////////////////////////////////////////////////////////////////
 //
 // Private helper functions
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-/// `adc_fs_to_normalized_fl(v)` is the integer adc value with the full scale normalized to [0.0, +1.0]
+/// `adc_fs_to_normalized_fl(v)` is the integer adc value normalized to [0.0, +1.0]
 ///
 /// If the input value would overflow the output range it is clamped.
 fn adc_fs_to_normalized_fl(val: u16) -> f32 {
@@ -390,9 +458,6 @@ fn normalized_fl_to_dac_fs(val: f32) -> u16 {
 
     (val * DAC_MAX as f32) as u16
 }
-
-#[interrupt]
-fn TIM2() {}
 
 ////////////////////////////////////////////////////////////////////////////////
 //
