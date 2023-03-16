@@ -1,6 +1,8 @@
 use biquad::*;
 
 /// A glide processor for implementing portamento is represented here.
+///
+/// The terms glide and portamento are used interchangeably.
 pub struct GlideProcessor {
     // min and max cutoff frequencies
     min_fc: f32,
@@ -10,7 +12,7 @@ pub struct GlideProcessor {
     fs: Hertz<f32>,
 
     // internal lowpass filter to implement the glide
-    lpf: DirectForm2Transposed<f32>,
+    lpf: DirectForm1<f32>,
 
     // cached val to avoid recalculating unnecessarily
     cached_ctl_val: f32,
@@ -25,7 +27,7 @@ impl GlideProcessor {
             max_fc: 20.0_f32, // just needs to be fast enough to be faster than finger wiggles
             min_fc: 0.3_f32, // adjusted to taste, slow enough that you get some serious glide, but not too slow
             fs: sample_rate_hz.hz(),
-            lpf: DirectForm2Transposed::<f32>::new(coeffs),
+            lpf: DirectForm1::<f32>::new(coeffs),
             cached_ctl_val: 0.0_f32,
         }
     }
@@ -43,7 +45,7 @@ impl GlideProcessor {
     pub fn set_glide(&mut self, val: f32) {
         let val = val.min(1.0).max(0.0);
 
-        let epsilon = 0.005_f32;
+        let epsilon = 0.01_f32;
 
         // don't update the coefficients if you don't need to, it is costly
         if abs_f32(val - self.cached_ctl_val) < epsilon {
@@ -52,7 +54,7 @@ impl GlideProcessor {
 
         self.cached_ctl_val = val;
 
-        // convert the unitless [0-1] input value into a cutoff frequency in the desired range
+        // convert the unitless [0, 1] input value into a cutoff frequency in the desired range
         let f_range = self.max_fc - self.min_fc;
         let f0 = ((1.0f32 - val) * f_range) + self.min_fc;
         self.lpf.update_coefficients(coeffs(self.fs, f0.hz()))
