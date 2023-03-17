@@ -645,7 +645,7 @@
   )
 
   (text_box "The ribbon gate is normalized to the external gate 1/4\" jack such that when no external gate is inserted the ribbon gate is used."
-    (at 17.78 66.04 0) (size 30.48 19.05)
+    (at 17.78 63.5 0) (size 30.48 19.05)
     (stroke (width 0) (type default))
     (fill (type none))
     (effects (font (size 1.75 1.75)) (justify left top))
@@ -835,6 +835,33 @@
     )
   )
 
+  (symbol (lib_id "Graphic:SYM_Arrow_Normal") (at 87.63 43.18 180) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 23fb354d-fdde-4bfb-9f3d-b0c05f3fb57f)
+    (property "Reference" "#SYM4" (at 87.63 44.704 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Value" "SYM_Arrow_Normal" (at 87.376 41.91 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Footprint" "" (at 87.63 43.18 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "~" (at 87.63 43.18 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Sim.Enable" "0" (at 87.63 43.18 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "ribbon_board"
+        (path "/cb04634c-2390-48e1-a293-65705c7f888c"
+          (reference "#SYM4") (unit 1)
+        )
+      )
+    )
+  )
+
   (symbol (lib_id "Graphic:SYM_Arrow_Normal") (at 245.11 93.98 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 2e9e7c1c-6103-4df6-87ed-ff6736140389)
@@ -912,6 +939,33 @@
       (project "ribbon_board"
         (path "/cb04634c-2390-48e1-a293-65705c7f888c"
           (reference "#SYM105") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "Graphic:SYM_Arrow_Normal") (at 87.63 45.72 180) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 32adb279-29ad-4ea6-939c-e9a2a2a70d58)
+    (property "Reference" "#SYM5" (at 87.63 47.244 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Value" "SYM_Arrow_Normal" (at 87.376 44.45 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Footprint" "" (at 87.63 45.72 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "~" (at 87.63 45.72 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Sim.Enable" "0" (at 87.63 45.72 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "ribbon_board"
+        (path "/cb04634c-2390-48e1-a293-65705c7f888c"
+          (reference "#SYM5") (unit 1)
         )
       )
     )
@@ -1016,6 +1070,33 @@
       (project "ribbon_board"
         (path "/cb04634c-2390-48e1-a293-65705c7f888c"
           (reference "#PWR0107") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "Graphic:SYM_Arrow_Normal") (at 87.63 38.1 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 6713c130-7303-4a77-a0a8-748475e1f20a)
+    (property "Reference" "#SYM2" (at 87.63 36.576 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Value" "SYM_Arrow_Normal" (at 87.884 39.37 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Footprint" "" (at 87.63 38.1 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "~" (at 87.63 38.1 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Sim.Enable" "0" (at 87.63 38.1 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "ribbon_board"
+        (path "/cb04634c-2390-48e1-a293-65705c7f888c"
+          (reference "#SYM2") (unit 1)
         )
       )
     )
@@ -1557,6 +1638,33 @@
       (project "ribbon_board"
         (path "/cb04634c-2390-48e1-a293-65705c7f888c"
           (reference "#SYM107") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "Graphic:SYM_Arrow_Normal") (at 87.63 40.64 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid f289ac50-4902-4d62-b3a6-dd4cf0948c70)
+    (property "Reference" "#SYM3" (at 87.63 39.116 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Value" "SYM_Arrow_Normal" (at 87.884 41.91 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Footprint" "" (at 87.63 40.64 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "~" (at 87.63 40.64 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Sim.Enable" "0" (at 87.63 40.64 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "ribbon_board"
+        (path "/cb04634c-2390-48e1-a293-65705c7f888c"
+          (reference "#SYM3") (unit 1)
         )
       )
     )
