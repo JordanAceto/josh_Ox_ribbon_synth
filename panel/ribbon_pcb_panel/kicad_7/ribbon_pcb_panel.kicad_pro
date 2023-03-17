@@ -124,7 +124,11 @@
         "min_resolved_spokes": 2,
         "min_silk_clearance": 0.0,
         "min_text_height": 0.7999999999999999,
+<<<<<<<< HEAD:panel/ribbon_pcb_panel/kicad_7/ribbon_pcb_panel.kicad_pro
         "min_text_thickness": 0.08,
+========
+        "min_text_thickness": 0.12,
+>>>>>>>> add-analog-delay:panel/VCF_VCA_BBD_pcb_panel/kicad_6/VCF_VCA_BBD_pcb_panel.kicad_pro
         "min_through_hole_diameter": 0.3,
         "min_track_width": 0.19999999999999998,
         "min_via_annular_width": 0.049999999999999996,
@@ -403,7 +407,11 @@
     "pinned_symbol_libs": []
   },
   "meta": {
+<<<<<<<< HEAD:panel/ribbon_pcb_panel/kicad_7/ribbon_pcb_panel.kicad_pro
     "filename": "ribbon_pcb_panel.kicad_pro",
+========
+    "filename": "VCF_VCA_BBD_pcb_panel.kicad_pro",
+>>>>>>>> add-analog-delay:panel/VCF_VCA_BBD_pcb_panel/kicad_6/VCF_VCA_BBD_pcb_panel.kicad_pro
     "version": 1
   },
   "net_settings": {
