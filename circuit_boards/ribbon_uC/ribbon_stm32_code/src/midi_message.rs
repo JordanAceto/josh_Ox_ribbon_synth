@@ -4,6 +4,7 @@
 pub enum MidiMessage {
     NoteOn(Channel, Note, Velocity),
     NoteOff(Channel, Note, Velocity),
+    AllNotesOff(Channel),
     PitchBend(Channel, PitchBendLsb, PitchBendMsb),
 }
 
@@ -34,6 +35,15 @@ impl MidiMessage {
         MidiMessage::NoteOff(ch.into(), note.into(), vel.into())
     }
 
+    /// `all_notes_off(c)` is a MIDI all-notes-off message with channel `c`
+    ///
+    /// # Arguments:
+    ///
+    /// * `ch` - the MIDI channel to use, in `[1..16]`
+    pub fn all_notes_off(ch: u8) -> MidiMessage {
+        MidiMessage::AllNotesOff(ch.into())
+    }
+
     /// `pitch_bend(c, v)` is the normalized value `v` converted to a MIDI pitch bend message with channel `c`
     ///
     /// # Arguments:
@@ -54,6 +64,7 @@ impl MidiMessage {
         match self {
             MidiMessage::NoteOn(c, n, v) => [0x90 | c.0, n.0, v.0],
             MidiMessage::NoteOff(c, n, v) => [0x80 | c.0, n.0, v.0],
+            MidiMessage::AllNotesOff(c) => [0xB0 | c.0, 0x7B, 0],
             // Explanation for the cheeky OR-1 in the pitch bend LSB: On some MIDI devices if the incoming pitch bend is
             // EXACTLY centered then they are free to update the pitch bend with their own logic. But if it is off by
             // even one, then they use the incoming pitch bend value exactly.

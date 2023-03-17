@@ -170,19 +170,7 @@ fn main() -> ! {
                     midi_message::MAX_VELOCITY,
                 ));
             } else if finger_just_released {
-                // make sure all notes are off
-                if this_midi_conversion.note_num != last_midi_conversion.note_num {
-                    midi_transmitter.push(MidiMessage::note_off(
-                        midi_channel,
-                        last_midi_conversion.note_num,
-                        midi_message::MIN_VELOCITY,
-                    ));
-                }
-                midi_transmitter.push(MidiMessage::note_off(
-                    midi_channel,
-                    this_midi_conversion.note_num,
-                    midi_message::MIN_VELOCITY,
-                ));
+                midi_transmitter.push(MidiMessage::all_notes_off(midi_channel));
             }
 
             if ribbon.finger_is_pressing() {
