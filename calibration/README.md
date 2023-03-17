@@ -33,6 +33,34 @@ The power supply board must be calibrated first thing, before any other circuit 
 
 ---
 
+## Ribbon board
+
+There are three ribbon outputs to calibrated:
+1. Main VCO ribbon control
+2. MODOSC ribbon control
+3. VCF ribbon control
+4. There is a 4th ribbon `AUX CTL`, currently unused
+
+The goal is to get nice 1 volt per octave scaling when in `QUANTIZE` mode.
+
+To calibrate the VCO control:
+1. Turn the front panel `VCO` attenuator on the Ribbon front panel all the way clockwise
+2. Set the front  panel `RIBBON MODE` switch to `QUANTIZE`
+3. Slide your finger to the lowest point on the ribbon
+4. Measure the voltage at the `VCO CTL` output, either on the Molex header or the small test point near the `VCO CTL` trimmer
+5. This should be a very small voltage near 0.000, jot down the measured voltage as DELTA. If it is closer to 0.08 volts, make sure you're pressing at the lowest point of the ribbon
+6. Slide your finger to the highest note on the ribbon
+7. Adjust the `VCO CTL` trimmer until you measure (4.000 + DELTA) volts DC
+
+Repeat these steps for the `MODOSC CTL` and `VCF CTL` trimmers
+- Note that only the VCO ribbon signal is quantized, so expect more drifiting and variation from the MODOSC and VCF ribbon signals
+- The VCO control is the most important. For the MODOSC and VCF just get them "good enough"
+- Ignore the `AUX CTL` trimmer, unless you have added some functionality of your own
+
+![](./images/ribbon_trimmers.png)
+
+---
+
 ## Main VCO Board
 
 This board has a **lot** of trimmers, but it is less scary than it looks.
