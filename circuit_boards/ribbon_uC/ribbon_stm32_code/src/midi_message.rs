@@ -65,14 +65,7 @@ impl MidiMessage {
             MidiMessage::NoteOn(c, n, v) => [0x90 | c.0, n.0, v.0],
             MidiMessage::NoteOff(c, n, v) => [0x80 | c.0, n.0, v.0],
             MidiMessage::AllNotesOff(c) => [0xB0 | c.0, 0x7B, 0],
-            // Explanation for the cheeky OR-1 in the pitch bend LSB: On some MIDI devices if the incoming pitch bend is
-            // EXACTLY centered then they are free to update the pitch bend with their own logic. But if it is off by
-            // even one, then they use the incoming pitch bend value exactly.
-            // If we send exactly centered pitch bend, sometimes the device we are controlling goes out of tune because it
-            // "remembers" a trailing pitch bend from before. Always sending a pitch bend message that is ever so slightly off
-            // center prevents this. This was only tested using an Arturia Keystep 37 as a MIDI device. Other devices may have
-            // different behavior.
-            MidiMessage::PitchBend(c, lsb, msb) => [0xE0 | c.0, lsb.0 | 1, msb.0],
+            MidiMessage::PitchBend(c, lsb, msb) => [0xE0 | c.0, lsb.0, msb.0],
         }
     }
 }
