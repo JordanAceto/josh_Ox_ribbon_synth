@@ -175,37 +175,3 @@ This calibration is largely a matter of taste. Here is what I do:
 Once the VCF tuning and base frequency are roughly trimmed, I go back and make sure that they track well together and are very close to the same frequency when the Separation control is at 12 o'clock. 
 
 ![](./images/VCF_base_freq_trimmers.png)
-
----
-
-## Ribbon board
-
-The ribbon board has two trimmers for calibration:
-- one trimmer for Note-On sensitivity `RV601`
-- one trimmer for span adjustment `RV201`
-
-On the first PCB revision there are no labels for these trimmers, oops, good thing there are only two of them.
-
-### Note-On calibration
-
-1. Monitor the `RIBBON GATE` test point with an oscilloscope
-2. Tap the ribbon controller with your finger at the left-most end, where the lowest possible note is
-3. Adjust the trimmer indicated below until tapping reliably triggers a gate signal at the `RIBBON GATE` test point
-    - The trimmer should be set so that it reliably triggers, but no higher than that
-    - If the gate gets stuck on after tapping, it is probably set too high
-
-Once the ribbon gate is reliably firing, monitor the ribbon CV signal at the `SLIDE CV` test point
-- If the ribbon CV sometimes drops back to zero after releasing your finger, the note-on trimmer is probably set too high
-
-![](./images/ribbon_note_on_trimmer.png)
-
-### Ribbon span calibration
-
-The ribbon span calibration is a matter of taste. Here is how I set it up
-
-1. Monitor the VCO with an audio amplifier and frequency counter/tuner
-2. Turn the Ribbon Control pot to the VCO half way up
-3. Slide the ribbon from the bottom all the way to the top, back and forth
-4. Adjust the trimmer indicated below such that the span is 2 octaves
-
-![](./images/ribbon_span_trimmer.png)
