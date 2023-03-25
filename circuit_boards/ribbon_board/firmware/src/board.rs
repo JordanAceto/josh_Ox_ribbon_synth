@@ -268,10 +268,17 @@ impl Board {
         unsafe { adc_fs_to_normalized_fl(ADC_DMA_BUFF[pin as usize]) }
     }
 
-    /// `board.dac8164_write(v, c)` writes the normalized value `v` in the range `[0.0, +1.0]` to channel `c` of the onboard DAC.
-    pub fn dac8164_write(&mut self, val: f32, channel: Dac8164Channel) {
-        let val_u14 = normalized_fl_to_dac_fs(val);
+    /// `board.dac8164_set_vout(v, c)` writes the voltage `v` to channel `c` of the onboard DAC.
+    ///
+    /// # Arguments
+    ///
+    /// * `v_out` - The analog voltage to write, clamped to `[0.0, DAC8164_MAX_VOLTS]`
+    ///
+    /// * `channel` - The enumerated DAC channel to write to
+    pub fn dac8164_set_vout(&mut self, v_out: f32, channel: Dac8164Channel) {
+        let v_out = v_out.max(0.0_f32).min(DAC8164_MAX_VOLTS);
 
+        let val_u14 = (v_out * DAC8164_COUNTS_PER_VOLT) as u16;
         // move the value out of DB0 and DB1
         let val_u14 = val_u14 << 2;
         // split it into bytes
@@ -417,7 +424,10 @@ const SPI_CLK_FREQ_MHZ: u32 = 20;
 pub const ADC_MAX: u16 = 0xFFF0;
 
 /// The maximum value that can be written to the onboard Digital to Analog Converter.
-pub const DAC_MAX: u16 = (1 << 14) - 1;
+pub const DAC8164_MAX_COUNT: u16 = (1 << 14) - 1;
+
+/// The maximum analog voltage that the DAC can produce after onboard amplification
+pub const DAC8164_MAX_VOLTS: f32 = 10.0_f32;
 
 /// The baud rate required for MIDI communication
 pub const MIDI_BAUD_RATE_HZ: u32 = 31_250;
@@ -427,6 +437,9 @@ pub const MIDI_BAUD_RATE_HZ: u32 = 31_250;
 // Private constants and static variables
 //
 ////////////////////////////////////////////////////////////////////////////////
+
+/// The number of DAC counts for 1 volt output
+const DAC8164_COUNTS_PER_VOLT: f32 = DAC8164_MAX_COUNT as f32 / DAC8164_MAX_VOLTS;
 
 /// ADC readings are stored in a static array via DMA
 const NUM_ADC_DMA_SIGNALS: usize = 5;
@@ -448,15 +461,6 @@ fn adc_fs_to_normalized_fl(val: u16) -> f32 {
     let val = val.min(ADC_MAX); // don't need to clamp negative values, it's already unsigned
 
     (val as f32) / (ADC_MAX as f32)
-}
-
-/// `normalized_fl_to_dac_fs(v)` is the normalized [0.0, +1.0] value expanded to DAC full scale range.
-///
-/// If the input value would overflow the output range it is clamped.
-fn normalized_fl_to_dac_fs(val: f32) -> u16 {
-    let val = val.min(1.0_f32).max(0.0_f32);
-
-    (val * DAC_MAX as f32) as u16
 }
 
 ////////////////////////////////////////////////////////////////////////////////

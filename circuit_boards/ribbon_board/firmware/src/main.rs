@@ -91,7 +91,6 @@ fn main() -> ! {
 
         // timer to update analog and MIDI outputs
         if board.get_tim15_timeout() {
-            // {
             let vco_ribbon = ui.attenuate(ribbon.value(), LevelPot::Vco);
             let modosc_ribbon = ui.attenuate(ribbon.value(), LevelPot::ModOsc);
             let vcf_ribbon = ui.attenuate(ribbon.value(), LevelPot::Vcf);
@@ -134,12 +133,20 @@ fn main() -> ! {
             let final_vcf_ribbon = glide[2].process(vcf_ribbon);
 
             // set the analog outputs
-            if ribbon.finger_is_pressing() {
-                board.dac8164_write(final_vco_ribbon, Dac8164Channel::A);
-                board.dac8164_write(final_modosc_ribbon, Dac8164Channel::B);
-                board.dac8164_write(final_vcf_ribbon, Dac8164Channel::C);
-                // board.dac8164_write(aux_cv, Dac8164Channel::D); // currently unused aux CV output
-            }
+            board.dac8164_set_vout(
+                ribbon_to_dac8164_1v_per_oct(final_vco_ribbon),
+                Dac8164Channel::A,
+            );
+            board.dac8164_set_vout(
+                ribbon_to_dac8164_1v_per_oct(final_modosc_ribbon),
+                Dac8164Channel::B,
+            );
+            board.dac8164_set_vout(
+                ribbon_to_dac8164_1v_per_oct(final_vcf_ribbon),
+                Dac8164Channel::C,
+            );
+            // board.dac8164_write(aux_cv, Dac8164Channel::D); // currently unused aux CV output
+
             board.set_gate(ribbon.finger_is_pressing());
 
             // re-quantize the scaled/processed/portamento'd VCO ribbon signal so we can convert it into a MIDI message
@@ -204,4 +211,12 @@ fn main() -> ! {
             midi_transmitter.send_queue(&mut board);
         }
     }
+}
+
+/// The maximum final output voltage for a ribbon signal
+const QUANTIZED_RIBBON_VMAX: f32 = (quantizer::NUM_SEMITONES as f32) / 12.0_f32;
+
+/// `ribbon_to_dac8164_1v_per_oct(r)` is the ribbon value in `[0.0, 1.0]` scaled to 1 volt per octave
+fn ribbon_to_dac8164_1v_per_oct(ribb: f32) -> f32 {
+    ribb * QUANTIZED_RIBBON_VMAX
 }
