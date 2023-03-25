@@ -50,7 +50,7 @@ pub struct RibbonController<const BUFFER_CAPACITY: usize> {
     /// The number of samples revieved since the user pressed their finger down
     ///
     /// Resets when the user lifts their finger
-    num_samples_recieved: usize,
+    num_samples_received: usize,
 
     /// The number of samples actually written to the buffer
     ///
@@ -72,7 +72,7 @@ impl<const BUFFER_CAPACITY: usize> RibbonController<BUFFER_CAPACITY> {
             buff: HistoryBuffer::new(),
             num_to_ignore_up_front: ((sample_rate_hz * RIBBON_FALL_TIME_USEC) / 1_000_000) as usize,
             num_to_discard_at_end: ((sample_rate_hz * RIBBON_RISE_TIME_USEC) / 1_000_000) as usize,
-            num_samples_recieved: 0,
+            num_samples_received: 0,
             num_samples_written: 0,
             _sample_rate_hz: sample_rate_hz,
         }
@@ -90,39 +90,39 @@ impl<const BUFFER_CAPACITY: usize> RibbonController<BUFFER_CAPACITY> {
         let user_is_pressing_ribbon = raw_adc_value < FINGER_PRESS_HIGH_BOUNDARY;
 
         if user_is_pressing_ribbon {
-            self.num_samples_recieved += 1;
-            self.num_samples_recieved = self.num_samples_recieved.min(self.num_to_ignore_up_front);
+            self.num_samples_received += 1;
+            self.num_samples_received = self.num_samples_received.min(self.num_to_ignore_up_front);
+
+            // only start adding samples to the buffer after we've ignored a few potentially spurious initial samples
+            if self.num_to_ignore_up_front <= self.num_samples_received {
+                self.buff.write(raw_adc_value);
+
+                self.num_samples_written += 1;
+                self.num_samples_written = self.num_samples_written.min(self.buff.capacity());
+
+                // is the buffer full?
+                if self.num_samples_written == self.buff.capacity() {
+                    let num_to_take = self.buff.capacity() - self.num_to_discard_at_end;
+
+                    // take the average of the most recent samples, minus a few of the very most recent ones which might be
+                    // shooting up towards full scale when the user lifts their finger
+                    self.current_val = self.buff.oldest_ordered().take(num_to_take).sum::<f32>()
+                        / (num_to_take as f32);
+
+                    // if this flag is false right now then they must have just pressed their finger down
+                    if !self.finger_is_pressing {
+                        self.finger_just_pressed = true;
+                        self.finger_is_pressing = true;
+                    }
+                }
+            }
         } else {
             // if this flag is true right now then they must have just lifted their finger
             if self.finger_is_pressing {
-                self.num_samples_recieved = 0;
+                self.num_samples_received = 0;
                 self.num_samples_written = 0;
                 self.finger_just_released = true;
                 self.finger_is_pressing = false;
-            }
-        }
-
-        // only start adding samples to the buffer after we've ignored a few potentially spurious initial samples
-        if self.num_to_ignore_up_front <= self.num_samples_recieved {
-            self.buff.write(raw_adc_value);
-
-            self.num_samples_written += 1;
-            self.num_samples_written = self.num_samples_written.min(self.buff.capacity());
-
-            // is the buffer full?
-            if self.num_samples_written == self.buff.capacity() {
-                let num_to_take = self.buff.capacity() - self.num_to_discard_at_end;
-
-                // take the average of the most recent samples, minus a few of the very most recent ones which might be
-                // shooting up towards full scale when the user lifts their finger
-                self.current_val = self.buff.oldest_ordered().take(num_to_take).sum::<f32>()
-                    / (num_to_take as f32);
-
-                // if this flag is false right now then they must have just pressed their finger down
-                if !self.finger_is_pressing {
-                    self.finger_just_pressed = true;
-                    self.finger_is_pressing = true;
-                }
             }
         }
     }
