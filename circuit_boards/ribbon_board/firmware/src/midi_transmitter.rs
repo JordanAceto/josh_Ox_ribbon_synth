@@ -1,12 +1,18 @@
 use crate::board::Board;
-use crate::midi_message::MidiMessage;
-use heapless::Vec;
 
-const MESSAGE_QUEUE_MAX_LEN: usize = 3;
+use heapless::Vec;
+use midi_convert::{midi_types::MidiMessage, MidiRenderSlice};
+
+const MAX_NUM_MESSAGES_IN_QUEUE: usize = 16;
+
+const MESSAGE_MAX_NUM_BYTES: usize = 3;
+
+const BUFF_LEN: usize = MAX_NUM_MESSAGES_IN_QUEUE * MESSAGE_MAX_NUM_BYTES;
 
 /// A very basic MIDI transmitter is represented here.
 pub struct MidiTransmitter {
-    queue: Vec<MidiMessage, MESSAGE_QUEUE_MAX_LEN>,
+    queue: Vec<MidiMessage, MAX_NUM_MESSAGES_IN_QUEUE>,
+    buffer: [u8; BUFF_LEN],
 }
 
 impl MidiTransmitter {
@@ -16,7 +22,10 @@ impl MidiTransmitter {
     ///
     /// * `channel` - The MIDI channel to use
     pub fn new() -> Self {
-        Self { queue: Vec::new() }
+        Self {
+            queue: Vec::new(),
+            buffer: [0; BUFF_LEN],
+        }
     }
 
     /// `mt.push(m)` pushes the MIDI message `m` onto the message queue
@@ -26,14 +35,12 @@ impl MidiTransmitter {
 
     /// `mt.send_queue(b)` sends all MIDI messages currently in the queue via the board serial port
     pub fn send_queue(&mut self, board: &mut Board) {
-        // all MIDI messages so far have length of 3, this might change if we add more complex MIDI behavior
-        let vec_of_bytes: Vec<u8, { MESSAGE_QUEUE_MAX_LEN * 3 }> = self
-            .queue
-            .iter()
-            .map(|msg| msg.as_bytes())
-            .flatten()
-            .collect();
-        board.serial_write_all(&vec_of_bytes[..]);
+        let mut i = 0;
+        for msg in &self.queue {
+            msg.render_slice(&mut self.buffer[i..(i + msg.len())]);
+            i += msg.len();
+        }
+        board.serial_write_all(&self.buffer[..i]);
         self.queue.clear();
     }
 }

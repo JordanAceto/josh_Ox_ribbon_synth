@@ -3,7 +3,6 @@
 
 mod board;
 mod glide_processor;
-mod midi_message;
 mod midi_transmitter;
 mod quantizer;
 mod ribbon_controller;
@@ -12,12 +11,13 @@ mod ui;
 use crate::{
     board::{AdcPin, Board, Dac8164Channel},
     glide_processor::GlideProcessor,
-    midi_message::MidiMessage,
     midi_transmitter::MidiTransmitter,
     quantizer::Quantizer,
     ribbon_controller::RibbonController,
     ui::{LevelPot, PitchMode, UiState},
 };
+
+use midi_convert::midi_types::MidiMessage;
 
 use panic_halt as _;
 
@@ -49,7 +49,7 @@ fn main() -> ! {
     ];
 
     // TODO: we may eventually include a way to set the MIDI channel, there is a hardware switch to support 16 channels
-    let midi_channel = 1;
+    let midi_channel = 0;
     let mut midi_transmitter = MidiTransmitter::new();
 
     // small delay to allow the ribbon voltage to settle before beginning
@@ -66,8 +66,8 @@ fn main() -> ! {
     let mut glide_idx: usize = 0;
 
     // keep track of conversions so we don't write mode MIDI data than needed if nothing changed
-    let mut last_midi_conversion = quantizer::Conversion::default();
-    let mut last_pitch_bend = midi_message::PITCH_BEND_CENTER;
+    let mut last_midi_note_sent = 0;
+    let mut last_pitch_bend = 0.0_f32;
 
     loop {
         // slow timer for updating UI, reading pots and such
@@ -91,6 +91,7 @@ fn main() -> ! {
 
         // timer to update analog and MIDI outputs
         if board.get_tim15_timeout() {
+            // {
             let vco_ribbon = ui.attenuate(ribbon.value(), LevelPot::Vco);
             let modosc_ribbon = ui.attenuate(ribbon.value(), LevelPot::ModOsc);
             let vcf_ribbon = ui.attenuate(ribbon.value(), LevelPot::Vcf);
@@ -150,48 +151,57 @@ fn main() -> ! {
             // 2) one or two note-off messages if the user just released the ribbon or if they slid into a new note
             // 3) a pitch bend message if the user is pressing the ribbon and the value has changed since last time
             if finger_just_pressed {
-                midi_transmitter.push(MidiMessage::note_on(
-                    midi_channel,
-                    this_midi_conversion.note_num,
-                    midi_message::MAX_VELOCITY,
+                midi_transmitter.push(MidiMessage::NoteOn(
+                    midi_channel.into(),
+                    this_midi_conversion.note_num.into(),
+                    127.into(),
                 ));
+                last_midi_note_sent = this_midi_conversion.note_num;
             } else if ribbon.finger_is_pressing()
-                && this_midi_conversion.note_num != last_midi_conversion.note_num
+                && this_midi_conversion.note_num != last_midi_note_sent
             {
-                // the user is holding their finger down and slid into a new note
-                midi_transmitter.push(MidiMessage::note_off(
-                    midi_channel,
-                    last_midi_conversion.note_num,
-                    midi_message::MIN_VELOCITY,
+                midi_transmitter.push(MidiMessage::NoteOn(
+                    midi_channel.into(),
+                    this_midi_conversion.note_num.into(),
+                    127.into(),
                 ));
-                midi_transmitter.push(MidiMessage::note_on(
-                    midi_channel,
-                    this_midi_conversion.note_num,
-                    midi_message::MAX_VELOCITY,
+                midi_transmitter.push(MidiMessage::NoteOff(
+                    midi_channel.into(),
+                    last_midi_note_sent.into(),
+                    0.into(),
                 ));
+                last_midi_note_sent = this_midi_conversion.note_num;
             } else if finger_just_released {
-                midi_transmitter.push(MidiMessage::all_notes_off(midi_channel));
+                midi_transmitter.push(MidiMessage::NoteOff(
+                    midi_channel.into(),
+                    this_midi_conversion.note_num.into(),
+                    0.into(),
+                ));
+                if this_midi_conversion.note_num != last_midi_note_sent {
+                    midi_transmitter.push(MidiMessage::NoteOff(
+                        midi_channel.into(),
+                        last_midi_note_sent.into(),
+                        0.into(),
+                    ));
+                }
             }
 
-            if ribbon.finger_is_pressing() {
-                // use the fractional value from the quantizer to calculate the pitch bend that nudges the MIDI note
-                // to match the analog voltages generated
-                let this_pitch_bend = (((this_midi_conversion.fraction / quantizer::BUCKET_WIDTH)
-                    * (midi_message::PITCH_BEND_FULL_SCALE as f32)
-                    / 2.0_f32)
-                    + midi_message::PITCH_BEND_CENTER as f32)
-                    as u16;
+            // use the fractional value from the quantizer to calculate the pitch bend that nudges the MIDI note
+            // to match the analog voltages generated
+            // MIDI pitch bend is usually set to 2 semitones, the extra divide-by-two avoids overshooting
+            let this_pitch_bend =
+                this_midi_conversion.fraction / (quantizer::BUCKET_WIDTH * 2.0_f32);
 
-                if last_pitch_bend != this_pitch_bend {
-                    midi_transmitter.push(MidiMessage::pitch_bend(midi_channel, this_pitch_bend));
-                    last_pitch_bend = this_pitch_bend;
-                }
+            if last_pitch_bend != this_pitch_bend {
+                midi_transmitter.push(MidiMessage::PitchBendChange(
+                    midi_channel.into(),
+                    this_pitch_bend.into(),
+                ));
+                last_pitch_bend = this_pitch_bend;
             }
 
             // send any MIDI messages, the queue might be empty but that is fine
             midi_transmitter.send_queue(&mut board);
-
-            last_midi_conversion = this_midi_conversion;
         }
     }
 }
