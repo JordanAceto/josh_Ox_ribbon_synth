@@ -146,7 +146,10 @@ fn main() -> ! {
             board.dac8164_set_vout(final_vco_ribbon, Dac8164Channel::A);
             board.dac8164_set_vout(final_modosc_ribbon, Dac8164Channel::B);
             board.dac8164_set_vout(final_vcf_ribbon, Dac8164Channel::C);
-            // board.dac8164_write(aux_cv, Dac8164Channel::D); // currently unused aux CV output
+
+            let mod_wheel_fullscale_volts = 5.0_f32;
+            let midi_mod_wheel = midi_receiver.mod_wheel() * mod_wheel_fullscale_volts;
+            board.dac8164_set_vout(midi_mod_wheel, Dac8164Channel::D);
 
             // set the gate high with either the ribbon or MIDI signal
             board.set_gate(ribbon.finger_is_pressing() | midi_receiver.gate());
