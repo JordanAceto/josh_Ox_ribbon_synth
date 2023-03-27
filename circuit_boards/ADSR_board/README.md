@@ -1,6 +1,6 @@
 # Triple ADSR Board
 
-## [SCHEMATIC](https://github.com/JordanAceto/josh_Ox_ribbon_synth/blob/master/circuit_boards/ADSR_board/docs/ADSR_board-schematic.pdf)
+## [SCHEMATIC](https://github.com/JordanAceto/josh_Ox_ribbon_synth/blob/master/circuit_boards/ADSR_board/docs/ADSR_board_schematic.pdf)
 
 Three ADSR envelope generators with short and long time range switch.
 

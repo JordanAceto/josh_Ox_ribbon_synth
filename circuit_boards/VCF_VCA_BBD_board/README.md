@@ -1,6 +1,6 @@
 # VCF/VCA/BBD Board
 
-## [SCHEMATIC](https://github.com/JordanAceto/josh_Ox_ribbon_synth/blob/master/circuit_boards/VCF_VCA_BBD_board/docs/VCF_VCA_BBD_board-schematic.pdf)
+## [SCHEMATIC](https://github.com/JordanAceto/josh_Ox_ribbon_synth/blob/master/circuit_boards/VCF_VCA_BBD_board/docs/VCF_VCA_BBD_board_schematic.pdf)
 
 This board contains a dual State Variable Filter, Bucket Brigade Analog Delay, and two linear audio VCAs.
 

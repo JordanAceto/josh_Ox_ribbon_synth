@@ -1,6 +1,6 @@
 # Complex VCO
 
-## [SCHEMATIC](https://github.com/JordanAceto/josh_Ox_ribbon_synth/blob/master/circuit_boards/main_VCO_board/docs/main_VCO_board-schematic.pdf)
+## [SCHEMATIC](https://github.com/JordanAceto/josh_Ox_ribbon_synth/blob/master/circuit_boards/main_VCO_board/docs/main_VCO_board_schematic.pdf)
 
 Single VCO with tons 'o extra stuff
 - SSI2130 VCO core
