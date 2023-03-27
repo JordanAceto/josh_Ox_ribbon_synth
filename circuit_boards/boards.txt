@@ -1,7 +1,0 @@
-ADSR_board
-main_VCO_board
-mod_osc_board
-power_supply_board
-ribbon_board
-sample_and_hold_board
-VCF_VCA_board

@@ -8,4 +8,6 @@ Auxilliary modulation oscillator
 - wide frequency range with three range settings (low, normal, high)
 - tracks the ribbon controller
 
-![pcb render](docs/2D/mod_osc_board-bottom.jpg "pcb render")
+![pcb render](docs/2D/mod_osc_board_back.svg "pcb render")
+
+![pcb render](docs/2D/mod_osc_board_front.svg "pcb render")

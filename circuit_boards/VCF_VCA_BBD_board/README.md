@@ -22,7 +22,10 @@ This board contains a dual State Variable Filter, Bucket Brigade Analog Delay, a
 - one VCA for the volume ADSR before the analog delay
 - one VCA for the final master volume control after the delay
 
-![pcb render](docs/2D/VCF_VCA_BBD_board-bottom.jpg "pcb render")
+![pcb render](docs/2D/VCF_VCA_BBD_board_back.svg "pcb render")
+
+![pcb render](docs/2D/VCF_VCA_BBD_board_front.svg "pcb render")
+
 
 ## Measurements to aid in calibration (no ribbon ctl, no modulation, knob swept ccw to cw, approx):
 - VCF freq range: 12Hz, 12kHz

@@ -4,4 +4,6 @@
 
 Basic Sample & Hold with three input mixer, noise source, and glide control.
 
-![pcb render](docs/2D/sample_and_hold_board-bottom.jpg "pcb render")
+![pcb render](docs/2D/sample_and_hold_board_back.svg "pcb render")
+
+![pcb render](docs/2D/sample_and_hold_board_front.svg "pcb render")

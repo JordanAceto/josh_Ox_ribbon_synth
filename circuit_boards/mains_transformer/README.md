@@ -1,1 +1,1 @@
-![](main_transformer.png)
+![](mains_transformer.png)

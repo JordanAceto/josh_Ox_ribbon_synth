@@ -11,4 +11,6 @@ Single VCO with tons 'o extra stuff
 - audio mixer
 - FM mixer
 
-![pcb render](docs/2D/main_VCO_board-bottom.jpg "pcb render")
+![pcb render](docs/2D/main_VCO_board_back.svg "pcb render")
+
+![pcb render](docs/2D/main_VCO_board_front.svg "pcb render")

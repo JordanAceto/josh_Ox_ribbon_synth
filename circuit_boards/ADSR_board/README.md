@@ -6,4 +6,6 @@ Three ADSR envelope generators with short and long time range switch.
 
 A comparator and analog switch ensure that the sustain control reacts quickly during sustain phases, even when the decay control is set for long time constants.
 
-![pcb render](docs/2D/ADSR_board-bottom.jpg "pcb render")
+![pcb render](docs/2D/ADSR_board_back.svg "pcb render")
+
+![pcb render](docs/2D/ADSR_board_front.svg "pcb render")

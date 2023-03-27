@@ -1,1 +1,1 @@
-![panel render](docs/2D/panel_front.jpg "panel render")
+![panel render](docs/2D/VCF_VCA_BBD_pcb_panel_front.svg "panel render")

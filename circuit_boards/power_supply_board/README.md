@@ -4,4 +4,6 @@
 
 This is an unremarkable LM317/LM337 based bipolar 15 volt DC supply which supplies power to the rest of the system.
 
-![pcb render](docs/2D/power_supply-top.jpg "pcb render")
+![pcb render](docs/2D/power_supply_front.svg "pcb render")
+
+![pcb render](docs/2D/power_supply_back.svg "pcb render")
