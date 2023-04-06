@@ -127,6 +127,6 @@ fn apply_midpoint_dead_zone(val: f32) -> f32 {
 /// * `val` - the value to scale, must be in `[0.0, 1.0]`
 fn bend_glide_ctl(val: f32) -> f32 {
     // over the input range of [0.0, 1.0] this rises relatively fast in the beginning, and then slows down near the end
-    // it converts the pot to something like a reverse audio taper, which gives a nice feeling range to the glide pot
-    val * (2.0_f32 - val)
+    // it stops all the useful range from bunching up at the end and makes the pot feel more natural to the user
+    1.0_f32 + (val - 1.0_f32) * (val - 1.0_f32) * (val - 1.0_f32)
 }

@@ -21,14 +21,16 @@ pub struct GlideProcessor {
 impl GlideProcessor {
     /// `GlideProcessor::new(sr)` is a new glide processor with sample rate `sr`
     pub fn new(sample_rate_hz: u32) -> Self {
-        let coeffs = coeffs(sample_rate_hz.hz(), 15.0_f32.hz());
+        let max_fc = sample_rate_hz as f32 / 4.0_f32;
+
+        let coeffs = coeffs(sample_rate_hz.hz(), max_fc.hz());
 
         Self {
-            max_fc: 20.0_f32, // just needs to be fast enough to be faster than finger wiggles
+            max_fc,
             min_fc: 0.3_f32, // adjusted to taste, slow enough that you get some serious glide, but not too slow
             fs: sample_rate_hz.hz(),
             lpf: DirectForm1::<f32>::new(coeffs),
-            cached_ctl_val: 0.0_f32,
+            cached_ctl_val: -1.0_f32, // initialized such that it always updates the first go-round
         }
     }
 
@@ -66,7 +68,7 @@ impl GlideProcessor {
     }
 }
 
-/// `coeffs(fs, f0)` is the lowpass filter coefficients for sample rate `fs` and cutoff frequency `f0`
+/// `coeffs(fs, f0)` is the lowpass filter coefficients for sample rate `fs`, cutoff frequency `f0`, and Q = 0
 fn coeffs(fs: Hertz<f32>, f0: Hertz<f32>) -> Coefficients<f32> {
     Coefficients::<f32>::from_params(Type::SinglePoleLowPass, fs, f0, 0.0_f32).unwrap()
 }
