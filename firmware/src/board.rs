@@ -307,7 +307,7 @@ impl Board {
     ///
     /// * `bytes` is no greater than `MIDI_TX_BUFF_LEN` in length
     pub fn serial_write_all(&mut self, bytes: &[u8]) {
-        if bytes.len() == 0 {
+        if bytes.is_empty() {
             return;
         }
 
