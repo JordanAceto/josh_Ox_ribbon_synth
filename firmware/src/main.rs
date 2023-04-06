@@ -3,18 +3,15 @@
 
 mod board;
 mod glide_processor;
-mod midi_receiver;
-mod midi_transmitter;
 mod quantizer;
-mod ribbon_controller;
 mod ui;
+
+use synth_utils::{mono_midi_receiver, ribbon_controller};
 
 use crate::{
     board::{AdcPin, Board, Dac8164Channel},
     glide_processor::GlideProcessor,
-    midi_receiver::MidiReceiver,
     quantizer::Quantizer,
-    ribbon_controller::RibbonController,
     ui::{LevelPot, PitchMode, UiState},
 };
 
@@ -40,7 +37,11 @@ fn main() -> ! {
 
     // we need to use the sample rate for both the parameter and argument, if
     // rust support for generic expressions improves then this should be refactored
-    let mut ribbon = RibbonController::<RIBBON_BUFF_CAPACITY>::new(FAST_RIBBON_SAMPLE_RATE);
+    let mut ribbon = ribbon_controller::RibbonController::<RIBBON_BUFF_CAPACITY>::new(
+        FAST_RIBBON_SAMPLE_RATE as f32,
+        15_994.0, // end-to-end resistance of the softpot as measured
+        820.4,    // resistance of the series resistor going to vref as measured
+    );
 
     let mut vco_quantizer = Quantizer::new();
 
@@ -51,9 +52,9 @@ fn main() -> ! {
         GlideProcessor::new(OUTPUT_UPDATE_SAMPLE_RATE),
     ];
 
-    let mut midi_receiver = MidiReceiver::new();
+    let mut midi_receiver = mono_midi_receiver::MonoMidiReceiver::new(0);
 
-    midi_receiver.set_note_priority(midi_receiver::NotePriority::Last);
+    midi_receiver.set_note_priority(mono_midi_receiver::NotePriority::Last);
 
     let mut offset_when_finger_pressed_down: f32 = 0.0_f32;
 
