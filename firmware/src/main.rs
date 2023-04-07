@@ -2,11 +2,10 @@
 #![no_main]
 
 mod board;
-mod glide_processor;
 mod quantizer;
 mod ui;
 
-use synth_utils::{mono_midi_receiver, ribbon_controller};
+use synth_utils::{glide_processor, mono_midi_receiver, ribbon_controller};
 
 use crate::{
     board::{AdcPin, Board, Dac8164Channel},
@@ -47,9 +46,9 @@ fn main() -> ! {
 
     // independent glide processors for each major signal
     let mut glide = [
-        GlideProcessor::new(OUTPUT_UPDATE_SAMPLE_RATE),
-        GlideProcessor::new(OUTPUT_UPDATE_SAMPLE_RATE),
-        GlideProcessor::new(OUTPUT_UPDATE_SAMPLE_RATE),
+        GlideProcessor::new(OUTPUT_UPDATE_SAMPLE_RATE as f32),
+        GlideProcessor::new(OUTPUT_UPDATE_SAMPLE_RATE as f32),
+        GlideProcessor::new(OUTPUT_UPDATE_SAMPLE_RATE as f32),
     ];
 
     let mut midi_receiver = mono_midi_receiver::MonoMidiReceiver::new(0);
@@ -77,7 +76,7 @@ fn main() -> ! {
 
             // Only update the control for 1 glide processor each round, it is a costly call and there is no
             // need to update it super fast. The single glide control is shared by all of the glide processors.
-            glide[glide_idx].set_glide(ui.get_glide_ctl());
+            glide[glide_idx].set_time(ui.glide_time());
             glide_idx += 1;
             glide_idx %= glide.len();
         }
