@@ -39,8 +39,8 @@ fn main() -> ! {
     // rust support for generic expressions improves then this should be refactored
     let mut ribbon = ribbon_controller::RibbonController::<RIBBON_BUFF_CAPACITY>::new(
         FAST_RIBBON_SAMPLE_RATE as f32,
-        15_994.0, // end-to-end resistance of the softpot as measured
-        820.4,    // resistance of the series resistor going to vref as measured
+        19_354.0_f32, // end-to-end resistance of the softpot as measured
+        12_014.0_f32, // resistance of the series resistor going to vref as measured
     );
 
     let mut vco_quantizer = Quantizer::new();
