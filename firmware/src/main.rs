@@ -2,15 +2,13 @@
 #![no_main]
 
 mod board;
-mod quantizer;
 mod ui;
 
-use synth_utils::{glide_processor, mono_midi_receiver, ribbon_controller};
+use synth_utils::{glide_processor, mono_midi_receiver, quantizer, ribbon_controller};
 
 use crate::{
     board::{AdcPin, Board, Dac8164Channel},
     glide_processor::GlideProcessor,
-    quantizer::Quantizer,
     ui::{LevelPot, PitchMode, UiState},
 };
 
@@ -26,8 +24,11 @@ const RIBBON_PIN: AdcPin = AdcPin::PA4;
 const RIBBON_BUFF_CAPACITY: usize =
     ribbon_controller::sample_rate_to_capacity(FAST_RIBBON_SAMPLE_RATE);
 
-// The maximum span of the ribbon, may be attenuated to less than this
-const RIBBON_MAX_OCTAVE_SPAN: f32 = 4.0_f32;
+// 4 octaves of range
+const MAIN_RIBBON_NUM_SEMITONES: f32 = 49.0_f32;
+// a small fudge factor is added to make sure we can hit the highest note
+const RIBBON_FUDGE_FACTOR: f32 = quantizer::SEMITONE_WIDTH;
+const MAIN_RIBBON_MAX_VOUT: f32 = MAIN_RIBBON_NUM_SEMITONES / 12.0_f32 + RIBBON_FUDGE_FACTOR;
 
 #[entry]
 fn main() -> ! {
@@ -40,9 +41,10 @@ fn main() -> ! {
         FAST_RIBBON_SAMPLE_RATE as f32,
         19_354.0_f32, // end-to-end resistance of the softpot as measured
         12_014.0_f32, // resistance of the series resistor going to vref as measured
+        1E6,          // pullup resistor from the wiper to the positive voltage refererence
     );
 
-    let mut vco_quantizer = Quantizer::new();
+    let mut vco_quantizer = quantizer::Quantizer::new();
 
     // independent glide processors for each major signal
     let mut glide = [
@@ -97,8 +99,9 @@ fn main() -> ! {
             let modosc_ribbon_contrib = ui.attenuate(ribbon_as_1v_per_oct, LevelPot::ModOsc);
             let vcf_ribbon_contrib = ui.attenuate(ribbon_as_1v_per_oct, LevelPot::Vcf);
 
-            // only the VCO signal gets quantized
-            let quantized_vco_ribbon = vco_quantizer.convert(vco_ribbon_contrib);
+            // only the VCO signal gets quantized, little offset added in makes the range feel right to the user
+            let quantized_vco_ribbon = vco_quantizer
+                .convert(vco_ribbon_contrib + quantizer::HALF_SEMITONE_WIDTH / 2.0_f32);
 
             let finger_just_pressed = ribbon.finger_just_pressed();
 
@@ -108,7 +111,7 @@ fn main() -> ! {
                 PitchMode::HardQuantize => quantized_vco_ribbon.stairstep,
                 PitchMode::Smooth => {
                     // a small fudge factor helps keep smooth mode in tune with the other modes
-                    let fudge_factor = 0.005;
+                    let fudge_factor = quantizer::HALF_SEMITONE_WIDTH;
                     vco_ribbon_contrib - fudge_factor
                 }
                 // assist mode has more going on
@@ -159,7 +162,7 @@ fn main() -> ! {
 
 /// `ribbon_to_dac8164_1v_per_oct(r)` is the ribbon value in `[0.0, 1.0]` scaled to 1 volt per octave
 fn ribbon_to_dac8164_1v_per_oct(ribb: f32) -> f32 {
-    ribb * (RIBBON_MAX_OCTAVE_SPAN + 1.0_f32 / 12.0_f32)
+    ribb * MAIN_RIBBON_MAX_VOUT
 }
 
 /// `note_num_to_dac8164_1v_per_oct(n)` is the note number `n` scaled to 1volt/octave
