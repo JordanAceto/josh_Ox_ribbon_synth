@@ -11,21 +11,24 @@ use stm32l4xx_hal::{
     timer::Timer,
 };
 
+// type aliase so clippy doesn't complain, pins are as required by the physical PCB layout
+type SpiBus = Spi<
+    SPI1,
+    (
+        Pin<Alternate<PushPull, 5>, L8, 'B', 3>,
+        Pin<Alternate<PushPull, 5>, L8, 'B', 4>,
+        Pin<Alternate<PushPull, 5>, L8, 'B', 5>,
+    ),
+>;
+
 /// The physical board structure is represented here
 pub struct Board {
     // USART for MIDI
-    midi_tx: serial::Tx<USART1>,
+    _midi_tx: serial::Tx<USART1>,
     midi_rx: serial::Rx<USART1>,
 
     // SPI for DAC
-    spi: Spi<
-        SPI1,
-        (
-            Pin<Alternate<PushPull, 5>, L8, 'B', 3>, // SCK
-            Pin<Alternate<PushPull, 5>, L8, 'B', 4>, // SDI
-            Pin<Alternate<PushPull, 5>, L8, 'B', 5>, // SDO
-        ),
-    >,
+    spi: SpiBus,
     nss: Pin<Output<PushPull>, H8, 'A', 15>, // manual chip select
 
     // general purpose delay
@@ -252,7 +255,7 @@ impl Board {
             .into_push_pull_output(&mut gpioa.moder, &mut gpioa.otyper);
 
         Self {
-            midi_tx: tx,
+            _midi_tx: tx,
             midi_rx: rx,
             spi,
             nss,
@@ -306,7 +309,7 @@ impl Board {
     /// # Requires
     ///
     /// * `bytes` is no greater than `MIDI_TX_BUFF_LEN` in length
-    pub fn serial_write_all(&mut self, bytes: &[u8]) {
+    pub fn _serial_write_all(&mut self, bytes: &[u8]) {
         if bytes.is_empty() {
             return;
         }
@@ -355,11 +358,6 @@ impl Board {
     /// `board.delay_ms(ms)` causes the board to busy-wait for `ms` milliseconds
     pub fn delay_ms(&mut self, ms: u32) {
         self.delay.delay_ms(ms);
-    }
-
-    /// `board.delay_us(us)` causes the board to busy-wait for `us` microseconds
-    pub fn delay_us(&mut self, us: u32) {
-        self.delay.delay_us(us);
     }
 
     /// board.get_tim2_timeout()` is true iff timer TIM2 has timed out, self clearing.
