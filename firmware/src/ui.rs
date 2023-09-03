@@ -7,8 +7,7 @@ pub struct UiState {
     vco_lev: f32,
     modosc_lev: f32,
     vcf_lev: f32,
-
-    glide_time: f32,
+    delay_lev: f32,
 }
 
 /// There are three modes for the ribbon pitch information
@@ -25,6 +24,7 @@ pub enum LevelPot {
     Vco,
     ModOsc,
     Vcf,
+    Delay,
 }
 
 impl UiState {
@@ -35,7 +35,7 @@ impl UiState {
             vco_lev: 0.0_f32,
             modosc_lev: 0.0_f32,
             vcf_lev: 0.0_f32,
-            glide_time: 0.0_f32,
+            delay_lev: 0.0_f32,
         }
     }
 
@@ -55,9 +55,7 @@ impl UiState {
         self.vco_lev = apply_midpoint_dead_zone(board.read_adc(AdcPin::PA3));
         self.modosc_lev = apply_midpoint_dead_zone(board.read_adc(AdcPin::PA2));
         self.vcf_lev = apply_midpoint_dead_zone(board.read_adc(AdcPin::PA1));
-
-        // bend the glide signal so the control feels nicer and has a useful range
-        self.glide_time = bend_glide_ctl(board.read_adc(AdcPin::PA0));
+        self.delay_lev = apply_midpoint_dead_zone(board.read_adc(AdcPin::PA0))
     }
 
     /// `ui.attenuate(v, c)` scales the input value `v` by the position of the front panel potentiometer `c`
@@ -77,12 +75,8 @@ impl UiState {
             LevelPot::Vco => val * self.vco_lev,
             LevelPot::ModOsc => val * self.modosc_lev,
             LevelPot::Vcf => val * self.vcf_lev,
+            LevelPot::Delay => val * self.delay_lev,
         }
-    }
-
-    /// `ui.glide_time()` is the current value of the front panel glide control knob in units of seconds
-    pub fn glide_time(&self) -> f32 {
-        self.glide_time
     }
 
     /// `ui.pitch_mode()` is the current enumerated pitch mode, as set by the panel mount switch
@@ -115,16 +109,4 @@ fn apply_midpoint_dead_zone(val: f32) -> f32 {
         // it must be past the deadzone end
         SLOPE * (val - DEAD_ZONE_END) + MIDPOINT
     }
-}
-
-/// `bend_glide_ctl(v)` is value `v` scaled for a more natural feeling glide control
-///
-/// The physical glide control is a linear potentiometer, but it feels better for the user if the taper of the control
-/// is tweaked some.
-///
-/// # Arguments:
-///
-/// * `val` - the value to scale, must be in `[0.0, 1.0]`
-fn bend_glide_ctl(val: f32) -> f32 {
-    val * val * 3.
 }

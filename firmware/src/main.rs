@@ -4,11 +4,10 @@
 mod board;
 mod ui;
 
-use synth_utils::{glide_processor, mono_midi_receiver, quantizer, ribbon_controller};
+use synth_utils::{mono_midi_receiver, quantizer, ribbon_controller};
 
 use crate::{
     board::{AdcPin, Board, Dac8164Channel},
-    glide_processor::GlideProcessor,
     ui::{LevelPot, PitchMode, UiState},
 };
 
@@ -17,7 +16,6 @@ use panic_halt as _;
 use cortex_m_rt::entry;
 
 const FAST_RIBBON_SAMPLE_RATE: u32 = board::TIM2_FREQ_HZ;
-const OUTPUT_UPDATE_SAMPLE_RATE: u32 = board::TIM15_FREQ_HZ;
 
 const RIBBON_PIN: AdcPin = AdcPin::PA4;
 
@@ -46,13 +44,6 @@ fn main() -> ! {
 
     let mut vco_quantizer = quantizer::Quantizer::new();
 
-    // independent glide processors for each major signal
-    let mut glide = [
-        GlideProcessor::new(OUTPUT_UPDATE_SAMPLE_RATE as f32),
-        GlideProcessor::new(OUTPUT_UPDATE_SAMPLE_RATE as f32),
-        GlideProcessor::new(OUTPUT_UPDATE_SAMPLE_RATE as f32),
-    ];
-
     let mut midi_receiver = mono_midi_receiver::MonoMidiReceiver::new(0);
 
     midi_receiver.set_note_priority(mono_midi_receiver::NotePriority::Last);
@@ -64,9 +55,6 @@ fn main() -> ! {
 
     ui.update(&mut board);
 
-    // index into the array of glide processors so we can rotate which one we update each tick
-    let mut glide_idx: usize = 0;
-
     loop {
         if let Some(b) = board.serial_read() {
             midi_receiver.parse(b)
@@ -75,12 +63,6 @@ fn main() -> ! {
         // slow timer for updating UI, reading pots and such
         if board.get_tim6_timeout() {
             ui.update(&mut board);
-
-            // Only update the control for 1 glide processor each round, it is a costly call and there is no
-            // need to update it super fast. The single glide control is shared by all of the glide processors.
-            glide[glide_idx].set_time(ui.glide_time());
-            glide_idx += 1;
-            glide_idx %= glide.len();
         }
 
         // fast timer for polling the ribbon
@@ -98,6 +80,7 @@ fn main() -> ! {
             let vco_ribbon_contrib = ui.attenuate(ribbon_as_1v_per_oct, LevelPot::Vco);
             let modosc_ribbon_contrib = ui.attenuate(ribbon_as_1v_per_oct, LevelPot::ModOsc);
             let vcf_ribbon_contrib = ui.attenuate(ribbon_as_1v_per_oct, LevelPot::Vcf);
+            let delay_ribbon_contrib = ui.attenuate(ribbon_as_1v_per_oct, LevelPot::Delay);
 
             // only the VCO signal gets quantized, little offset added in makes the range feel right to the user
             let quantized_vco_ribbon = vco_quantizer
@@ -139,20 +122,19 @@ fn main() -> ! {
             // MODOSC and VCF attenuate the MIDI pitch signal with the same knob used to attenuate the ribbon
             let modosc_midi_contrib = ui.attenuate(midi_1v_per_oct, LevelPot::ModOsc);
             let vcf_midi_contrib = ui.attenuate(midi_1v_per_oct, LevelPot::Vcf);
+            let delay_midi_contrib = ui.attenuate(midi_1v_per_oct, LevelPot::Delay);
 
             // apply portamento to each signal
-            let final_vco_ribbon = glide[0].process(vco_ribbon_contrib + vco_midi_contrib);
-            let final_modosc_ribbon = glide[1].process(modosc_ribbon_contrib + modosc_midi_contrib);
-            let final_vcf_ribbon = glide[2].process(vcf_ribbon_contrib + vcf_midi_contrib);
+            let final_vco_ribbon = vco_ribbon_contrib + vco_midi_contrib;
+            let final_modosc_ribbon = modosc_ribbon_contrib + modosc_midi_contrib;
+            let final_vcf_ribbon = vcf_ribbon_contrib + vcf_midi_contrib;
+            let final_delay_ribbon = delay_ribbon_contrib + delay_midi_contrib;
 
             // set the analog outputs
             board.dac8164_set_vout(final_vco_ribbon, Dac8164Channel::A);
             board.dac8164_set_vout(final_modosc_ribbon, Dac8164Channel::B);
             board.dac8164_set_vout(final_vcf_ribbon, Dac8164Channel::C);
-
-            let mod_wheel_fullscale_volts = 5.0_f32;
-            let midi_mod_wheel = midi_receiver.mod_wheel() * mod_wheel_fullscale_volts;
-            board.dac8164_set_vout(midi_mod_wheel, Dac8164Channel::D);
+            board.dac8164_set_vout(final_delay_ribbon, Dac8164Channel::D);
 
             // set the gate high with either the ribbon or MIDI signal
             board.set_gate(ribbon.finger_is_pressing() | midi_receiver.gate());
