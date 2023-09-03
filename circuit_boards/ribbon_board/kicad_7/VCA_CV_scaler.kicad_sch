@@ -6,8 +6,8 @@
 
   (title_block
     (title "Josh Ox Ribbon Synth Ribbon board")
-    (date "2023-03-10")
-    (rev "1.0")
+    (date "2023-09-03")
+    (rev "1.1")
     (comment 1 "creativecommons.org/licences/by/4.0")
     (comment 2 "license: CC by 4.0")
     (comment 3 "Author: Jordan Aceto")

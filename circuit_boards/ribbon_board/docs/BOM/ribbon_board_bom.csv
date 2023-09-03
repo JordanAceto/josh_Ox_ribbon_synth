@@ -32,7 +32,7 @@
 "31","R902","1","200k","Resistor_SMD:R_0805_2012Metric",""
 "32","RV201","1","10k","Potentiometer_THT:Potentiometer_Alpha_RD901F-40-00D_Single_Vertical",""
 "33","RV202, RV203","2","10k c.d.","Potentiometer_THT:Potentiometer_Alpha_RD901F-40-00D_Single_Vertical",""
-"34","RV204","1","10k ","Potentiometer_THT:Potentiometer_Alpha_RD901F-40-00D_Single_Vertical",""
+"34","RV204","1","10k  c.d.","Potentiometer_THT:Potentiometer_Alpha_RD901F-40-00D_Single_Vertical",""
 "35","RV301, RV302, RV303, RV304","4","5k","Potentiometer_THT:Potentiometer_Bourns_3296W_Vertical",""
 "36","RV901","1","100k","Potentiometer_THT:Potentiometer_Alpha_RD901F-40-00D_Single_Vertical",""
 "37","SP201","1","softpot","Connector_Molex:Molex_KK-254_AE-6410-03A_1x03_P2.54mm_Vertical",""
