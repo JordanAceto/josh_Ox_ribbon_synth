@@ -119,12 +119,11 @@ fn main() -> ! {
 
             // VCO always gets un-attenuated MIDI note information so it plays in-tune
             let vco_midi_contrib = midi_1v_per_oct;
-            // MODOSC and VCF attenuate the MIDI pitch signal with the same knob used to attenuate the ribbon
+            // MODOSC, VCF, and deley attenuate the MIDI pitch signal with the same knob used to attenuate the ribbon
             let modosc_midi_contrib = ui.attenuate(midi_1v_per_oct, LevelPot::ModOsc);
             let vcf_midi_contrib = ui.attenuate(midi_1v_per_oct, LevelPot::Vcf);
             let delay_midi_contrib = ui.attenuate(midi_1v_per_oct, LevelPot::Delay);
 
-            // apply portamento to each signal
             let final_vco_ribbon = vco_ribbon_contrib + vco_midi_contrib;
             let final_modosc_ribbon = modosc_ribbon_contrib + modosc_midi_contrib;
             let final_vcf_ribbon = vcf_ribbon_contrib + vcf_midi_contrib;
